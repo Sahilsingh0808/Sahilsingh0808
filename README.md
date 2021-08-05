@@ -1,4 +1,3 @@
-### Hi there 👋
 ### Hi there, I'm Sahil -  [Don't Click Me][website] 👋
 
 [![Website](https://img.shields.io/badge/Mail%20me-%40CONNECT-orange)](mailto:sahilsingh08062001@gmail.com)
@@ -9,7 +8,7 @@
 
 - 🔭 I am a sophomore at IIT Kanpur!
 - 🌱 I’m currently learning new skills
-- 👯 I’m looking to collaborate with other developers and content creators
+- 👯 I’m looking to collaborate with other content creators
 - 🥅 2021 Goals: Contribute more to Open Source projects
 - ⚡ Fun fact: I love to play video games and watch movies
 
@@ -75,7 +74,9 @@
 <details>
   <summary>:zap: GitHub Stats</summary>
 
-  <img align="left" alt="codeSTACKr's GitHub Stats" src="https://github-readme-stats.vercel.app/api?username=Sahilsingh0808" />
+  [![Sahil's GitHub stats](https://github-readme-stats.vercel.app/api?username=Sahilsingh0808)](https://github.com/Sahilsingh0808/Sahilsingh0808.git)
+  [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Sahilsingh0808)](https://github.com/Sahilsingh0808/Sahilsingh0808.git)
+
 
 </details>
 
