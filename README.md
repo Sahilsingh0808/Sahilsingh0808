@@ -8,7 +8,7 @@
 
 - 🔭 I am a sophomore at IIT Kanpur!
 - 🌱 I’m currently learning new skills
-- 👯 I’m looking to collaborate with other content creators
+- 👯 I’m looking to collaborate with other developers and creators
 - 🥅 2021 Goals: Contribute more to Open Source projects
 - ⚡ Fun fact: I love to play video games and watch movies
 
