@@ -4,7 +4,7 @@
 [![Twitter Follow](https://img.shields.io/badge/Follow%20-%40GITHUB-black)](https://github.com/Sahilsingh0808)
 ![Profile Views](https://komarev.com/ghpvc/?username=Sahilsingh0808)
 
-## I'm a Developer, Engineering Student, Designer, etc !!
+## I'm not a ROBOT
 
 - 🔭 I am a sophomore at IIT Kanpur!
 - 🌱 I’m currently learning new skills
