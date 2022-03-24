@@ -52,22 +52,19 @@
 ### 📺 Some Useful Packages for Open Source Dev
 
 <!-- YOUTUBE:START -->
-- [The Fuck...] (https://github.com/nvbn/thefuck)
-[Partytown...] (https://github.com/BuilderIO/partytown)
-[Trcp] (https://github.com/trpc/trpc)
-Mantine https://mantine.dev/
-Danfo https://github.com/javascriptdata/dan...
-Supertokens https://github.com/supertokens/supert...
-Zinc https://github.com/prabhatsharma/zinc
-MeiliSeach https://github.com/meilisearch/meilis...
-NokoDB https://github.com/nocodb/nocodb
-Hi Mom https://github.com/tsivinsky/hi-mom
-Hoppscotch https://github.com/hoppscotch/hoppscotch
-Amplication https://github.com/amplication/
+- The Fuck (https://github.com/nvbn/thefuck)
+- Partytown (https://github.com/BuilderIO/partytown)
+- Trcp (https://github.com/trpc/trpc)
+- Mantine https://mantine.dev/
+- Danfo https://github.com/javascriptdata/dan...
+- Supertokens https://github.com/supertokens/supert...
+- Zinc https://github.com/prabhatsharma/zinc
+- MeiliSeach https://github.com/meilisearch/meilis...
+- NokoDB https://github.com/nocodb/nocodb
+- Hi Mom https://github.com/tsivinsky/hi-mom
+- Hoppscotch https://github.com/hoppscotch/hoppscotch
+- Amplication https://github.com/amplication/
 <!-- YOUTUBE:END -->
-
-➡️ [more videos...](https://www.youtube.com/channel/UCE3Vii6wflX9PNV0fy81VBg/videos)
-
 ---
 
 ### 📕 Latest Blog Posts
