@@ -51,10 +51,10 @@
 
 ### 📺 Some Useful Packages for Open Source Dev
 
-<!-- YOUTUBE:START -->
-- The Fuck (https://github.com/nvbn/thefuck)
-- Partytown (https://github.com/BuilderIO/partytown)
-- Trcp (https://github.com/trpc/trpc)
+<!-- PACKAGES:START -->
+- The Fuck https://github.com/nvbn/thefuck
+- Partytown https://github.com/BuilderIO/partytown
+- Trcp https://github.com/trpc/trpc
 - Mantine https://mantine.dev/
 - Danfo https://github.com/javascriptdata/dan...
 - Supertokens https://github.com/supertokens/supert...
@@ -64,7 +64,7 @@
 - Hi Mom https://github.com/tsivinsky/hi-mom
 - Hoppscotch https://github.com/hoppscotch/hoppscotch
 - Amplication https://github.com/amplication/
-<!-- YOUTUBE:END -->
+<!-- PACKAGES:END -->
 ---
 
 ### 📕 Latest Blog Posts
