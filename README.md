@@ -56,14 +56,14 @@
 - Partytown https://github.com/BuilderIO/partytown
 - Trcp https://github.com/trpc/trpc
 - Mantine https://mantine.dev/
-- Danfo https://github.com/javascriptdata/dan...
-- Supertokens https://github.com/supertokens/supert...
+- Danfo https://github.com/javascriptdata/danjojs
+- Supertokens https://github.com/supertokens/supertokens-node
 - Zinc https://github.com/prabhatsharma/zinc
-- MeiliSeach https://github.com/meilisearch/meilis...
+- MeiliSeach https://github.com/meilisearch/meilisearch
 - NokoDB https://github.com/nocodb/nocodb
 - Hi Mom https://github.com/tsivinsky/hi-mom
 - Hoppscotch https://github.com/hoppscotch/hoppscotch
-- Amplication https://github.com/amplication/
+- Amplication https://github.com/amplication/amplication
 <!-- PACKAGES:END -->
 ---
 
