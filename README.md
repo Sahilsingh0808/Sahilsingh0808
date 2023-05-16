@@ -48,24 +48,6 @@
 <br />
 
 ---
-<!-- 
-### 📺 Some Useful Packages for Open Source Dev
-
-<!-- PACKAGES:START -->
-- The Fuck https://github.com/nvbn/thefuck
-- Partytown https://github.com/BuilderIO/partytown
-- Trcp https://github.com/trpc/trpc
-- Mantine https://mantine.dev/
-- Danfo https://github.com/javascriptdata/danjojs
-- Supertokens https://github.com/supertokens/supertokens-node
-- Zinc https://github.com/prabhatsharma/zinc
-- MeiliSeach https://github.com/meilisearch/meilisearch
-- NokoDB https://github.com/nocodb/nocodb
-- Hi Mom https://github.com/tsivinsky/hi-mom
-- Hoppscotch https://github.com/hoppscotch/hoppscotch
-- Amplication https://github.com/amplication/amplication
-<!-- PACKAGES:END -->
---- -->
 
 ### 📕 Latest Blog Posts
 
