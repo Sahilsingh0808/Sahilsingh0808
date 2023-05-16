@@ -48,7 +48,7 @@
 <br />
 
 ---
-
+<!-- 
 ### 📺 Some Useful Packages for Open Source Dev
 
 <!-- PACKAGES:START -->
@@ -65,7 +65,7 @@
 - Hoppscotch https://github.com/hoppscotch/hoppscotch
 - Amplication https://github.com/amplication/amplication
 <!-- PACKAGES:END -->
----
+--- -->
 
 ### 📕 Latest Blog Posts
 
