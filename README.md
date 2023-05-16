@@ -6,11 +6,11 @@
 
 ## I'm not a ROBOT
 
-- 🔭 I am a sophomore at IIT Kanpur!
+- 🔭 I am a final year undergraduate at IIT Kanpur!
 - 🌱 I’m currently learning new skills
 - 👯 I’m looking to collaborate with other developers and creators
-- 🥅 2022 Goals: Contribute more to Open Source projects
-- ⚡ Fun fact: I love to play video games and watch movies
+- 🥅 2023 Goals: Contribute more to Open Source projects
+- ⚡ Fun fact: I love to play video games, watch movies and F1 <3
 
 ### Connect with me:
 
