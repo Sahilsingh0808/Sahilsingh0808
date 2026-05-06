@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Sahil Singh — Software Engineer · Building AI products at scale</title>
-<meta name="description" content="Software engineer (IIT Kanpur '24). Founding/early engineer at Spine AI (YC S23) and Sigiq.AI. Built Padhai.ai (150k+ users), EverTutor, Spine Swarm (500+ concurrent agents, 300+ LLMs), and JEEnius AI (10k+ users)." />
+<meta name="description" content="Software engineer (IIT Kanpur '24). Currently at Bolto (YC S23). Previously: Spine AI (YC S23) and Sigiq.AI. Shipped Spine Swarm (500+ concurrent agents, 400+ LLMs), Padhai.ai (175k+ users), EverTutor, and JEEnius AI." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -40,9 +40,7 @@
   };
 </script>
 <style>
-  :root {
-    color-scheme: dark;
-  }
+  :root { color-scheme: dark; }
   html, body { background: #0a0a0a; }
   body {
     font-family: 'Inter', system-ui, sans-serif;
@@ -56,20 +54,6 @@
       linear-gradient(90deg, rgba(231,231,233,0.035) 1px, transparent 1px);
     background-size: 48px 48px;
     background-position: -1px -1px;
-  }
-  .scanlines::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: repeating-linear-gradient(
-      to bottom,
-      rgba(255,255,255,0.0) 0px,
-      rgba(255,255,255,0.0) 2px,
-      rgba(255,255,255,0.012) 3px,
-      rgba(255,255,255,0.0) 4px
-    );
-    mix-blend-mode: screen;
   }
   .glass {
     background: rgba(15, 15, 16, 0.72);
@@ -92,7 +76,7 @@
     color: #c3f400;
   }
   @keyframes blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
-  .ascii-corner::before, .ascii-corner::after,
+  .ascii-corner { position: relative; }
   .ascii-corner > .tl, .ascii-corner > .tr, .ascii-corner > .bl, .ascii-corner > .br {
     position: absolute;
     color: rgba(0, 240, 255, 0.55);
@@ -101,20 +85,16 @@
     line-height: 1;
     pointer-events: none;
   }
-  .ascii-corner { position: relative; }
-  .ascii-corner > .tl { top: 6px; left: 6px; content: '+'; }
+  .ascii-corner > .tl { top: 6px; left: 6px; }
   .ascii-corner > .tr { top: 6px; right: 6px; }
   .ascii-corner > .bl { bottom: 6px; left: 6px; }
   .ascii-corner > .br { bottom: 6px; right: 6px; }
 
-  /* Reveal animations */
   .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1); }
   .reveal.in { opacity: 1; transform: none; }
 
-  /* Counter ticking */
   .num { font-variant-numeric: tabular-nums; }
 
-  /* Brutalist link */
   .b-link {
     position: relative;
     display: inline-flex;
@@ -136,13 +116,8 @@
   .b-link.lime { border-color: rgba(195,244,0,0.55); color: #c3f400; }
   .b-link.lime:hover { background: #c3f400; color: #0a0a0a; box-shadow: 0 0 28px -4px rgba(195,244,0,0.55); }
 
-  /* Section divider */
-  .div-line {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(0,240,255,0.45), transparent);
-  }
+  .div-line { height: 1px; background: linear-gradient(90deg, transparent, rgba(0,240,255,0.45), transparent); }
 
-  /* Tag */
   .tag {
     display: inline-block;
     font-family: 'JetBrains Mono', monospace;
@@ -157,20 +132,16 @@
   .tag.cyan { border-color: rgba(0,240,255,0.5); color: #00f0ff; background: rgba(0,240,255,0.06); }
   .tag.lime { border-color: rgba(195,244,0,0.5); color: #c3f400; background: rgba(195,244,0,0.06); }
 
-  /* Bento card hover */
   .bento { transition: transform .25s cubic-bezier(.2,.8,.2,1), border-color .2s, box-shadow .25s; }
   .bento:hover { transform: translateY(-2px); border-color: rgba(0,240,255,0.4); box-shadow: 0 0 32px -10px rgba(0,240,255,0.35); }
 
-  /* Cursor on terminal lines */
   .term-line { white-space: pre-wrap; word-break: break-word; }
 
-  /* Focus styling */
   a:focus-visible, button:focus-visible {
     outline: 1px solid #00f0ff;
     outline-offset: 2px;
   }
 
-  /* Subtle noise overlay */
   .noise {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
     background-size: 160px 160px;
@@ -178,7 +149,6 @@
     opacity: 0.5;
   }
 
-  /* Marquee */
   .marquee {
     mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
     -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
@@ -186,10 +156,48 @@
   .marquee-track { animation: marq 38s linear infinite; }
   @keyframes marq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
+  /* product card click interaction */
+  .product-card { cursor: pointer; }
+  .product-card .open-tag { transition: color .15s, transform .15s; }
+  .product-card:hover .open-tag { color: #00f0ff; transform: translateX(2px); }
+
+  /* dialog (modal) styling */
+  dialog.modal-product {
+    margin: auto;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    color: #e7e7e9;
+    max-width: min(960px, 92vw);
+    width: 100%;
+    max-height: 90vh;
+  }
+  dialog.modal-product::backdrop {
+    background: rgba(2,2,4,0.78);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  dialog.modal-product .modal-shell {
+    background: rgba(13,13,15,0.95);
+    border: 1px solid rgba(0,240,255,0.28);
+    box-shadow: 0 0 0 1px rgba(0,240,255,0.05) inset, 0 30px 80px -20px rgba(0,240,255,0.25);
+    max-height: 90vh;
+    overflow: auto;
+  }
+  dialog.modal-product .modal-shell::-webkit-scrollbar { width: 8px; }
+  dialog.modal-product .modal-shell::-webkit-scrollbar-thumb { background: rgba(0,240,255,0.25); }
+  dialog.modal-product .modal-shell::-webkit-scrollbar-track { background: rgba(255,255,255,0.04); }
+  dialog.modal-product[open] { animation: modalIn .25s cubic-bezier(.2,.8,.2,1); }
+  @keyframes modalIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  /* link icon decoration */
+  .icn { width: 14px; height: 14px; flex-shrink: 0; }
+
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
     .marquee-track { animation: none; }
     .blink::after { animation: none; opacity: 1; }
+    dialog.modal-product[open] { animation: none; }
   }
 </style>
 </head>
@@ -216,14 +224,7 @@
       <a href="#contact" class="text-dim hover:text-cyan transition-colors">CONTACT</a>
     </nav>
     <div class="flex items-center gap-3">
-      <span class="hidden sm:flex items-center gap-2 font-mono text-[10px] tracking-[0.16em] text-lime">
-        <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-lime"></span>
-        </span>
-        AVAILABLE_FOR_HIRE
-      </span>
-      <a href="#contact" class="b-link lime">&gt;_ HIRE</a>
+      <a href="#contact" class="b-link lime">&gt;_ CONNECT</a>
     </div>
   </div>
 </header>
@@ -233,12 +234,12 @@
 <!-- ============================== HERO ============================== -->
 <section class="relative px-5 md:px-10 pt-12 md:pt-20 pb-24 max-w-[1440px] mx-auto">
   <div class="grid grid-cols-12 gap-5 md:gap-6 items-stretch">
-    <!-- LEFT: identity -->
     <div class="col-span-12 lg:col-span-7 flex flex-col gap-6">
-      <div class="flex items-center gap-3 reveal">
+      <div class="flex flex-wrap items-center gap-2 reveal">
         <span class="tag cyan">// 0x01 · MANIFESTO</span>
         <span class="tag">IIT_KANPUR · '24</span>
-        <span class="tag">YC_S23 · SPINE_AI</span>
+        <span class="tag lime">CURRENT · BOLTO (YC_S23)</span>
+        <span class="tag">EX · SPINE_AI (YC_S23)</span>
       </div>
 
       <h1 class="font-h font-bold text-[44px] sm:text-[64px] md:text-[88px] leading-[0.95] tracking-tight uppercase reveal">
@@ -248,13 +249,13 @@
         <span class="block text-dim">From <span class="text-lime text-glow-lime">0 to 1</span> — and to scale.</span>
       </h1>
 
-      <p class="text-[17px] md:text-[18px] text-ink/85 max-w-[58ch] reveal">
-        Software engineer with a bias for shipping. I build the messy middle —
-        agent orchestration, real-time backends, multi-cloud DevOps, and consumer
-        AI products that real users pay for. Currently shipping at
-        <a class="text-cyan hover:underline underline-offset-4" href="https://spine.ai" target="_blank" rel="noopener">Spine AI (YC S23)</a>;
-        previously founding engineer at <span class="text-cyan">Sigiq.AI</span>;
-        builder of <a class="text-lime hover:underline underline-offset-4" href="https://landing.jeenius.tech" target="_blank" rel="noopener">JEEnius AI</a>.
+      <p class="text-[17px] md:text-[18px] text-ink/85 max-w-[60ch] reveal">
+        Software engineer who ships. Agent orchestration, LLM routing across 400+ models, real-time consumer backends, multi-cloud DevOps. Currently engineering at
+        <a class="text-cyan hover:underline underline-offset-4" href="https://www.bolto.com" target="_blank" rel="noopener">Bolto (YC S23)</a>.
+        Previously architected the Swarm engine at
+        <a class="text-cyan hover:underline underline-offset-4" href="https://getspine.ai" target="_blank" rel="noopener">Spine AI (YC S23)</a>
+        and was a founding member at <span class="text-cyan">Sigiq.AI</span>.
+        On the side I'm building <a class="text-lime hover:underline underline-offset-4" href="https://landing.jeenius.tech" target="_blank" rel="noopener">JEEnius AI</a>.
       </p>
 
       <!-- TERMINAL -->
@@ -283,12 +284,12 @@
       <div class="flex flex-wrap gap-3 reveal">
         <a href="#contact" class="b-link">&gt;_ INITIATE_COLLAB</a>
         <a href="#builds" class="b-link ghost">VIEW_BUILDS</a>
-        <a href="https://github.com/sahilsingh" target="_blank" rel="noopener" class="b-link ghost">GITHUB</a>
+        <a href="https://github.com/Sahilsingh0808" target="_blank" rel="noopener" class="b-link ghost">GITHUB</a>
         <a href="https://www.linkedin.com/in/sahilsingh" target="_blank" rel="noopener" class="b-link ghost">LINKEDIN</a>
       </div>
     </div>
 
-    <!-- RIGHT: status dashboard -->
+    <!-- Status dashboard -->
     <aside class="col-span-12 lg:col-span-5 grid grid-cols-2 gap-3 md:gap-4 content-start reveal">
       <div class="col-span-2 glass glass-cyan p-5 ascii-corner">
         <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
@@ -297,12 +298,12 @@
             <span class="w-2 h-2 rounded-full bg-lime animate-pulse"></span>
             SYSTEM_STATUS
           </h3>
-          <span class="tag lime">AVAILABLE</span>
+          <span class="tag cyan">SHIPPING</span>
         </div>
         <div class="space-y-3">
           <div>
             <div class="flex justify-between font-mono text-[11px] text-dim">
-              <span>USERS_REACHED</span><span class="text-cyan num">170,000+</span>
+              <span>USERS_REACHED</span><span class="text-cyan num">500,000+</span>
             </div>
             <div class="h-[3px] bg-line2 mt-1.5 overflow-hidden">
               <div class="h-full bg-cyan glow-cyan" style="width:96%"></div>
@@ -318,10 +319,10 @@
           </div>
           <div>
             <div class="flex justify-between font-mono text-[11px] text-dim">
-              <span>LLMS_ROUTED</span><span class="text-lime num">300+</span>
+              <span>LLMS_ROUTED</span><span class="text-lime num">400+</span>
             </div>
             <div class="h-[3px] bg-line2 mt-1.5 overflow-hidden">
-              <div class="h-full bg-lime glow-lime" style="width:92%"></div>
+              <div class="h-full bg-lime glow-lime" style="width:94%"></div>
             </div>
           </div>
           <div>
@@ -338,14 +339,14 @@
       <div class="glass p-5 bento ascii-corner">
         <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
         <div class="font-mono text-[10px] tracking-[0.16em] text-dim">/// PRODUCTS_SHIPPED</div>
-        <div class="font-h font-bold text-[44px] leading-none mt-2 text-cyan text-glow-cyan num">4</div>
-        <div class="font-mono text-[10px] text-dimmer mt-1">PADHAI · EVERTUTOR · SPINE · JEENIUS</div>
+        <div class="font-h font-bold text-[44px] leading-none mt-2 text-cyan text-glow-cyan num">4+</div>
+        <div class="font-mono text-[10px] text-dimmer mt-1">SPINE · PADHAI · EVERTUTOR · JEENIUS · COUNTING</div>
       </div>
       <div class="glass p-5 bento ascii-corner">
         <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
         <div class="font-mono text-[10px] tracking-[0.16em] text-dim">/// PAYING_CUSTOMERS</div>
-        <div class="font-h font-bold text-[44px] leading-none mt-2 text-lime text-glow-lime num">151+</div>
-        <div class="font-mono text-[10px] text-dimmer mt-1">SPINE · JEENIUS · EVERTUTOR</div>
+        <div class="font-h font-bold text-[44px] leading-none mt-2 text-lime text-glow-lime num">500+</div>
+        <div class="font-mono text-[10px] text-dimmer mt-1">ACROSS PRODUCTS I OWNED</div>
       </div>
       <div class="glass p-5 bento ascii-corner">
         <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
@@ -367,19 +368,20 @@
 <section class="border-y border-line py-5 bg-panel/40">
   <div class="marquee overflow-hidden">
     <div class="marquee-track flex gap-12 whitespace-nowrap font-mono text-[12px] tracking-[0.22em] text-dim uppercase">
-      <span>YC_S23 · SPINE_AI</span><span class="text-cyan">/</span>
+      <span>BOLTO · YC_S23 · CURRENT</span><span class="text-cyan">/</span>
+      <span>SPINE_AI · YC_S23</span><span class="text-cyan">/</span>
       <span>SIGIQ.AI · FOUNDING_MEMBER</span><span class="text-cyan">/</span>
       <span>IIT_KANPUR · B.TECH '24</span><span class="text-cyan">/</span>
-      <span>GOOGLE · AI4SG_GRANT</span><span class="text-cyan">/</span>
+      <span>GOOGLE · AI4SG_GRANT · $30K</span><span class="text-cyan">/</span>
       <span>GDSC · FOUNDER · 1000+ MEMBERS</span><span class="text-cyan">/</span>
       <span>INTER_IIT · BRONZE</span><span class="text-cyan">/</span>
       <span>GIVA · POS_INTERN_PPO</span><span class="text-cyan">/</span>
       <span>GOOGLE · CODEJAM · GLOBAL_RANK_794</span><span class="text-cyan">/</span>
-      <!-- duplicate for seamless loop -->
-      <span>YC_S23 · SPINE_AI</span><span class="text-cyan">/</span>
+      <span>BOLTO · YC_S23 · CURRENT</span><span class="text-cyan">/</span>
+      <span>SPINE_AI · YC_S23</span><span class="text-cyan">/</span>
       <span>SIGIQ.AI · FOUNDING_MEMBER</span><span class="text-cyan">/</span>
       <span>IIT_KANPUR · B.TECH '24</span><span class="text-cyan">/</span>
-      <span>GOOGLE · AI4SG_GRANT</span><span class="text-cyan">/</span>
+      <span>GOOGLE · AI4SG_GRANT · $30K</span><span class="text-cyan">/</span>
       <span>GDSC · FOUNDER · 1000+ MEMBERS</span><span class="text-cyan">/</span>
       <span>INTER_IIT · BRONZE</span><span class="text-cyan">/</span>
       <span>GIVA · POS_INTERN_PPO</span><span class="text-cyan">/</span>
@@ -404,20 +406,18 @@
   </p>
 
   <div class="grid grid-cols-12 gap-3 md:gap-4">
-    <!-- 170k users -->
     <div class="col-span-12 md:col-span-6 lg:col-span-4 glass bento p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
       <div class="flex items-center justify-between">
         <span class="tag cyan">USERS</span>
-        <span class="font-mono text-[10px] text-dimmer">PADHAI + SPINE + JEENIUS</span>
+        <span class="font-mono text-[10px] text-dimmer">SPINE + PADHAI + EVERTUTOR + JEENIUS</span>
       </div>
       <div class="mt-6">
-        <div class="font-h font-bold text-[72px] leading-[0.9] text-cyan text-glow-cyan num" data-count="170000" data-suffix="+">0+</div>
+        <div class="font-h font-bold text-[72px] leading-[0.9] text-cyan text-glow-cyan num" data-count="500000" data-suffix="+">0+</div>
         <div class="font-mono text-[12px] text-dim mt-2">USERS_REACHED across products I built or co-built</div>
       </div>
     </div>
 
-    <!-- 500+ agents -->
     <div class="col-span-12 md:col-span-6 lg:col-span-4 glass bento p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
       <div class="flex items-center justify-between">
@@ -430,7 +430,6 @@
       </div>
     </div>
 
-    <!-- 300+ LLMs -->
     <div class="col-span-12 md:col-span-6 lg:col-span-4 glass bento p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
       <div class="flex items-center justify-between">
@@ -438,12 +437,22 @@
         <span class="font-mono text-[10px] text-dimmer">PER_STEP</span>
       </div>
       <div class="mt-6">
-        <div class="font-h font-bold text-[72px] leading-[0.9] text-lime text-glow-lime num" data-count="300" data-suffix="+">0</div>
+        <div class="font-h font-bold text-[72px] leading-[0.9] text-lime text-glow-lime num" data-count="400" data-suffix="+">0</div>
         <div class="font-mono text-[12px] text-dim mt-2">LLMs routed dynamically · 106k+ intelligence nodes processed</div>
       </div>
     </div>
 
-    <!-- 6.4k canvas -->
+    <div class="col-span-12 md:col-span-6 lg:col-span-3 glass bento p-6 ascii-corner">
+      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+      <div class="flex items-center justify-between">
+        <span class="tag">PAYING</span><span class="font-mono text-[10px] text-dimmer">ACROSS_PRODUCTS</span>
+      </div>
+      <div class="mt-5">
+        <div class="font-h font-bold text-[44px] leading-[0.9] text-cyan text-glow-cyan num" data-count="500" data-suffix="+">0</div>
+        <div class="font-mono text-[11px] text-dim mt-1.5">paying customers across Spine, JEEnius, EverTutor, Padhai</div>
+      </div>
+    </div>
+
     <div class="col-span-12 md:col-span-6 lg:col-span-3 glass bento p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
       <div class="flex items-center justify-between">
@@ -451,11 +460,10 @@
       </div>
       <div class="mt-5">
         <div class="font-h font-bold text-[44px] leading-[0.9] text-ink num" data-count="6400" data-suffix="+">0</div>
-        <div class="font-mono text-[11px] text-dim mt-1.5">collaborative canvas envs powered by my APIs</div>
+        <div class="font-mono text-[11px] text-dim mt-1.5">collaborative canvas envs powered by APIs I shipped</div>
       </div>
     </div>
 
-    <!-- 10k WS -->
     <div class="col-span-12 md:col-span-6 lg:col-span-3 glass bento p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
       <div class="flex items-center justify-between">
@@ -467,7 +475,6 @@
       </div>
     </div>
 
-    <!-- 83% accuracy -->
     <div class="col-span-12 md:col-span-6 lg:col-span-3 glass bento p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
       <div class="flex items-center justify-between">
@@ -476,18 +483,6 @@
       <div class="mt-5">
         <div class="font-h font-bold text-[44px] leading-[0.9] text-lime text-glow-lime num" data-count="83" data-suffix="%">0%</div>
         <div class="font-mono text-[11px] text-dim mt-1.5">topic-coverage accuracy · 63 near-exact matches · ground-truth verified</div>
-      </div>
-    </div>
-
-    <!-- 151 paying -->
-    <div class="col-span-12 md:col-span-6 lg:col-span-3 glass bento p-6 ascii-corner">
-      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
-      <div class="flex items-center justify-between">
-        <span class="tag cyan">SPINE</span><span class="font-mono text-[10px] text-dimmer">CONVERSION</span>
-      </div>
-      <div class="mt-5">
-        <div class="font-h font-bold text-[44px] leading-[0.9] text-cyan text-glow-cyan num" data-count="151" data-suffix="">0</div>
-        <div class="font-mono text-[11px] text-dim mt-1.5">paying customers · 2.5% free→paid on org I co-shipped 0→1</div>
       </div>
     </div>
   </div>
@@ -504,85 +499,98 @@
   </div>
 
   <p class="text-dim max-w-[78ch] mb-10 reveal">
-    Not features. Not "contributed to." Real consumer products with users, ratings, and revenue.
-    Click in for the architecture I owned.
+    Click any card for the full architecture deep-dive — what I owned, what I built, what's running in production.
+    External link icons take you to the live product.
   </p>
 
   <div class="grid grid-cols-12 gap-4 md:gap-5">
 
-    <!-- PADHAI -->
-    <article class="col-span-12 lg:col-span-7 glass bento ascii-corner relative overflow-hidden group">
+    <!-- 1. SPINE SWARM -->
+    <article class="product-card col-span-12 lg:col-span-7 glass bento ascii-corner relative overflow-hidden group" data-modal="modal-spine" tabindex="0" role="button" aria-label="Open Spine AI deep dive">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
-      <div class="absolute -right-20 -top-20 w-[360px] h-[360px] bg-cyan/10 blur-[80px] pointer-events-none"></div>
+      <div class="absolute -right-20 -top-20 w-[420px] h-[420px] bg-cyan/10 blur-[100px] pointer-events-none"></div>
       <div class="p-6 md:p-8 flex flex-col gap-5 relative">
         <div class="flex items-center justify-between">
-          <span class="tag cyan">PROD · CONSUMER</span>
-          <span class="font-mono text-[11px] text-dim">SIGIQ.AI · 2024</span>
+          <span class="tag cyan">PROD · YC_S23</span>
+          <span class="font-mono text-[11px] text-dim">SPINE AI · 2025–26</span>
         </div>
         <h3 class="font-h font-bold text-[36px] md:text-[44px] uppercase tracking-tight">
-          Padhai<span class="text-cyan">.</span>ai
-          <span class="block text-dim text-[16px] md:text-[18px] font-mono font-normal tracking-[0.12em] mt-1 normal-case">/// UPSC AI tutor · 150k+ users · backend & infra owned end-to-end</span>
+          Spine<span class="text-cyan"> </span>Swarm
+          <span class="block text-dim text-[16px] md:text-[18px] font-mono font-normal tracking-[0.12em] mt-1 normal-case">/// 400+ LLMs orchestrated as parallel agents · #1 on DeepSearchQA</span>
         </h3>
         <p class="text-ink/85 max-w-[70ch]">
-          UPSC prep platform reaching <span class="text-cyan">150,000+ users</span>. I led the comprehensive refactor of the AI webserver, hardened error handling, built the websocket microservice (10k concurrent), implemented blue–green deploys with Docker + PM2, and instrumented Datadog APM across the stack. Reliability owner during peak exam-season concurrent load.
+          Spine is an AI research platform that orchestrates 400+ models as parallel agents to produce client-ready research, decks, and Excel models. I architected the backend orchestration engine — <span class="text-cyan">500+ concurrent agents</span>, <span class="text-cyan">1–10 specialized agents per task</span>, parallel non-sequential execution. Built the model router, the canvas APIs (<span class="text-cyan">6,400+ envs</span>), and the React-based visual canvas. 0→1 to <span class="text-lime">10k+ users · 151 paying</span>.
         </p>
         <div class="flex flex-wrap gap-2">
-          <span class="tag">DJANGO</span><span class="tag">REDIS</span><span class="tag">WEBSOCKETS</span><span class="tag">DOCKER</span><span class="tag">DATADOG</span><span class="tag">AWS · GCP · AZURE</span>
+          <span class="tag">REACT</span><span class="tag">NODE</span><span class="tag">PYTHON</span><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">AZURE</span><span class="tag">BLUE_GREEN</span>
         </div>
-        <div class="grid grid-cols-3 gap-3 pt-3 border-t border-line2">
-          <div><div class="font-h font-bold text-[24px] text-cyan num">150k+</div><div class="font-mono text-[10px] text-dimmer tracking-[0.12em]">USERS</div></div>
-          <div><div class="font-h font-bold text-[24px] text-cyan num">10k</div><div class="font-mono text-[10px] text-dimmer tracking-[0.12em]">WS_CONCURRENT</div></div>
-          <div><div class="font-h font-bold text-[24px] text-cyan num">0</div><div class="font-mono text-[10px] text-dimmer tracking-[0.12em]">DOWNTIME · BLUE_GREEN</div></div>
+        <div class="grid grid-cols-4 gap-3 pt-3 border-t border-line2">
+          <div><div class="font-h font-bold text-[22px] text-cyan num">500+</div><div class="font-mono text-[10px] text-dimmer tracking-[0.12em]">CONCURRENT_AGENTS</div></div>
+          <div><div class="font-h font-bold text-[22px] text-cyan num">400+</div><div class="font-mono text-[10px] text-dimmer tracking-[0.12em]">LLMS_ROUTED</div></div>
+          <div><div class="font-h font-bold text-[22px] text-cyan num">6.4k+</div><div class="font-mono text-[10px] text-dimmer tracking-[0.12em]">CANVAS_ENVS</div></div>
+          <div><div class="font-h font-bold text-[22px] text-lime num">151</div><div class="font-mono text-[10px] text-dimmer tracking-[0.12em]">PAYING</div></div>
+        </div>
+        <div class="flex flex-wrap gap-3 pt-1 items-center justify-between">
+          <a href="https://getspine.ai" target="_blank" rel="noopener" class="b-link" onclick="event.stopPropagation()">getspine.ai →</a>
+          <span class="font-mono text-[11px] text-dim open-tag">[CLICK_TO_OPEN_DEEP_DIVE] →</span>
         </div>
       </div>
     </article>
 
-    <!-- EVERTUTOR -->
-    <article class="col-span-12 lg:col-span-5 glass bento ascii-corner relative overflow-hidden">
+    <!-- 2. PADHAI -->
+    <article class="product-card col-span-12 lg:col-span-5 glass bento ascii-corner relative overflow-hidden" data-modal="modal-padhai" tabindex="0" role="button" aria-label="Open Padhai.ai deep dive">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
-      <div class="absolute -left-20 -top-20 w-[280px] h-[280px] bg-lime/10 blur-[80px] pointer-events-none"></div>
+      <div class="absolute -left-20 -top-20 w-[280px] h-[280px] bg-cyan/10 blur-[80px] pointer-events-none"></div>
       <div class="p-6 md:p-8 flex flex-col gap-5 relative h-full">
         <div class="flex items-center justify-between">
-          <span class="tag lime">PROD · GLOBAL</span>
+          <span class="tag cyan">PROD · UPSC</span>
           <span class="font-mono text-[11px] text-dim">SIGIQ.AI · 2024</span>
         </div>
         <h3 class="font-h font-bold text-[32px] md:text-[40px] uppercase tracking-tight">
-          EverTutor<span class="text-lime">.</span>
-          <span class="block text-dim text-[15px] font-mono font-normal tracking-[0.12em] mt-1 normal-case">/// GRE prep · paid users · backend & infra</span>
+          Padhai<span class="text-cyan">.</span>ai
+          <span class="block text-dim text-[15px] font-mono font-normal tracking-[0.12em] mt-1 normal-case">/// UPSC AI tutor · 175k+ active students</span>
         </h3>
         <p class="text-ink/85">
-          Built and owned the backend & infra. Integrated Stripe for international + domestic payments — secured the entire revenue path. Refactored AI webserver, set up containerized deploys across AWS/GCP/Azure, and shipped the rich-text + LaTeX renderer for AI tutor output in React Native.
+          UPSC prep companion with <span class="text-cyan">175,000+ students</span>, <span class="text-cyan">25M tutor interactions</span>, <span class="text-cyan">10M AI summaries</span>. I owned the AI webserver refactor, built the 10k-concurrent WebSocket microservice, Redis leaderboard, and architected blue–green deploys + Datadog APM across the stack.
+        </p>
+        <div class="mt-auto flex flex-wrap gap-2">
+          <span class="tag">DJANGO</span><span class="tag">REDIS</span><span class="tag">WEBSOCKETS</span><span class="tag">DOCKER</span><span class="tag">DATADOG</span>
+        </div>
+        <div class="flex flex-wrap gap-3 items-center justify-between">
+          <a href="https://padhai.ai" target="_blank" rel="noopener" class="b-link" onclick="event.stopPropagation()">padhai.ai →</a>
+          <span class="font-mono text-[11px] text-dim open-tag">[OPEN_DEEP_DIVE]</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3. EVERTUTOR -->
+    <article class="product-card col-span-12 lg:col-span-5 glass bento ascii-corner relative overflow-hidden" data-modal="modal-evertutor" tabindex="0" role="button" aria-label="Open EverTutor deep dive">
+      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+      <div class="absolute -right-20 -bottom-20 w-[320px] h-[320px] bg-lime/10 blur-[80px] pointer-events-none"></div>
+      <div class="p-6 md:p-8 flex flex-col gap-5 relative h-full">
+        <div class="flex items-center justify-between">
+          <span class="tag lime">PROD · K-12 + GRE</span>
+          <span class="font-mono text-[11px] text-dim">SIGIQ.AI · 2024</span>
+        </div>
+        <h3 class="font-h font-bold text-[32px] md:text-[40px] uppercase tracking-tight">
+          EverTutor<span class="text-lime">.</span>ai
+          <span class="block text-dim text-[15px] font-mono font-normal tracking-[0.12em] mt-1 normal-case">/// voice-first AI tutoring · backend & infra owned</span>
+        </h3>
+        <p class="text-ink/85">
+          AI-powered tutoring across K-12 intervention and GRE prep — voice-first, 50+ languages, FERPA/COPPA compliant. I built the entire backend & DevOps backbone: Stripe gateway for international + domestic payments, AI webserver, the markdown-LaTeX renderer in React Native that ships AI tutor output to learners.
         </p>
         <div class="mt-auto flex flex-wrap gap-2">
           <span class="tag">STRIPE</span><span class="tag">REACT_NATIVE</span><span class="tag">DJANGO</span><span class="tag">CELERY</span><span class="tag">FCM</span>
         </div>
-      </div>
-    </article>
-
-    <!-- SPINE SWARM -->
-    <article class="col-span-12 lg:col-span-5 glass bento ascii-corner relative overflow-hidden">
-      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
-      <div class="absolute -right-20 -bottom-20 w-[320px] h-[320px] bg-cyan/10 blur-[80px] pointer-events-none"></div>
-      <div class="p-6 md:p-8 flex flex-col gap-5 relative h-full">
-        <div class="flex items-center justify-between">
-          <span class="tag cyan">PROD · YC_S23</span>
-          <span class="font-mono text-[11px] text-dim">SPINE AI · 2025</span>
-        </div>
-        <h3 class="font-h font-bold text-[32px] md:text-[40px] uppercase tracking-tight">
-          Spine<span class="text-cyan"> </span>Swarm
-          <span class="block text-dim text-[15px] font-mono font-normal tracking-[0.12em] mt-1 normal-case">/// agent orchestration · 0→1 across full stack</span>
-        </h3>
-        <p class="text-ink/85">
-          Architected and owned the backend orchestration engine: 1–10 specialized agents per task, <span class="text-cyan">500+ concurrent</span>, parallel non-sequential execution. Built the model-routing layer across <span class="text-cyan">300+ LLMs</span> per step. Shipped the React canvas frontend, APIs, and DevOps from zero to <span class="text-lime">10k+ users · 151 paying</span>.
-        </p>
-        <div class="mt-auto flex flex-wrap gap-2">
-          <span class="tag">REACT</span><span class="tag">NODE</span><span class="tag">PYTHON</span><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">AZURE</span><span class="tag">BLUE_GREEN</span>
+        <div class="flex flex-wrap gap-3 items-center justify-between">
+          <a href="https://evertutor.ai/" target="_blank" rel="noopener" class="b-link lime" onclick="event.stopPropagation()">evertutor.ai →</a>
+          <span class="font-mono text-[11px] text-dim open-tag">[OPEN_DEEP_DIVE]</span>
         </div>
       </div>
     </article>
 
-    <!-- JEENIUS -->
-    <article class="col-span-12 lg:col-span-7 glass bento ascii-corner relative overflow-hidden group">
+    <!-- 4. JEENIUS -->
+    <article class="product-card col-span-12 lg:col-span-7 glass bento ascii-corner relative overflow-hidden group" data-modal="modal-jeenius" tabindex="0" role="button" aria-label="Open JEEnius AI deep dive">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
       <div class="absolute -left-20 -bottom-20 w-[420px] h-[420px] bg-lime/10 blur-[100px] pointer-events-none"></div>
       <div class="p-6 md:p-8 flex flex-col gap-5 relative h-full">
@@ -595,7 +603,7 @@
           <span class="block text-dim text-[16px] md:text-[18px] font-mono font-normal tracking-[0.12em] mt-1 normal-case">/// JEE prediction engine · 10k+ users · 4.8★ · solo-built</span>
         </h3>
         <p class="text-ink/85 max-w-[70ch]">
-          A side project that became a real product. RAG over 20+ years of PYQs + syllabus, multi-model reasoning across GPT-4o / o-series / Gemini 2.5 Pro / Fathom — dynamically routed per query type. Predicted <span class="text-lime">83%</span> of JEE Main 2026 January topics with <span class="text-lime">63 near-exact matches</span>, ground-truth validated post-exam. Android app (Play Store), landing page, AI backend, adaptive study planner, real-time 1v1 duels, image-based doubt solver — all shipped solo. <span class="text-lime">10k+ users</span>, <span class="text-lime">4.8★</span>, paying subscribers, zero paid acquisition.
+          A side project that became a real product. RAG over 20+ years of PYQs + syllabus, multi-model reasoning across GPT-4o / o-series / Gemini 2.5 Pro / Fathom — dynamically routed per query type. Predicted <span class="text-lime">83%</span> of JEE Main 2026 January topics with <span class="text-lime">63 near-exact matches</span>, ground-truth validated post-exam. <span class="text-lime">10k+ users</span>, <span class="text-lime">4.8★</span>, paying subscribers, zero paid acquisition.
         </p>
         <div class="grid grid-cols-4 gap-3 pt-3 border-t border-line2">
           <div><div class="font-h font-bold text-[22px] text-lime num">10k+</div><div class="font-mono text-[10px] text-dimmer tracking-[0.12em]">USERS · ORGANIC</div></div>
@@ -603,9 +611,12 @@
           <div><div class="font-h font-bold text-[22px] text-lime num">83%</div><div class="font-mono text-[10px] text-dimmer tracking-[0.12em]">PREDICTION</div></div>
           <div><div class="font-h font-bold text-[22px] text-lime num">100k+</div><div class="font-mono text-[10px] text-dimmer tracking-[0.12em]">QS_INDEXED</div></div>
         </div>
-        <div class="flex flex-wrap gap-3 pt-1">
-          <a href="https://jeenius.tech" target="_blank" rel="noopener" class="b-link lime">jeenius.tech →</a>
-          <a href="https://landing.jeenius.tech" target="_blank" rel="noopener" class="b-link ghost">landing.jeenius.tech</a>
+        <div class="flex flex-wrap gap-3 pt-1 items-center justify-between">
+          <div class="flex flex-wrap gap-2">
+            <a href="https://jeenius.tech" target="_blank" rel="noopener" class="b-link lime" onclick="event.stopPropagation()">jeenius.tech →</a>
+            <a href="https://landing.jeenius.tech" target="_blank" rel="noopener" class="b-link ghost" onclick="event.stopPropagation()">landing.jeenius.tech</a>
+          </div>
+          <span class="font-mono text-[11px] text-dim open-tag">[OPEN_DEEP_DIVE]</span>
         </div>
       </div>
     </article>
@@ -624,10 +635,34 @@
   </div>
 
   <div class="relative">
-    <!-- timeline rail -->
     <div class="absolute left-4 md:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-cyan/60 via-line2 to-lime/40"></div>
 
     <div class="space-y-6">
+      <!-- BOLTO (CURRENT) -->
+      <div class="relative pl-12 md:pl-16 reveal">
+        <div class="absolute left-2 md:left-4 top-3 w-5 h-5 border border-lime bg-bg flex items-center justify-center">
+          <div class="w-1.5 h-1.5 bg-lime glow-lime animate-pulse"></div>
+        </div>
+        <div class="glass glass-cyan p-6 md:p-7 ascii-corner">
+          <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+          <div class="flex flex-wrap items-baseline justify-between gap-3">
+            <div>
+              <div class="font-mono text-[11px] tracking-[0.18em] text-lime">[CURRENT_PROCESS · ACTIVE]</div>
+              <h3 class="font-h font-semibold text-[24px] md:text-[28px] mt-1">Software Engineer · <span class="text-ink">Bolto</span> <span class="text-dim text-[15px]">(YC S23)</span></h3>
+            </div>
+            <div class="font-mono text-[12px] text-dim">MAY 2026 — PRESENT · NEW YORK / REMOTE</div>
+          </div>
+          <p class="mt-4 text-ink/85 max-w-[80ch]">
+            Bolto is the AI-powered hiring + HR stack for engineering teams — sourcing, AI vetting, scheduling, payroll, benefits, and compliance in one place. Joined as engineer #N to push on the AI-driven sourcing and assessment infra.
+          </p>
+          <ul class="mt-4 space-y-2.5 text-ink/85 max-w-[80ch]">
+            <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span>Building AI-driven engineer sourcing &amp; vetting pipelines that ingest signal from public code, scoring trajectories, and matching candidates to companies at scale.</span></li>
+            <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span>Owning slices of the platform that touch sourcing, technical assessment, scheduling, and the recruiter experience — full-stack.</span></li>
+            <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span>Bringing the agent-orchestration + LLM-routing playbook from Spine into recruiting workflows.</span></li>
+          </ul>
+        </div>
+      </div>
+
       <!-- SPINE -->
       <div class="relative pl-12 md:pl-16 reveal">
         <div class="absolute left-2 md:left-4 top-3 w-5 h-5 border border-cyan bg-bg flex items-center justify-center">
@@ -637,17 +672,21 @@
           <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
           <div class="flex flex-wrap items-baseline justify-between gap-3">
             <div>
-              <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">[CURRENT_PROCESS]</div>
+              <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">[ARCHIVED_PROCESS]</div>
               <h3 class="font-h font-semibold text-[24px] md:text-[28px] mt-1">SDE · <span class="text-ink">Spine AI</span> <span class="text-dim text-[15px]">(YC S23)</span></h3>
             </div>
             <div class="font-mono text-[12px] text-dim">AUG 2025 — APR 2026 · REMOTE</div>
           </div>
-          <ul class="mt-5 space-y-2.5 text-ink/85 max-w-[80ch]">
+          <p class="mt-4 text-ink/85 max-w-[80ch]">
+            Spine ships an AI research platform that produced #1-ranked deep-research outputs on Google DeepMind's <span class="text-cyan">DeepSearchQA</span> benchmark. I owned the orchestration engine, model router, and large parts of the canvas runtime that made it possible.
+          </p>
+          <ul class="mt-4 space-y-2.5 text-ink/85 max-w-[80ch]">
             <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span>Architected the backend orchestration engine for <span class="text-cyan">Spine Swarm</span> — 1–10 specialized agents per task, <span class="text-cyan">500+ concurrent</span>, parallel non-sequential execution at production scale.</span></li>
-            <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span>Built the model router across <span class="text-cyan">300+ LLMs</span> per execution step; cumulatively processed <span class="text-cyan">106k+ intelligence nodes</span>.</span></li>
-            <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span>Powered <span class="text-cyan">6,400+ active canvas environments</span> with real-time collaborative agent execution, artifact persistence, branching, inspectability.</span></li>
-            <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span>Went 0→1 across the stack — React canvas, backend APIs, DevOps — taking Spine to <span class="text-lime">10k+ users · 151 paying · 2.5% conversion</span>.</span></li>
-            <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span>Owned multi-cloud DevOps (AWS / GCP / Azure) with zero-downtime blue–green deploys.</span></li>
+            <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span>Built the intelligent model router — <span class="text-cyan">400+ LLMs</span> selected dynamically per execution step, optimising for quality, latency, and cost. Cumulatively processed <span class="text-cyan">106k+ intelligence nodes</span>.</span></li>
+            <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span>Powered <span class="text-cyan">6,400+ active canvas environments</span> — collaborative agent execution, artifact persistence, branching, full inspectability of every agent run.</span></li>
+            <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span>Designed and shipped APIs that produce client-ready outputs (decks, PDFs, Excel models with formulas) — not chat transcripts.</span></li>
+            <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span>Built the React canvas frontend, scheduled-workflow system, and integrations across MCP, webhooks, and external APIs.</span></li>
+            <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span>Owned multi-cloud DevOps (AWS / GCP / Azure) with zero-downtime blue–green deploys; took Spine 0→1 to <span class="text-lime">10k+ users · 151 paying · 2.5% conversion</span>.</span></li>
           </ul>
         </div>
       </div>
@@ -666,13 +705,19 @@
             </div>
             <div class="font-mono text-[12px] text-dim">JUN 2024 — JUL 2025 · GURGAON</div>
           </div>
-          <ul class="mt-5 space-y-2.5 text-ink/85 max-w-[80ch]">
-            <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span>Owned backend + infra for <span class="text-cyan">Padhai.ai</span> (150k+ users, UPSC) — comprehensive AI webserver refactor, error handling overhaul, drastic stability gains.</span></li>
-            <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span>Owned backend + infra for <span class="text-cyan">EverTutor</span> (GRE) — Stripe gateway for international + domestic payments, securing the entire revenue path.</span></li>
-            <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span>Migrated services from PM2 to a containerized ecosystem; designed blue–green deploys with Docker + PM2 supervisors for zero-downtime production updates.</span></li>
-            <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span>Built <span class="text-cyan">10k-concurrent WebSocket microservice</span>, Redis-powered leaderboard, and a CPU-intensive recordkeeping microservice.</span></li>
-            <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span>Architected Datadog APM + centralized logging across AI webservers and backends — proactive issue resolution, faster outage response.</span></li>
-            <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span>Shipped a markdown-LaTeX rich-text renderer in React Native for AI-generated content; led + mentored a team of interns.</span></li>
+          <p class="mt-4 text-ink/85 max-w-[80ch]">
+            Founding-member SDE for the company behind <span class="text-cyan">Padhai.ai</span> (UPSC, 175k+ users), <span class="text-cyan">EverTutor</span> (K-12 + GRE), and a portfolio of AI tutoring products. Owned backend, infra, and reliability across the entire stack.
+          </p>
+          <ul class="mt-4 space-y-2.5 text-ink/85 max-w-[80ch]">
+            <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span>Owned the AI webserver behind <span class="text-cyan">Padhai.ai</span> — comprehensive refactor, error handling overhaul, drastic stability gains during peak exam-season concurrent load.</span></li>
+            <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span>Owned the backend &amp; infra of <span class="text-cyan">EverTutor</span> end-to-end — integrated Stripe to securely process international + domestic payments and unlock the entire revenue path.</span></li>
+            <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span>Led migration from PM2-managed processes to a fully containerized ecosystem; designed blue–green deploys with Docker + PM2 supervisors for zero-downtime production updates.</span></li>
+            <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span>Built a <span class="text-cyan">10,000-concurrent WebSocket microservice</span> for real-time AI interactions, alongside a CPU-intensive recordkeeping microservice — separated hot paths from heavy paths to keep latency low.</span></li>
+            <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span>Architected Datadog APM + centralized logging across AI webservers and backends — proactive issue detection, faster outage response, full request traces.</span></li>
+            <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span>Shipped a Redis-powered leaderboard with logarithmic-time access, enabling real-time rank surfacing without hammering the DB.</span></li>
+            <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span>Built a markdown + LaTeX rich-text renderer in React Native — the runtime that displays every AI tutor response across products, including math/STEM-heavy content.</span></li>
+            <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span>Architected, deployed, and managed containerized microservices across <span class="text-cyan">AWS / GCP / Azure</span> — streamlined CI/CD, optimised cost, ensured high availability.</span></li>
+            <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span>Led + mentored a team of interns; delegated quick-fix tracks to keep production velocity high.</span></li>
           </ul>
         </div>
       </div>
@@ -691,9 +736,13 @@
             </div>
             <div class="font-mono text-[12px] text-dim">OCT 2023 — MAY 2024 · REMOTE</div>
           </div>
-          <p class="mt-3 text-ink/80 max-w-[80ch]">
-            React Native + Redux app features, Django APIs/websockets for AI integrations, Redis cache leaderboard (logarithmic-time access), Firebase + Celery + FCM notification panel with bulk + analytics, user-deletion compliance flow, hierarchical chat-graph viz with D3.js.
-          </p>
+          <ul class="mt-3 space-y-2 text-ink/80 max-w-[80ch]">
+            <li class="flex gap-3"><span class="text-dim font-mono mt-1.5">▸</span><span>Shipped React Native + Redux app features and Django APIs/websockets for AI chat + integrations — boosting app responsiveness and reliability.</span></li>
+            <li class="flex gap-3"><span class="text-dim font-mono mt-1.5">▸</span><span>Built a Redis cache leaderboard for in-memory logarithmic-time access; designed it to scale horizontally without warm-up cost.</span></li>
+            <li class="flex gap-3"><span class="text-dim font-mono mt-1.5">▸</span><span>Built a custom notification panel using Django + Firebase Cloud Messaging — bulk send, CSV upload, internal-tester segmentation, analytics, Celery-driven delivery.</span></li>
+            <li class="flex gap-3"><span class="text-dim font-mono mt-1.5">▸</span><span>End-to-end deeplink-driven sharing pipeline: dynamic image generation, S3 storage, Firebase deeplinks for previews — turned passive content into a growth surface.</span></li>
+            <li class="flex gap-3"><span class="text-dim font-mono mt-1.5">▸</span><span>Implemented compliant user-deletion that purges DB + cache; built hierarchical chat-graph viz with D3.js for AI conversation inspection.</span></li>
+          </ul>
         </div>
       </div>
 
@@ -711,13 +760,15 @@
             </div>
             <div class="font-mono text-[12px] text-dim">MAY 2023 — JUL 2023 · BANGALORE</div>
           </div>
-          <p class="mt-3 text-ink/80 max-w-[80ch]">
-            Mission-critical POS flows in Next.js + Node, React Native UI flows used heavily post-deploy. Shopify order sync APIs/webhooks, Razorpay payments. Discovered an indefinite OTP verification flaw in the mobile app — patched with a timeout-invalidation flow.
-          </p>
+          <ul class="mt-3 space-y-2 text-ink/80 max-w-[80ch]">
+            <li class="flex gap-3"><span class="text-dim font-mono mt-1.5">▸</span><span>Mission-critical POS flows in Next.js + Node, used heavily in production post-deploy across stores.</span></li>
+            <li class="flex gap-3"><span class="text-dim font-mono mt-1.5">▸</span><span>Shopify order sync via APIs/webhooks; Razorpay payments; SearchTap data + automated reindexing.</span></li>
+            <li class="flex gap-3"><span class="text-dim font-mono mt-1.5">▸</span><span>Discovered an indefinite OTP verification flaw in the GIVA mobile app and shipped a timeout-invalidation fix that hardened the auth flow.</span></li>
+          </ul>
         </div>
       </div>
 
-      <!-- VATICINARI -->
+      <!-- VATICINARI / C3i -->
       <div class="relative pl-12 md:pl-16 reveal">
         <div class="absolute left-2 md:left-4 top-3 w-5 h-5 border border-line2 bg-bg flex items-center justify-center">
           <div class="w-1.5 h-1.5 bg-dim"></div>
@@ -727,12 +778,54 @@
           <div class="flex flex-wrap items-baseline justify-between gap-3">
             <div>
               <div class="font-mono text-[11px] tracking-[0.18em] text-dim">[CYBERSEC]</div>
-              <h3 class="font-h font-semibold text-[22px] md:text-[24px] mt-1">Cybersecurity Intern · <span class="text-ink">Vaticinari</span></h3>
+              <h3 class="font-h font-semibold text-[22px] md:text-[24px] mt-1">Cybersecurity Intern · <span class="text-ink">Vaticinari</span> + VAPT Fellow · <span class="text-ink">C3iHub IITK</span></h3>
             </div>
-            <div class="font-mono text-[12px] text-dim">APR 2023 — SEP 2023 · HYBRID</div>
+            <div class="font-mono text-[12px] text-dim">APR 2023 — SEP 2023</div>
+          </div>
+          <ul class="mt-3 space-y-2 text-ink/80 max-w-[80ch]">
+            <li class="flex gap-3"><span class="text-dim font-mono mt-1.5">▸</span><span>Built an Incident Response GUI tool from scratch leveraging Volatility, Log2Timeline, RegRipper for forensic timelines and memory analysis.</span></li>
+            <li class="flex gap-3"><span class="text-dim font-mono mt-1.5">▸</span><span>Used MITRE ATT&amp;CK CASCADE to map adversary tactics; built an ETL log parser for Windows pktmon/tracerpt → CSV pipelines.</span></li>
+            <li class="flex gap-3"><span class="text-dim font-mono mt-1.5">▸</span><span>Reverse-engineered WannaCry on Remnux, identified the kill-switch mechanism, built a malware lab to study live ransomware behaviour.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- BASTA -->
+      <div class="relative pl-12 md:pl-16 reveal">
+        <div class="absolute left-2 md:left-4 top-3 w-5 h-5 border border-line2 bg-bg flex items-center justify-center">
+          <div class="w-1.5 h-1.5 bg-dim"></div>
+        </div>
+        <div class="glass p-6 md:p-7 ascii-corner">
+          <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+          <div class="flex flex-wrap items-baseline justify-between gap-3">
+            <div>
+              <div class="font-mono text-[11px] tracking-[0.18em] text-dim">[FULLSTACK]</div>
+              <h3 class="font-h font-semibold text-[22px] md:text-[24px] mt-1">Full Stack Dev Intern · <span class="text-ink">Basta Neural Technologies</span></h3>
+            </div>
+            <div class="font-mono text-[12px] text-dim">JAN 2023 — APR 2023 · REMOTE</div>
           </div>
           <p class="mt-3 text-ink/80 max-w-[80ch]">
-            Built an Incident Response GUI tool from scratch leveraging Volatility, Log2Timeline, RegRipper. Used MITRE ATT&CK CASCADE to analyze threat tactics.
+            Maintained the org's website (frontend + backend), integrated Razorpay for payment processing in Node, shipped REST APIs and front-end improvements end-to-end.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="relative pl-12 md:pl-16 reveal">
+        <div class="absolute left-2 md:left-4 top-3 w-5 h-5 border border-line2 bg-bg flex items-center justify-center">
+          <div class="w-1.5 h-1.5 bg-dim"></div>
+        </div>
+        <div class="glass p-6 md:p-7 ascii-corner">
+          <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+          <div class="flex flex-wrap items-baseline justify-between gap-3">
+            <div>
+              <div class="font-mono text-[11px] tracking-[0.18em] text-dim">[NATIONAL_SCALE]</div>
+              <h3 class="font-h font-semibold text-[22px] md:text-[24px] mt-1">Tech Intern · <span class="text-ink">Centre for Teacher Accreditation, India</span></h3>
+            </div>
+            <div class="font-mono text-[12px] text-dim">JUN 2021 — AUG 2021 · REMOTE</div>
+          </div>
+          <p class="mt-3 text-ink/80 max-w-[80ch]">
+            Built a scoring + self-assessment web tool used by <span class="text-cyan">400,000+ teachers</span> across India. Pandas + NumPy scoring algorithm, Flask micro-framework, HTML/CSS frontend, oauth2/gspread for Sheets integration.
           </p>
         </div>
       </div>
@@ -740,7 +833,7 @@
   </div>
 </section>
 
-<!-- ============================== PROJECTS / AWARDS ============================== -->
+<!-- ============================== PROJECTS / SIDE QUESTS ============================== -->
 <section id="projects" class="px-5 md:px-10 py-20 max-w-[1440px] mx-auto">
   <div class="flex items-end justify-between border-b-2 border-lime/30 pb-4 mb-10 reveal">
     <div>
@@ -750,83 +843,270 @@
     <span class="font-mono text-[11px] text-dim hidden md:block">PAGE: 05 // 07</span>
   </div>
 
+  <p class="text-dim max-w-[78ch] mb-8 reveal">
+    Funded research, awards, full-stack experiments, security work, game dev, published apps. Every card links to source.
+  </p>
+
   <div class="grid grid-cols-12 gap-4">
 
-    <article class="col-span-12 md:col-span-6 lg:col-span-4 glass bento p-6 ascii-corner">
+    <!-- AI4SG (with multiple links) -->
+    <article class="col-span-12 lg:col-span-6 glass bento p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
       <div class="flex items-center justify-between mb-3">
-        <span class="tag lime">GOOGLE · AI4SG</span>
-        <span class="font-mono text-[10px] text-dimmer">2022 · LEAD</span>
+        <span class="tag lime">GOOGLE · AI4SG · $30K</span>
+        <span class="font-mono text-[10px] text-dimmer">2022 · TEAM_LEAD</span>
       </div>
-      <h3 class="font-h font-semibold text-[22px]">AI Labor-Room Smart Assistant</h3>
+      <h3 class="font-h font-semibold text-[24px]">AI Labor-Room Smart Assistant</h3>
       <p class="text-dim text-[14.5px] mt-2 leading-relaxed">
-        ASR-driven labor-room assistant for nurses in low-resource Bihar. <span class="text-lime">$30k Google AI4SG funding</span> — top picks out of 1000+ global applications. Led a Flutter + Flask + ASR build with custom KV-pair extraction.
+        ASR-driven labor-room assistant for nurses in low-resource Bihar — timely data documentation + delivery-complication detection. Funded with <span class="text-lime">$30,000 from Google AI for Social Good</span> (top picks from 1000+ global applications). Led a Flutter + Flask + ASR stack with a custom KV-pair extraction algorithm on transcribed text.
       </p>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <a href="https://docs.google.com/document/d/1T8kV7RIviT5pI5IvKkWE0xkAX9SKidaUK1EwNXSo-_M/edit" target="_blank" rel="noopener" class="b-link ghost text-[10px]">PROPOSAL ↗</a>
+        <a href="https://github.com/Sahilsingh0808/AI4SG-Backend" target="_blank" rel="noopener" class="b-link ghost text-[10px]">BACKEND ↗</a>
+        <a href="https://github.com/Sahilsingh0808/ASR" target="_blank" rel="noopener" class="b-link ghost text-[10px]">ASR ↗</a>
+      </div>
     </article>
 
-    <article class="col-span-12 md:col-span-6 lg:col-span-4 glass bento p-6 ascii-corner">
+    <!-- ISRO Solar Burst -->
+    <article class="col-span-12 lg:col-span-6 glass bento p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
       <div class="flex items-center justify-between mb-3">
         <span class="tag cyan">INTER_IIT · BRONZE</span>
         <span class="font-mono text-[10px] text-dimmer">2022 · ISRO</span>
       </div>
-      <h3 class="font-h font-semibold text-[22px]">Solar Burst Identifier (ISRO)</h3>
+      <h3 class="font-h font-semibold text-[24px]">Solar Burst Identifier (ISRO)</h3>
       <p class="text-dim text-[14.5px] mt-2 leading-relaxed">
-        Web tool for ISRO to identify solar bursts in X-Ray light curves. ReactJS + ChartJS frontend, Flask REST APIs, downloadable reports. Bronze medal at Inter IIT Tech Meet 10.0.
+        Web tool for ISRO to identify solar bursts in X-Ray light curves at Inter IIT Tech Meet 10.0 (IIT KGP). ReactJS + ChartJS frontend, Flask REST APIs to a Python detection backend, downloadable CSV reports. Bronze medal.
       </p>
+      <div class="mt-4">
+        <span class="font-mono text-[10px] text-dimmer">[PRIVATE_REPO · DEMO_ON_REQUEST]</span>
+      </div>
     </article>
 
-    <article class="col-span-12 md:col-span-6 lg:col-span-4 glass bento p-6 ascii-corner">
+    <!-- GDSC -->
+    <article class="col-span-12 lg:col-span-6 glass bento p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
       <div class="flex items-center justify-between mb-3">
         <span class="tag">GDSC · IITK</span>
         <span class="font-mono text-[10px] text-dimmer">2023–24 · FOUNDER</span>
       </div>
-      <h3 class="font-h font-semibold text-[22px]">Founded GDSC at IITK</h3>
+      <h3 class="font-h font-semibold text-[24px]">Founded GDSC at IIT Kanpur</h3>
       <p class="text-dim text-[14.5px] mt-2 leading-relaxed">
-        Founded and led the Google Developer Student Club at IIT Kanpur — <span class="text-cyan">1,000+ members</span>, 9-member core, 50 volunteers, <span class="text-cyan">5,000+ event participants</span>. Ran ideathons, GenAI workshops, Google Cloud Jam.
+        Founded and led the Google Developer Student Club at IITK. <span class="text-cyan">1,000+ members</span>, 9-member core, 50 volunteers. Ran ideathons (228 teams), GenAI workshops (300 attendees), Google Cloud Jam (150 participants), Winter Projects (416 of 687 applicants). <span class="text-cyan">5,000+ event participants</span> over the year.
       </p>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <a href="https://docs.google.com/document/d/1MS49FEyEXQjVhTs6wS2nRzZUWMaMTgJcz9SDB2k0TH0/edit?usp=sharing" target="_blank" rel="noopener" class="b-link ghost text-[10px]">APP_DEV_TRACK_DATA ↗</a>
+      </div>
     </article>
 
-    <article class="col-span-12 md:col-span-6 lg:col-span-4 glass bento p-6 ascii-corner">
+    <!-- FeedHarmony -->
+    <article class="col-span-12 lg:col-span-6 glass bento p-6 ascii-corner">
+      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+      <div class="flex items-center justify-between mb-3">
+        <span class="tag lime">GOOGLE · SOLUTIONS_CHALLENGE</span>
+        <span class="font-mono text-[10px] text-dimmer">2024 · MANAGER</span>
+      </div>
+      <h3 class="font-h font-semibold text-[24px]">FeedHarmony</h3>
+      <p class="text-dim text-[14.5px] mt-2 leading-relaxed">
+        GDSC IITK's Google Solutions Challenge entry for global hunger — Flutter mobile app + predictive ML algorithm. Managed Product, Dev, and ML teams to a working prototype in a 3-week deadline; contributed app components and integration plumbing.
+      </p>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <a href="https://github.com/GDSC-IITK/solutions-challenge-2024-iitk" target="_blank" rel="noopener" class="b-link ghost text-[10px]">REPO ↗</a>
+      </div>
+    </article>
+
+    <!-- CTA -->
+    <article class="col-span-12 lg:col-span-4 glass bento p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
       <div class="flex items-center justify-between mb-3">
         <span class="tag cyan">CTA · NATIONAL_SCALE</span>
-        <span class="font-mono text-[10px] text-dimmer">2021 · INTERN</span>
+        <span class="font-mono text-[10px] text-dimmer">2021</span>
       </div>
       <h3 class="font-h font-semibold text-[22px]">CTA Self-Assessment Tool</h3>
       <p class="text-dim text-[14.5px] mt-2 leading-relaxed">
-        Scoring + self-assessment web tool used by <span class="text-cyan">400,000+ teachers</span> across India. Pandas + NumPy scoring algo, Flask backend, HTML/CSS frontend.
+        Scoring + self-assessment web tool used by <span class="text-cyan">400,000+ teachers</span> across India. Pandas + NumPy scoring algorithm, Flask backend.
       </p>
     </article>
 
-    <article class="col-span-12 md:col-span-6 lg:col-span-4 glass bento p-6 ascii-corner">
+    <!-- Sports Booking -->
+    <article class="col-span-12 lg:col-span-4 glass bento p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
       <div class="flex items-center justify-between mb-3">
         <span class="tag">SPEC · IITK</span>
         <span class="font-mono text-[10px] text-dimmer">2021–22</span>
       </div>
-      <h3 class="font-h font-semibold text-[22px]">Sports Booking Portal</h3>
+      <h3 class="font-h font-semibold text-[22px]">IITK Sports Booking Portal</h3>
       <p class="text-dim text-[14.5px] mt-2 leading-relaxed">
-        Online sports facility booking for IIT Kanpur, scaled for <span class="text-cyan">3,000+ campus residents</span>. Flutter + Firebase Auth + Firestore.
+        Online sports facility booking for IIT Kanpur post-COVID, scaled for <span class="text-cyan">3,000+ campus residents</span>. Flutter + Firebase Auth + Cloud Firestore.
       </p>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <a href="https://github.com/Sahilsingh0808/IITK-Sports-Booking-Portal" target="_blank" rel="noopener" class="b-link ghost text-[10px]">REPO ↗</a>
+      </div>
     </article>
 
-    <article class="col-span-12 md:col-span-6 lg:col-span-4 glass bento p-6 ascii-corner">
+    <!-- Comet -->
+    <article class="col-span-12 lg:col-span-4 glass bento p-6 ascii-corner">
+      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+      <div class="flex items-center justify-between mb-3">
+        <span class="tag cyan">CLI · DX_TOOLING</span>
+        <span class="font-mono text-[10px] text-dimmer">SIDE_PROJECT</span>
+      </div>
+      <h3 class="font-h font-semibold text-[22px]">Comet</h3>
+      <p class="text-dim text-[14.5px] mt-2 leading-relaxed">
+        AI-driven commit-message CLI in Python. OpenAI for context-rich messages, TextBlob NLP fallback when no API key, optional Jira ticket linking. Interactive setup.
+      </p>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <a href="https://github.com/Sahilsingh0808/comet" target="_blank" rel="noopener" class="b-link ghost text-[10px]">REPO ↗</a>
+      </div>
+    </article>
+
+    <!-- WannaCry -->
+    <article class="col-span-12 lg:col-span-4 glass bento p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
       <div class="flex items-center justify-between mb-3">
         <span class="tag lime">C3iHUB · VAPT</span>
-        <span class="font-mono text-[10px] text-dimmer">2023 · FELLOWSHIP</span>
+        <span class="font-mono text-[10px] text-dimmer">2023 · FELLOW</span>
       </div>
-      <h3 class="font-h font-semibold text-[22px]">WannaCry Reverse-Engineering</h3>
+      <h3 class="font-h font-semibold text-[22px]">WannaCry RE + Custom Ransomware</h3>
       <p class="text-dim text-[14.5px] mt-2 leading-relaxed">
-        Deep RE on WannaCry using Remnux, identified the kill-switch mechanism. Built malware lab on Windows + Ubuntu. Wrote a basic ransomware in Python to study the lifecycle.
+        Reverse-engineered WannaCry with Remnux; identified the kill-switch mechanism. Wrote a basic Python ransomware to study lifecycle internals. Built a Windows + Ubuntu malware lab.
       </p>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <a href="https://github.com/Sahilsingh0808/Ransomware" target="_blank" rel="noopener" class="b-link ghost text-[10px]">REPO ↗</a>
+      </div>
+    </article>
+
+    <!-- US Debt Structures -->
+    <article class="col-span-12 lg:col-span-4 glass bento p-6 ascii-corner">
+      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+      <div class="flex items-center justify-between mb-3">
+        <span class="tag">COLUMBIA_RESEARCH</span>
+        <span class="font-mono text-[10px] text-dimmer">2021–22</span>
+      </div>
+      <h3 class="font-h font-semibold text-[22px]">US States Debt Structures</h3>
+      <p class="text-dim text-[14.5px] mt-2 leading-relaxed">
+        Database build for Prof. Oliver Giesecke (Columbia) — extracted maturity-structure data from US-state Annual Comprehensive Financial Reports. Pandas/NumPy + AWS pipeline.
+      </p>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <a href="https://github.com/Sahilsingh0808/US-Debt-Structures" target="_blank" rel="noopener" class="b-link ghost text-[10px]">REPO ↗</a>
+      </div>
+    </article>
+
+    <!-- Loan Default -->
+    <article class="col-span-12 lg:col-span-4 glass bento p-6 ascii-corner">
+      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+      <div class="flex items-center justify-between mb-3">
+        <span class="tag cyan">ML · IME672</span>
+        <span class="font-mono text-[10px] text-dimmer">2022 · COURSE</span>
+      </div>
+      <h3 class="font-h font-semibold text-[22px]">Loan Default Classification</h3>
+      <p class="text-dim text-[14.5px] mt-2 leading-relaxed">
+        Predictive ML pipeline on a <span class="text-cyan">~200k-row</span> loan training set — Random Forest, AdaBoost, Logistic Regression, ANN benchmarked side-by-side with full EDA.
+      </p>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <a href="https://github.com/Sahilsingh0808/IME672_Project" target="_blank" rel="noopener" class="b-link ghost text-[10px]">REPO ↗</a>
+      </div>
+    </article>
+
+    <!-- Fit India -->
+    <article class="col-span-12 lg:col-span-4 glass bento p-6 ascii-corner">
+      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+      <div class="flex items-center justify-between mb-3">
+        <span class="tag">GnS · IITK · SECRETARY</span>
+        <span class="font-mono text-[10px] text-dimmer">2021</span>
+      </div>
+      <h3 class="font-h font-semibold text-[22px]">Fit India 2.0 Leaderboard</h3>
+      <p class="text-dim text-[14.5px] mt-2 leading-relaxed">
+        Leaderboard portal for IITK's Fit India 2.0 campaign — built as Web Secretary of the Games and Sports Council, used live during the campaign window.
+      </p>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <a href="https://github.com/Sahilsingh0808/Fit-India-2.0-GnS-IITK" target="_blank" rel="noopener" class="b-link ghost text-[10px]">REPO ↗</a>
+      </div>
+    </article>
+
+    <!-- Noted -->
+    <article class="col-span-12 lg:col-span-4 glass bento p-6 ascii-corner">
+      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+      <div class="flex items-center justify-between mb-3">
+        <span class="tag lime">PLAY_STORE · PUBLISHED</span>
+        <span class="font-mono text-[10px] text-dimmer">2021</span>
+      </div>
+      <h3 class="font-h font-semibold text-[22px]">Noted — Note-Making App</h3>
+      <p class="text-dim text-[14.5px] mt-2 leading-relaxed">
+        Cross-platform note app on Google Play. Flutter UI, Node backend, MongoDB store, Firebase auth. Bookmark, categorise, edit, delete.
+      </p>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <a href="https://github.com/Sahilsingh0808/Noted--Note-Making-App" target="_blank" rel="noopener" class="b-link ghost text-[10px]">REPO ↗</a>
+      </div>
+    </article>
+
+    <!-- Lost Prince -->
+    <article class="col-span-12 lg:col-span-4 glass bento p-6 ascii-corner">
+      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+      <div class="flex items-center justify-between mb-3">
+        <span class="tag">GAMEDEV · UNITY · C#</span>
+        <span class="font-mono text-[10px] text-dimmer">2021</span>
+      </div>
+      <h3 class="font-h font-semibold text-[22px]">The Lost Prince</h3>
+      <p class="text-dim text-[14.5px] mt-2 leading-relaxed">
+        Unity 2D game with the IITK Gamedev Society. C# scripts for enemy AI, character movement, scene transitions, health systems.
+      </p>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <a href="https://github.com/Sahilsingh0808/The-Lost-Prince" target="_blank" rel="noopener" class="b-link ghost text-[10px]">REPO ↗</a>
+      </div>
+    </article>
+
+    <!-- Haunted 3D -->
+    <article class="col-span-12 lg:col-span-4 glass bento p-6 ascii-corner">
+      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+      <div class="flex items-center justify-between mb-3">
+        <span class="tag">GAMEDEV · UNITY · 3D</span>
+        <span class="font-mono text-[10px] text-dimmer">SIDE</span>
+      </div>
+      <h3 class="font-h font-semibold text-[22px]">Haunted 3D</h3>
+      <p class="text-dim text-[14.5px] mt-2 leading-relaxed">
+        Unity 3D horror experiment — C# scripting + ShaderLab work. A toy project to learn shader pipelines and 3D physics.
+      </p>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <a href="https://github.com/Sahilsingh0808/Haunted-3D-Game-Unity" target="_blank" rel="noopener" class="b-link ghost text-[10px]">REPO ↗</a>
+      </div>
+    </article>
+
+    <!-- TicTacToe -->
+    <article class="col-span-12 lg:col-span-4 glass bento p-6 ascii-corner">
+      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+      <div class="flex items-center justify-between mb-3">
+        <span class="tag lime">PLAY_STORE · PUBLISHED</span>
+        <span class="font-mono text-[10px] text-dimmer">SHIPPED</span>
+      </div>
+      <h3 class="font-h font-semibold text-[22px]">TicTacToe</h3>
+      <p class="text-dim text-[14.5px] mt-2 leading-relaxed">
+        Cross-platform TicTacToe published on Google Play. Pass-and-play with clean state management.
+      </p>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <a href="https://github.com/Sahilsingh0808/TicTacToe" target="_blank" rel="noopener" class="b-link ghost text-[10px]">REPO ↗</a>
+      </div>
+    </article>
+
+    <!-- Number Magic -->
+    <article class="col-span-12 lg:col-span-4 glass bento p-6 ascii-corner">
+      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+      <div class="flex items-center justify-between mb-3">
+        <span class="tag lime">PLAY_STORE · PUBLISHED</span>
+        <span class="font-mono text-[10px] text-dimmer">SHIPPED</span>
+      </div>
+      <h3 class="font-h font-semibold text-[22px]">Number Magic</h3>
+      <p class="text-dim text-[14.5px] mt-2 leading-relaxed">
+        Number-trick game on Google Play — quick, mobile-first, kid-friendly.
+      </p>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <a href="https://github.com/Sahilsingh0808/Number-Magic" target="_blank" rel="noopener" class="b-link ghost text-[10px]">REPO ↗</a>
+      </div>
     </article>
 
   </div>
 
-  <!-- SECONDARY ACHIEVEMENTS -->
+  <!-- AWARDS row -->
   <div class="mt-10 grid grid-cols-12 gap-4 reveal">
     <div class="col-span-12 lg:col-span-4 glass p-5 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
@@ -863,52 +1143,139 @@
     <div class="col-span-12 md:col-span-6 lg:col-span-3 glass p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
       <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">/// LANGUAGES</div>
-      <ul class="mt-4 space-y-1.5 font-mono text-[14px]">
+      <ul class="mt-4 space-y-1.5 font-mono text-[13.5px]">
         <li class="flex justify-between"><span>Python</span><span class="text-dim">EXPERT</span></li>
         <li class="flex justify-between"><span>TypeScript</span><span class="text-dim">EXPERT</span></li>
         <li class="flex justify-between"><span>JavaScript</span><span class="text-dim">EXPERT</span></li>
         <li class="flex justify-between"><span>C++ / C</span><span class="text-dim">PROFICIENT</span></li>
         <li class="flex justify-between"><span>Dart</span><span class="text-dim">PROFICIENT</span></li>
         <li class="flex justify-between"><span>Java</span><span class="text-dim">FAMILIAR</span></li>
+        <li class="flex justify-between"><span>C#</span><span class="text-dim">UNITY</span></li>
+        <li class="flex justify-between"><span>SQL</span><span class="text-dim">DAILY</span></li>
+        <li class="flex justify-between"><span>Bash / Shell</span><span class="text-dim">DAILY</span></li>
       </ul>
     </div>
     <div class="col-span-12 md:col-span-6 lg:col-span-3 glass p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
-      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">/// BACKEND / AI</div>
-      <ul class="mt-4 space-y-1.5 font-mono text-[14px]">
-        <li class="flex justify-between"><span>Django</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>FastAPI / Flask</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>Node.js</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>WebSockets</span><span class="text-dim">10k_CONC</span></li>
+      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">/// AI / LLM SYSTEMS</div>
+      <ul class="mt-4 space-y-1.5 font-mono text-[13.5px]">
+        <li class="flex justify-between"><span>Agent Orchestration</span><span class="text-dim">SHIPPED</span></li>
+        <li class="flex justify-between"><span>LLM Routing</span><span class="text-dim">400+_MODELS</span></li>
         <li class="flex justify-between"><span>RAG / Vector DB</span><span class="text-dim">SHIPPED</span></li>
-        <li class="flex justify-between"><span>LLM Routing</span><span class="text-dim">300+_MODELS</span></li>
+        <li class="flex justify-between"><span>Prompt Engineering</span><span class="text-dim">PROD</span></li>
+        <li class="flex justify-between"><span>OpenAI / Anthropic SDK</span><span class="text-dim">DAILY</span></li>
+        <li class="flex justify-between"><span>Gemini / Fathom</span><span class="text-dim">SHIPPED</span></li>
+        <li class="flex justify-between"><span>ASR / Speech</span><span class="text-dim">AI4SG</span></li>
+        <li class="flex justify-between"><span>Eval / Benchmarks</span><span class="text-dim">DEEPSEARCHQA</span></li>
+      </ul>
+    </div>
+    <div class="col-span-12 md:col-span-6 lg:col-span-3 glass p-6 ascii-corner">
+      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">/// BACKEND</div>
+      <ul class="mt-4 space-y-1.5 font-mono text-[13.5px]">
+        <li class="flex justify-between"><span>Django / DRF</span><span class="text-dim">PROD</span></li>
+        <li class="flex justify-between"><span>FastAPI / Flask</span><span class="text-dim">PROD</span></li>
+        <li class="flex justify-between"><span>Node.js / Express</span><span class="text-dim">PROD</span></li>
+        <li class="flex justify-between"><span>WebSockets</span><span class="text-dim">10k_CONC</span></li>
+        <li class="flex justify-between"><span>Celery / Queues</span><span class="text-dim">PROD</span></li>
+        <li class="flex justify-between"><span>REST + GraphQL</span><span class="text-dim">PROD</span></li>
+        <li class="flex justify-between"><span>Microservices</span><span class="text-dim">SHIPPED</span></li>
+        <li class="flex justify-between"><span>MCP / Webhooks</span><span class="text-dim">SHIPPED</span></li>
       </ul>
     </div>
     <div class="col-span-12 md:col-span-6 lg:col-span-3 glass p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
       <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">/// FRONTEND</div>
-      <ul class="mt-4 space-y-1.5 font-mono text-[14px]">
+      <ul class="mt-4 space-y-1.5 font-mono text-[13.5px]">
         <li class="flex justify-between"><span>React</span><span class="text-dim">EXPERT</span></li>
         <li class="flex justify-between"><span>Next.js</span><span class="text-dim">PROD</span></li>
         <li class="flex justify-between"><span>React Native</span><span class="text-dim">PROD</span></li>
         <li class="flex justify-between"><span>Flutter</span><span class="text-dim">PROD</span></li>
         <li class="flex justify-between"><span>Tailwind</span><span class="text-dim">DAILY</span></li>
+        <li class="flex justify-between"><span>Redux / Zustand</span><span class="text-dim">PROD</span></li>
         <li class="flex justify-between"><span>D3.js</span><span class="text-dim">SHIPPED</span></li>
+        <li class="flex justify-between"><span>ChartJS</span><span class="text-dim">SHIPPED</span></li>
       </ul>
     </div>
     <div class="col-span-12 md:col-span-6 lg:col-span-3 glass p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
       <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">/// INFRA / DEVOPS</div>
-      <ul class="mt-4 space-y-1.5 font-mono text-[14px]">
+      <ul class="mt-4 space-y-1.5 font-mono text-[13.5px]">
         <li class="flex justify-between"><span>AWS</span><span class="text-dim">EC2/S3/RDS</span></li>
         <li class="flex justify-between"><span>GCP</span><span class="text-dim">PROD</span></li>
         <li class="flex justify-between"><span>Azure</span><span class="text-dim">PROD</span></li>
         <li class="flex justify-between"><span>Docker</span><span class="text-dim">DAILY</span></li>
-        <li class="flex justify-between"><span>Blue–Green</span><span class="text-dim">ZERO_DOWN</span></li>
-        <li class="flex justify-between"><span>Datadog APM</span><span class="text-dim">ARCHITECT</span></li>
-        <li class="flex justify-between"><span>Redis</span><span class="text-dim">CACHE+LB</span></li>
-        <li class="flex justify-between"><span>Postgres / Mongo</span><span class="text-dim">PROD</span></li>
+        <li class="flex justify-between"><span>Nginx / PM2</span><span class="text-dim">PROD</span></li>
+        <li class="flex justify-between"><span>Blue–Green Deploys</span><span class="text-dim">ZERO_DOWN</span></li>
+        <li class="flex justify-between"><span>CI/CD</span><span class="text-dim">DAILY</span></li>
+        <li class="flex justify-between"><span>Linux</span><span class="text-dim">DAILY</span></li>
       </ul>
+    </div>
+    <div class="col-span-12 md:col-span-6 lg:col-span-3 glass p-6 ascii-corner">
+      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">/// DATA / STORAGE</div>
+      <ul class="mt-4 space-y-1.5 font-mono text-[13.5px]">
+        <li class="flex justify-between"><span>Postgres</span><span class="text-dim">PROD</span></li>
+        <li class="flex justify-between"><span>MongoDB</span><span class="text-dim">PROD</span></li>
+        <li class="flex justify-between"><span>Redis</span><span class="text-dim">CACHE+LB</span></li>
+        <li class="flex justify-between"><span>Firebase / Firestore</span><span class="text-dim">PROD</span></li>
+        <li class="flex justify-between"><span>S3 / Object Storage</span><span class="text-dim">DAILY</span></li>
+        <li class="flex justify-between"><span>Pandas / NumPy</span><span class="text-dim">EXPERT</span></li>
+        <li class="flex justify-between"><span>Matplotlib / Seaborn</span><span class="text-dim">PROD</span></li>
+      </ul>
+    </div>
+    <div class="col-span-12 md:col-span-6 lg:col-span-3 glass p-6 ascii-corner">
+      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">/// OBSERVABILITY + PAYMENTS</div>
+      <ul class="mt-4 space-y-1.5 font-mono text-[13.5px]">
+        <li class="flex justify-between"><span>Datadog APM</span><span class="text-dim">ARCHITECT</span></li>
+        <li class="flex justify-between"><span>Centralized Logging</span><span class="text-dim">PROD</span></li>
+        <li class="flex justify-between"><span>Sentry</span><span class="text-dim">PROD</span></li>
+        <li class="flex justify-between"><span>Stripe</span><span class="text-dim">INTL+DOM</span></li>
+        <li class="flex justify-between"><span>Razorpay</span><span class="text-dim">SHIPPED</span></li>
+        <li class="flex justify-between"><span>FCM / Push</span><span class="text-dim">PROD</span></li>
+        <li class="flex justify-between"><span>MoEngage</span><span class="text-dim">SHIPPED</span></li>
+      </ul>
+    </div>
+    <div class="col-span-12 md:col-span-6 lg:col-span-3 glass p-6 ascii-corner">
+      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">/// SECURITY + GAME + MISC</div>
+      <ul class="mt-4 space-y-1.5 font-mono text-[13.5px]">
+        <li class="flex justify-between"><span>OWASP / Auth</span><span class="text-dim">PROD</span></li>
+        <li class="flex justify-between"><span>OAuth / SSO</span><span class="text-dim">PROD</span></li>
+        <li class="flex justify-between"><span>Reverse Engineering</span><span class="text-dim">VAPT</span></li>
+        <li class="flex justify-between"><span>MITRE ATT&amp;CK</span><span class="text-dim">CASCADE</span></li>
+        <li class="flex justify-between"><span>Volatility / Log2T</span><span class="text-dim">FORENSICS</span></li>
+        <li class="flex justify-between"><span>Unity 2D/3D · C#</span><span class="text-dim">SHIPPED</span></li>
+        <li class="flex justify-between"><span>ShaderLab / HLSL</span><span class="text-dim">FAMILIAR</span></li>
+        <li class="flex justify-between"><span>Git / GitHub Actions</span><span class="text-dim">DAILY</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- DOMAINS strip -->
+  <div class="mt-8 reveal">
+    <div class="font-mono text-[11px] tracking-[0.22em] text-dim mb-3">/// DOMAINS_TOUCHED</div>
+    <div class="flex flex-wrap gap-2">
+      <span class="tag cyan">AI · AGENTS</span>
+      <span class="tag cyan">LLM_ROUTING</span>
+      <span class="tag cyan">RAG_SYSTEMS</span>
+      <span class="tag cyan">REAL_TIME</span>
+      <span class="tag cyan">CONSUMER_PRODUCTS</span>
+      <span class="tag cyan">ED_TECH</span>
+      <span class="tag cyan">RECRUIT_TECH</span>
+      <span class="tag cyan">FINTECH · PAYMENTS</span>
+      <span class="tag cyan">E_COMMERCE · POS</span>
+      <span class="tag cyan">DEVTOOLS · CLI</span>
+      <span class="tag cyan">CYBERSECURITY · VAPT</span>
+      <span class="tag cyan">MALWARE_RE</span>
+      <span class="tag cyan">DATA_ANALYTICS</span>
+      <span class="tag cyan">ML_CLASSIFIERS</span>
+      <span class="tag cyan">SPEECH · ASR</span>
+      <span class="tag cyan">MOBILE · ANDROID + iOS</span>
+      <span class="tag cyan">GAME_DEV · UNITY</span>
+      <span class="tag cyan">DEVOPS · MULTI_CLOUD</span>
+      <span class="tag cyan">OBSERVABILITY</span>
     </div>
   </div>
 </section>
@@ -927,15 +1294,15 @@
     <div class="col-span-12 lg:col-span-7 glass glass-cyan p-6 md:p-8 ascii-corner relative overflow-hidden">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
       <div class="absolute -right-20 -top-20 w-[420px] h-[420px] bg-cyan/10 blur-[120px] pointer-events-none"></div>
-      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">[OPEN_TO_ROLES]</div>
-      <h3 class="font-h font-bold text-[28px] md:text-[36px] uppercase tracking-tight mt-2">Founding eng / staff IC roles building AI products at scale.</h3>
+      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">[OPEN_FOR_COLLABS · ADVISORY · BUILDS]</div>
+      <h3 class="font-h font-bold text-[28px] md:text-[36px] uppercase tracking-tight mt-2">Building AI products at Bolto. Always up for a good problem.</h3>
       <p class="text-ink/85 mt-4 max-w-[60ch]">
-        I'm looking for the next 0→1: agent platforms, applied AI, real-time consumer products, multi-cloud infra. Bias for shipping, allergy to pure architecture astronautics. If you're building something users will actually pay for, let's talk.
+        If you're working on agent platforms, applied AI, real-time consumer products, or hard infra problems and want to compare notes — reach out. Allergic to architecture astronautics; biased toward shipping.
       </p>
       <div class="flex flex-wrap gap-3 mt-6">
         <a href="mailto:sahil85.10s@gmail.com" class="b-link lime">&gt;_ EMAIL_DIRECT</a>
         <a href="https://www.linkedin.com/in/sahilsingh" target="_blank" rel="noopener" class="b-link">LINKEDIN</a>
-        <a href="https://github.com/sahilsingh" target="_blank" rel="noopener" class="b-link ghost">GITHUB</a>
+        <a href="https://github.com/Sahilsingh0808" target="_blank" rel="noopener" class="b-link ghost">GITHUB</a>
         <a href="https://landing.jeenius.tech" target="_blank" rel="noopener" class="b-link ghost">JEENIUS.TECH</a>
       </div>
     </div>
@@ -944,12 +1311,12 @@
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
       <div class="font-mono text-[11px] tracking-[0.18em] text-lime">[QUICK_FACTS]</div>
       <ul class="mt-4 font-mono text-[13.5px] space-y-2.5">
-        <li class="flex justify-between border-b border-line2 pb-2"><span class="text-dim">LOCATION</span><span>Remote · India · open to relocation</span></li>
-        <li class="flex justify-between border-b border-line2 pb-2"><span class="text-dim">EMAIL</span><a class="text-cyan hover:underline" href="mailto:sahil85.10s@gmail.com">sahil85.10s@gmail.com</a></li>
-        <li class="flex justify-between border-b border-line2 pb-2"><span class="text-dim">PHONE</span><span>+91 98740 82672</span></li>
+        <li class="flex justify-between border-b border-line2 pb-2"><span class="text-dim">CURRENT</span><span>Bolto (YC S23) · since May 2026</span></li>
+        <li class="flex justify-between border-b border-line2 pb-2"><span class="text-dim">PREVIOUS</span><span>Spine AI (YC S23) · Sigiq.AI</span></li>
         <li class="flex justify-between border-b border-line2 pb-2"><span class="text-dim">DEGREE</span><span>B.Tech · IIT Kanpur '24</span></li>
-        <li class="flex justify-between border-b border-line2 pb-2"><span class="text-dim">CURRENT</span><span>Spine AI (YC S23)</span></li>
-        <li class="flex justify-between"><span class="text-dim">STATUS</span><span class="text-lime">AVAILABLE</span></li>
+        <li class="flex justify-between border-b border-line2 pb-2"><span class="text-dim">EMAIL</span><a class="text-cyan hover:underline" href="mailto:sahil85.10s@gmail.com">sahil85.10s@gmail.com</a></li>
+        <li class="flex justify-between border-b border-line2 pb-2"><span class="text-dim">WORK_EMAIL</span><a class="text-cyan hover:underline" href="mailto:v-sahil.singh@bolto.com">v-sahil.singh@bolto.com</a></li>
+        <li class="flex justify-between"><span class="text-dim">LOCATION</span><span>Remote · India</span></li>
       </ul>
     </aside>
   </div>
@@ -961,7 +1328,7 @@
     <div>[STATUS: OPTIMAL] · KERNEL_V.4.7.1 · UPTIME: 99.9% · BUILT_FROM_SCRATCH</div>
     <div class="flex flex-wrap items-center gap-5">
       <a href="mailto:sahil85.10s@gmail.com" class="hover:text-cyan transition-colors">ENCRYPTED_MAIL</a>
-      <a href="https://github.com/sahilsingh" target="_blank" rel="noopener" class="hover:text-cyan transition-colors">VCS_ROOT</a>
+      <a href="https://github.com/Sahilsingh0808" target="_blank" rel="noopener" class="hover:text-cyan transition-colors">VCS_ROOT</a>
       <a href="https://www.linkedin.com/in/sahilsingh" target="_blank" rel="noopener" class="hover:text-cyan transition-colors">NETWORK_ID</a>
       <a href="https://landing.jeenius.tech" target="_blank" rel="noopener" class="hover:text-lime transition-colors">JEENIUS_TECH</a>
     </div>
@@ -971,12 +1338,230 @@
 
 </main>
 
+<!-- ============================== PRODUCT MODALS ============================== -->
+
+<!-- SPINE -->
+<dialog id="modal-spine" class="modal-product">
+  <div class="modal-shell ascii-corner">
+    <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+    <header class="sticky top-0 z-10 flex items-center justify-between border-b border-line2 bg-bg/95 backdrop-blur px-6 py-3">
+      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">[DEEP_DIVE] /// SPINE_SWARM</div>
+      <button class="b-link ghost text-[10px] modal-close">&gt;_ CLOSE [ESC]</button>
+    </header>
+    <div class="p-6 md:p-8 space-y-6">
+      <div>
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="tag cyan">YC_S23</span>
+          <span class="tag">RESEARCH_PLATFORM</span>
+          <span class="tag">2025–26</span>
+        </div>
+        <h2 class="font-h font-bold text-[36px] md:text-[44px] uppercase tracking-tight mt-3">Spine — Spine Swarm</h2>
+        <p class="text-ink/85 mt-3 max-w-[78ch]">
+          Spine is an AI research platform that orchestrates 400+ models as parallel agents to produce client-ready research and deliverables — decks, PDFs, Excel models with formulas — in minutes, not days. Spine's deep-research engine ranked <span class="text-cyan">#1 on Google DeepMind's DeepSearchQA</span> benchmark (87.6% accuracy). Investors, consultants, legal, medical, founders, and GTM teams use it to compress days of analyst work into a single run.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-h font-semibold text-[22px] mb-3">What I built</h3>
+        <ul class="space-y-2.5 text-ink/85">
+          <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span><b class="text-cyan">Spine Swarm orchestration engine.</b> Architected and owned the backend that coordinates 1–10 specialized agents per task — with <span class="text-cyan">500+ agents running concurrently</span> across the platform — enabling parallel, non-sequential execution of multi-step research workflows.</span></li>
+          <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span><b class="text-cyan">Intelligent model router.</b> Dynamic selection across <span class="text-cyan">400+ LLMs</span> per execution step — optimising for answer quality, latency, and cost. Cumulative <span class="text-cyan">106k+ intelligence nodes</span> processed; reduces single-model bias and improves output reliability across diverse task types.</span></li>
+          <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span><b class="text-cyan">Canvas APIs + data layer.</b> Powering <span class="text-cyan">6,400+ active canvas environments</span> with real-time collaborative agent execution, artifact persistence, branching, and full inspectability of every agent step.</span></li>
+          <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span><b class="text-cyan">React canvas frontend + 0→1 product.</b> Built the visual canvas UI, scheduled-workflow system, and integrations across MCP, webhooks, and external APIs.</span></li>
+          <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span><b class="text-cyan">Multi-cloud DevOps.</b> AWS / GCP / Azure with zero-downtime <b>blue–green deploys</b>; production reliability across hundreds of concurrent long-running agent tasks.</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-h font-semibold text-[22px] mb-3">Why it matters</h3>
+        <p class="text-ink/85 max-w-[78ch]">
+          Most "AI research" tools generate chat. Spine generates deliverables — and orchestrates models per step instead of pinning the whole task to one LLM. The Swarm pattern is what makes it possible to push a research task into a parallel DAG and get back artifacts a human would otherwise spend a day producing.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4 border-t border-line2">
+        <div><div class="font-h font-bold text-[28px] text-cyan num">500+</div><div class="font-mono text-[11px] text-dim">CONCURRENT_AGENTS</div></div>
+        <div><div class="font-h font-bold text-[28px] text-cyan num">400+</div><div class="font-mono text-[11px] text-dim">LLMS_ROUTED</div></div>
+        <div><div class="font-h font-bold text-[28px] text-cyan num">6.4k+</div><div class="font-mono text-[11px] text-dim">CANVAS_ENVS</div></div>
+        <div><div class="font-h font-bold text-[28px] text-lime num">151</div><div class="font-mono text-[11px] text-dim">PAYING (2.5% CONV)</div></div>
+      </div>
+
+      <div class="flex flex-wrap gap-2 pt-2">
+        <span class="tag">REACT</span><span class="tag">NODE</span><span class="tag">PYTHON</span><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">AZURE</span><span class="tag">DOCKER</span><span class="tag">BLUE_GREEN</span><span class="tag">MCP</span><span class="tag">WEBHOOKS</span>
+      </div>
+
+      <div class="flex flex-wrap gap-3 pt-4">
+        <a href="https://getspine.ai" target="_blank" rel="noopener" class="b-link">&gt;_ TRY_SPINE · getspine.ai</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- PADHAI -->
+<dialog id="modal-padhai" class="modal-product">
+  <div class="modal-shell ascii-corner">
+    <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+    <header class="sticky top-0 z-10 flex items-center justify-between border-b border-line2 bg-bg/95 backdrop-blur px-6 py-3">
+      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">[DEEP_DIVE] /// PADHAI.AI</div>
+      <button class="b-link ghost text-[10px] modal-close">&gt;_ CLOSE [ESC]</button>
+    </header>
+    <div class="p-6 md:p-8 space-y-6">
+      <div>
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="tag cyan">SIGIQ.AI</span>
+          <span class="tag">UPSC · CIVIL_SERVICES</span>
+          <span class="tag">2024</span>
+        </div>
+        <h2 class="font-h font-bold text-[36px] md:text-[44px] uppercase tracking-tight mt-3">Padhai.ai</h2>
+        <p class="text-ink/85 mt-3 max-w-[78ch]">
+          Padhai.ai is the AI study companion for Indian civil-services aspirants. It runs an AI tutor across the full UPSC syllabus, curates daily current affairs linked to PYQs, ships <span class="text-cyan">8,000+ previous-year questions</span> with model answers and unlimited AI evaluation for Mains, and chats over the NCERT/UPSC textbook corpus chapter-by-chapter. Today it serves <span class="text-cyan">175,000+ active students</span>, <span class="text-cyan">25M+ tutor interactions</span>, and <span class="text-cyan">10M+ AI summaries consumed</span>.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-h font-semibold text-[22px] mb-3">What I built</h3>
+        <ul class="space-y-2.5 text-ink/85">
+          <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span><b class="text-cyan">AI webserver refactor.</b> Owned a comprehensive refactor of the AI backend — restructured the codebase, hardened error handling, slashed system faults, and significantly improved stability and maintainability under exam-season concurrent load.</span></li>
+          <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span><b class="text-cyan">10k-concurrent WebSocket microservice.</b> Built the real-time interaction layer that powers AI tutor chat at scale, plus a separate CPU-intensive recordkeeping microservice — hot path and heavy path cleanly split.</span></li>
+          <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span><b class="text-cyan">Redis leaderboard.</b> Real-time, low-latency rank surfacing using sorted sets; logarithmic-time access without DB hammering.</span></li>
+          <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span><b class="text-cyan">Blue–green deploys + Datadog APM.</b> Designed zero-downtime production updates with Docker + PM2; architected centralized logging and APM across AI webservers and backends — full request traces, faster outage response.</span></li>
+          <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span><b class="text-cyan">Containerization.</b> Migrated services off PM2-managed environments into a containerized ecosystem, improving scalability, resource utilisation, and deployment consistency across dev and prod.</span></li>
+          <li class="flex gap-3"><span class="text-cyan font-mono mt-1.5">▸</span><span><b class="text-cyan">Notification + deeplink growth surfaces.</b> Built FCM-driven notification panel with bulk + analytics; deeplink-driven sharing with dynamic image generation for previews.</span></li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4 border-t border-line2">
+        <div><div class="font-h font-bold text-[28px] text-cyan num">175k+</div><div class="font-mono text-[11px] text-dim">ACTIVE_STUDENTS</div></div>
+        <div><div class="font-h font-bold text-[28px] text-cyan num">25M+</div><div class="font-mono text-[11px] text-dim">TUTOR_INTERACTIONS</div></div>
+        <div><div class="font-h font-bold text-[28px] text-cyan num">10k</div><div class="font-mono text-[11px] text-dim">WS_CONCURRENT</div></div>
+        <div><div class="font-h font-bold text-[28px] text-lime num">0</div><div class="font-mono text-[11px] text-dim">DOWNTIME · BLUE_GREEN</div></div>
+      </div>
+
+      <div class="flex flex-wrap gap-2 pt-2">
+        <span class="tag">DJANGO</span><span class="tag">REDIS</span><span class="tag">WEBSOCKETS</span><span class="tag">DOCKER</span><span class="tag">PM2</span><span class="tag">DATADOG</span><span class="tag">CELERY</span><span class="tag">FCM</span><span class="tag">AWS · GCP · AZURE</span>
+      </div>
+
+      <div class="flex flex-wrap gap-3 pt-4">
+        <a href="https://padhai.ai" target="_blank" rel="noopener" class="b-link">&gt;_ TRY_PADHAI · padhai.ai</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- EVERTUTOR -->
+<dialog id="modal-evertutor" class="modal-product">
+  <div class="modal-shell ascii-corner">
+    <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+    <header class="sticky top-0 z-10 flex items-center justify-between border-b border-line2 bg-bg/95 backdrop-blur px-6 py-3">
+      <div class="font-mono text-[11px] tracking-[0.18em] text-lime">[DEEP_DIVE] /// EVERTUTOR</div>
+      <button class="b-link ghost text-[10px] modal-close">&gt;_ CLOSE [ESC]</button>
+    </header>
+    <div class="p-6 md:p-8 space-y-6">
+      <div>
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="tag lime">SIGIQ.AI</span>
+          <span class="tag">K-12 INTERVENTION + GRE</span>
+          <span class="tag">2024</span>
+        </div>
+        <h2 class="font-h font-bold text-[36px] md:text-[44px] uppercase tracking-tight mt-3">EverTutor.ai</h2>
+        <p class="text-ink/85 mt-3 max-w-[78ch]">
+          EverTutor delivers personalized, voice-first AI tutoring to help struggling students reach grade-level proficiency. Voice-first interface across <span class="text-lime">50+ languages</span>, real-time adaptive difficulty, integrations with Zearn / Illustrative Math / Desmos / Waggle, and FERPA + COPPA compliance for student data. Originally launched as a GRE prep product before evolving into the K-12 intervention platform it is today.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-h font-semibold text-[22px] mb-3">What I built</h3>
+        <ul class="space-y-2.5 text-ink/85">
+          <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span><b class="text-lime">Backend &amp; infra end-to-end.</b> Owned the AI webserver, microservices, queues, and DevOps that power the product across Sigiq's evolution from GRE → K-12.</span></li>
+          <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span><b class="text-lime">Stripe payments — international + domestic.</b> Implemented the full Stripe gateway (originally in the GRE product) to seamlessly process global transactions, secure the revenue path, and streamline subscription flows.</span></li>
+          <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span><b class="text-lime">React Native rich-text + LaTeX renderer.</b> Built the rendering runtime that ships AI tutor responses to learners — markdown plus LaTeX plugin plus custom components handling every richtext type the AI emits, including math/STEM-heavy answers.</span></li>
+          <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span><b class="text-lime">Containerized multi-cloud deploys.</b> AWS / GCP / Azure with blue–green release cadence; CI/CD optimised for cost and high availability.</span></li>
+          <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span><b class="text-lime">Observability stack.</b> Datadog APM + centralized logging across AI services for proactive issue detection.</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-h font-semibold text-[22px] mb-3">Why it matters</h3>
+        <p class="text-ink/85 max-w-[78ch]">
+          High-dosage 1:1 tutoring is the gold-standard intervention; cost is what kills it at scale. EverTutor's voice-first AI gets close to the gold standard at a price point schools can actually deploy. The piece I owned — the backend that lets payments, content, and AI flow through reliably — is the part that determines whether a tutoring product survives a real classroom.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-2 pt-2">
+        <span class="tag">STRIPE</span><span class="tag">DJANGO</span><span class="tag">REACT_NATIVE</span><span class="tag">CELERY</span><span class="tag">FCM</span><span class="tag">DOCKER</span><span class="tag">DATADOG</span><span class="tag">AWS · GCP · AZURE</span>
+      </div>
+
+      <div class="flex flex-wrap gap-3 pt-4">
+        <a href="https://evertutor.ai/" target="_blank" rel="noopener" class="b-link lime">&gt;_ TRY_EVERTUTOR · evertutor.ai</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- JEENIUS -->
+<dialog id="modal-jeenius" class="modal-product">
+  <div class="modal-shell ascii-corner">
+    <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+    <header class="sticky top-0 z-10 flex items-center justify-between border-b border-line2 bg-bg/95 backdrop-blur px-6 py-3">
+      <div class="font-mono text-[11px] tracking-[0.18em] text-lime">[DEEP_DIVE] /// JEENIUS_AI</div>
+      <button class="b-link ghost text-[10px] modal-close">&gt;_ CLOSE [ESC]</button>
+    </header>
+    <div class="p-6 md:p-8 space-y-6">
+      <div>
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="tag lime">SOLO · FOUNDER &amp; SOLE ENGINEER</span>
+          <span class="tag">JEE_PREP</span>
+          <span class="tag">2024 — PRESENT</span>
+        </div>
+        <h2 class="font-h font-bold text-[36px] md:text-[44px] uppercase tracking-tight mt-3">JEEnius AI</h2>
+        <p class="text-ink/85 mt-3 max-w-[78ch]">
+          Solo-built JEE preparation platform with a question-prediction engine at its core. Ranked <span class="text-lime">83% topic-coverage accuracy on JEE Main 2026 January</span> with <span class="text-lime">63 near-exact question matches</span> — Physics 92%, Chemistry 87% — ground-truth validated post-exam. Grew to <span class="text-lime">10,000+ users</span> with <span class="text-lime">4.8★ Play Store rating</span>, fully organic, paying subscribers across a freemium model.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-h font-semibold text-[22px] mb-3">What I built</h3>
+        <ul class="space-y-2.5 text-ink/85">
+          <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span><b class="text-lime">Question-prediction engine.</b> RAG over a vector-indexed corpus of <span class="text-lime">20+ years</span> of PYQs and syllabus data, with semantic similarity search and concept-graph traversal to surface high-probability topics.</span></li>
+          <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span><b class="text-lime">Multi-model reasoning stack.</b> Routes per-query across <b>GPT-4o, o-series, Gemini 2.5 Pro, and Fathom</b> — intelligent model selection optimising for answer quality, latency, and cost across <span class="text-lime">100,000+ practice questions</span>.</span></li>
+          <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span><b class="text-lime">Adaptive learning pipeline.</b> Tracks per-concept accuracy, solve timing, and misconception patterns per user — continuously re-ranking question difficulty and auto-adjusting study plans without manual configuration.</span></li>
+          <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span><b class="text-lime">Full product surface.</b> Android app on Play Store, landing page, AI backend, real-time 1v1 duel system, image-based doubt solver, performance analytics dashboard — 0 to production in a few months, all solo.</span></li>
+          <li class="flex gap-3"><span class="text-lime font-mono mt-1.5">▸</span><span><b class="text-lime">End-to-end infra.</b> Backend APIs, database, CI/CD, Play Store release pipeline — production reliability under high-traffic concurrent load through exam season.</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-h font-semibold text-[22px] mb-3">Pricing</h3>
+        <p class="text-ink/85 max-w-[78ch]">
+          Freemium · Pro at ₹499/mo · Pro+ at ₹999/mo. PMF validated independently with paying customers and zero paid acquisition.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4 border-t border-line2">
+        <div><div class="font-h font-bold text-[28px] text-lime num">10k+</div><div class="font-mono text-[11px] text-dim">USERS · ORGANIC</div></div>
+        <div><div class="font-h font-bold text-[28px] text-lime num">4.8★</div><div class="font-mono text-[11px] text-dim">PLAY_STORE</div></div>
+        <div><div class="font-h font-bold text-[28px] text-lime num">83%</div><div class="font-mono text-[11px] text-dim">TOPIC_ACCURACY</div></div>
+        <div><div class="font-h font-bold text-[28px] text-lime num">63</div><div class="font-mono text-[11px] text-dim">NEAR_EXACT_MATCHES</div></div>
+      </div>
+
+      <div class="flex flex-wrap gap-2 pt-2">
+        <span class="tag">RAG</span><span class="tag">VECTOR_DB</span><span class="tag">GPT-4o</span><span class="tag">GEMINI 2.5 PRO</span><span class="tag">FATHOM</span><span class="tag">ANDROID</span><span class="tag">PYTHON</span><span class="tag">CI/CD</span>
+      </div>
+
+      <div class="flex flex-wrap gap-3 pt-4">
+        <a href="https://jeenius.tech" target="_blank" rel="noopener" class="b-link lime">&gt;_ TRY_JEENIUS · jeenius.tech</a>
+        <a href="https://landing.jeenius.tech" target="_blank" rel="noopener" class="b-link ghost">landing.jeenius.tech</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
 <script>
   // ===== Terminal typewriter =====
   const lines = [
-    { el: 't1', text: 'sahil_singh — software engineer · iit kanpur \'24 · shipping AI products that pay for themselves.', speed: 16 },
-    { el: 't2', text: '> agent orchestration · LLM routing (300+ models) · real-time backends · 0→1 products · multi-cloud devops · no architecture-astronautics allowed.', speed: 12 },
-    { el: 't3', text: '{ "current": "Spine AI (YC S23)", "shipping": "Spine Swarm + JEEnius AI", "users_reached": "170k+", "open_to": "founding/staff roles" }', speed: 12 },
+    { el: 't1', text: 'sahil_singh — software engineer · iit kanpur \'24 · shipping AI products that pay for themselves.', speed: 14 },
+    { el: 't2', text: '> agent orchestration · LLM routing (400+ models) · real-time backends · 0→1 products · multi-cloud devops · no architecture-astronautics allowed.', speed: 11 },
+    { el: 't3', text: '{ "current": "Bolto (YC S23)", "ex": "Spine AI (YC S23)", "products_shipped": 4, "users_reached": "500k+", "paying_customers": "500+" }', speed: 11 },
   ];
 
   function typeLine(line) {
@@ -1003,7 +1588,6 @@
     }
   }
 
-  // Run once after a short delay; respect reduced-motion
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
     lines.forEach(l => { const n = document.getElementById(l.el); if (n) n.textContent = l.text; });
   } else {
@@ -1062,6 +1646,57 @@
         }
       }
     });
+  });
+
+  // ===== Product modal controller =====
+  function openModal(id) {
+    const dlg = document.getElementById(id);
+    if (!dlg) return;
+    if (typeof dlg.showModal === 'function') {
+      dlg.showModal();
+    } else {
+      // very old browser fallback
+      dlg.setAttribute('open', '');
+    }
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(dlg) {
+    if (typeof dlg.close === 'function') dlg.close();
+    else dlg.removeAttribute('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-modal]').forEach(card => {
+    const id = card.dataset.modal;
+    card.addEventListener('click', (e) => {
+      // ignore clicks on internal links/buttons
+      if (e.target.closest('a, button')) return;
+      openModal(id);
+    });
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal(id);
+      }
+    });
+  });
+
+  document.querySelectorAll('dialog.modal-product').forEach(dlg => {
+    // close on backdrop click
+    dlg.addEventListener('click', (e) => {
+      const rect = dlg.getBoundingClientRect();
+      const inDialog = (
+        e.clientX >= rect.left && e.clientX <= rect.right &&
+        e.clientY >= rect.top && e.clientY <= rect.bottom
+      );
+      if (!inDialog) closeModal(dlg);
+    });
+    // close button
+    dlg.querySelectorAll('.modal-close').forEach(btn => {
+      btn.addEventListener('click', () => closeModal(dlg));
+    });
+    // restore body scroll on close
+    dlg.addEventListener('close', () => { document.body.style.overflow = ''; });
   });
 </script>
 </body>
