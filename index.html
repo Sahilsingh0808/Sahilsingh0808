@@ -47,6 +47,22 @@
     color: #e7e7e9;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    animation: pageIn .45s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 70;
+    width: 100%;
+    height: 2px;
+    transform-origin: left;
+    transform: scaleX(var(--scroll, 0));
+    background: linear-gradient(90deg, #00f0ff, #c3f400);
+    box-shadow: 0 0 18px rgba(0, 240, 255, 0.45);
+    pointer-events: none;
   }
   .grid-overlay {
     background-image:
@@ -54,7 +70,9 @@
       linear-gradient(90deg, rgba(231,231,233,0.035) 1px, transparent 1px);
     background-size: 48px 48px;
     background-position: -1px -1px;
+    animation: gridDrift 28s linear infinite;
   }
+  @keyframes gridDrift { to { background-position: 47px 47px; } }
   .glass {
     background: rgba(15, 15, 16, 0.72);
     backdrop-filter: blur(14px);
@@ -84,6 +102,11 @@
     font-size: 11px;
     line-height: 1;
     pointer-events: none;
+    transition: color .2s, text-shadow .2s;
+  }
+  .ascii-corner:hover > .tl, .ascii-corner:hover > .tr, .ascii-corner:hover > .bl, .ascii-corner:hover > .br {
+    color: rgba(195, 244, 0, 0.82);
+    text-shadow: 0 0 10px rgba(195, 244, 0, 0.45);
   }
   .ascii-corner > .tl { top: 6px; left: 6px; }
   .ascii-corner > .tr { top: 6px; right: 6px; }
@@ -107,8 +130,19 @@
     font-size: 12px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    overflow: hidden;
     transition: background-color .15s, color .15s, box-shadow .15s, transform .05s;
   }
+  .b-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-120%);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+    transition: transform .45s cubic-bezier(.2,.8,.2,1);
+    pointer-events: none;
+  }
+  .b-link:hover::before { transform: translateX(120%); }
   .b-link:hover { background: #00f0ff; color: #0a0a0a; box-shadow: 0 0 28px -4px rgba(0,240,255,0.55); }
   .b-link:active { transform: translateY(1px); }
   .b-link.ghost { border-color: rgba(231,231,233,0.25); color: #e7e7e9; }
@@ -131,9 +165,11 @@
   }
   .tag.cyan { border-color: rgba(0,240,255,0.5); color: #00f0ff; background: rgba(0,240,255,0.06); }
   .tag.lime { border-color: rgba(195,244,0,0.5); color: #c3f400; background: rgba(195,244,0,0.06); }
+  .tag.cyan, .tag.lime { animation: tagGlow 3.4s ease-in-out infinite; }
+  @keyframes tagGlow { 0%, 100% { box-shadow: none; } 50% { box-shadow: 0 0 18px -10px currentColor; } }
 
-  .bento { transition: transform .25s cubic-bezier(.2,.8,.2,1), border-color .2s, box-shadow .25s; }
-  .bento:hover { transform: translateY(-2px); border-color: rgba(0,240,255,0.4); box-shadow: 0 0 32px -10px rgba(0,240,255,0.35); }
+  .bento { transition: transform .25s cubic-bezier(.2,.8,.2,1), border-color .2s, box-shadow .25s; will-change: transform; }
+  .bento:hover { transform: translateY(-3px); border-color: rgba(0,240,255,0.4); box-shadow: 0 0 32px -10px rgba(0,240,255,0.35); }
 
   .term-line { white-space: pre-wrap; word-break: break-word; }
 
@@ -148,6 +184,16 @@
     mix-blend-mode: overlay;
     opacity: 0.5;
   }
+  .scan-line {
+    position: fixed;
+    inset: 0;
+    z-index: -9;
+    background: linear-gradient(180deg, transparent 0, rgba(0,240,255,0.045) 50%, transparent 100%);
+    height: 22vh;
+    animation: scan 8s linear infinite;
+    pointer-events: none;
+  }
+  @keyframes scan { from { transform: translateY(-28vh); } to { transform: translateY(128vh); } }
 
   .marquee {
     mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
@@ -201,14 +247,17 @@
   .skill-name span:last-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
   @media (prefers-reduced-motion: reduce) {
+    body, .grid-overlay, .scan-line, .tag.cyan, .tag.lime { animation: none; }
     .reveal { opacity: 1; transform: none; transition: none; }
     .marquee-track { animation: none; }
     .blink::after { animation: none; opacity: 1; }
     dialog.modal-product[open] { animation: none; }
+    .b-link::before { display: none; }
   }
 </style>
 </head>
 <body class="bg-bg text-ink font-body overflow-x-hidden selection:bg-cyan selection:text-bg">
+<div class="scroll-progress" aria-hidden="true"></div>
 
 <!-- SVG icon sprite -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -244,6 +293,7 @@
 <!-- Background layers -->
 <div class="fixed inset-0 -z-10 pointer-events-none">
   <div class="absolute inset-0 grid-overlay"></div>
+  <div class="scan-line"></div>
   <div class="absolute -top-40 -left-40 w-[760px] h-[760px] rounded-full bg-cyan/5 blur-[120px]"></div>
   <div class="absolute -bottom-40 -right-40 w-[620px] h-[620px] rounded-full bg-lime/5 blur-[120px]"></div>
   <div class="absolute inset-0 noise"></div>
@@ -260,10 +310,12 @@
       <a href="#projects" class="text-dim hover:text-cyan transition-colors">PROJECTS</a>
       <a href="#blogs" class="text-dim hover:text-cyan transition-colors">BLOGS</a>
       <a href="#arsenal" class="text-dim hover:text-cyan transition-colors">ARSENAL</a>
+      <a href="Sahil_Singh_Resume.pdf" target="_blank" rel="noopener" class="text-dim hover:text-cyan transition-colors">RESUME</a>
       <a href="#contact" class="text-dim hover:text-cyan transition-colors">CONTACT</a>
     </nav>
     <div class="flex items-center gap-3">
       <a href="#contact" class="b-link lime">&gt;_ CONNECT</a>
+      <a href="Sahil_Singh_Resume.pdf" target="_blank" rel="noopener" class="b-link ghost">RESUME ↗</a>
     </div>
   </div>
 </header>
@@ -322,6 +374,7 @@
 
       <div class="flex flex-wrap gap-3 reveal">
         <a href="#contact" class="b-link">&gt;_ INITIATE_COLLAB</a>
+        <a href="Sahil_Singh_Resume.pdf" target="_blank" rel="noopener" class="b-link lime">RESUME ↗</a>
         <a href="#builds" class="b-link ghost">VIEW_BUILDS</a>
         <a href="https://github.com/Sahilsingh0808" target="_blank" rel="noopener" class="b-link ghost">GITHUB</a>
         <a href="https://www.linkedin.com/in/sahilsingh" target="_blank" rel="noopener" class="b-link ghost">LINKEDIN</a>
@@ -1418,6 +1471,7 @@
       </p>
       <div class="flex flex-wrap gap-3 mt-6">
         <a href="mailto:sahil85.10s@gmail.com" class="b-link lime">&gt;_ EMAIL_DIRECT</a>
+        <a href="Sahil_Singh_Resume.pdf" target="_blank" rel="noopener" class="b-link">RESUME ↗</a>
         <a href="https://www.linkedin.com/in/sahilsingh" target="_blank" rel="noopener" class="b-link">LINKEDIN</a>
         <a href="https://github.com/Sahilsingh0808" target="_blank" rel="noopener" class="b-link ghost">GITHUB</a>
         <a href="https://landing.jeenius.tech" target="_blank" rel="noopener" class="b-link ghost">JEENIUS.TECH</a>
@@ -1446,6 +1500,7 @@
       <a href="mailto:sahil85.10s@gmail.com" class="hover:text-cyan transition-colors">ENCRYPTED_MAIL</a>
       <a href="https://github.com/Sahilsingh0808" target="_blank" rel="noopener" class="hover:text-cyan transition-colors">VCS_ROOT</a>
       <a href="https://www.linkedin.com/in/sahilsingh" target="_blank" rel="noopener" class="hover:text-cyan transition-colors">NETWORK_ID</a>
+      <a href="Sahil_Singh_Resume.pdf" target="_blank" rel="noopener" class="hover:text-cyan transition-colors">RESUME</a>
       <a href="https://landing.jeenius.tech" target="_blank" rel="noopener" class="hover:text-lime transition-colors">JEENIUS_TECH</a>
     </div>
   </div>
@@ -1709,6 +1764,23 @@
   } else {
     setTimeout(runTerminal, 350);
   }
+
+  // ===== Scroll progress =====
+  const progress = document.querySelector('.scroll-progress');
+  let ticking = false;
+  function updateProgress() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const ratio = max > 0 ? window.scrollY / max : 0;
+    if (progress) progress.style.setProperty('--scroll', Math.min(1, Math.max(0, ratio)));
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateProgress);
+      ticking = true;
+    }
+  }, { passive: true });
+  updateProgress();
 
   // ===== Reveal on scroll =====
   const io = new IntersectionObserver((entries) => {
