@@ -193,6 +193,13 @@
   /* link icon decoration */
   .icn { width: 14px; height: 14px; flex-shrink: 0; }
 
+  /* skill icons */
+  .ico { width: 14px; height: 14px; flex-shrink: 0; color: #00f0ff; opacity: 0.85; stroke: currentColor; fill: none; }
+  .ico-lg { width: 18px; height: 18px; }
+  .skill-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .skill-name { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
+  .skill-name span:last-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
     .marquee-track { animation: none; }
@@ -202,6 +209,37 @@
 </style>
 </head>
 <body class="bg-bg text-ink font-body overflow-x-hidden selection:bg-cyan selection:text-bg">
+
+<!-- SVG icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-brackets" viewBox="0 0 16 16" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3 L3 8 L5 13 M11 3 L13 8 L11 13"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 16 16" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="8" height="8"/><path d="M6 6 L10 6 M6 8 L10 8 M6 10 L10 10 M3 6 L4 6 M3 10 L4 10 M12 6 L13 6 M12 10 L13 10 M6 3 L6 4 M10 3 L10 4 M6 12 L6 13 M10 12 L10 13"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2 L9.5 6.5 L14 8 L9.5 9.5 L8 14 L6.5 9.5 L2 8 L6.5 6.5 Z"/></symbol>
+    <symbol id="i-net" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="3" r="1.4"/><circle cx="3" cy="12" r="1.4"/><circle cx="13" cy="12" r="1.4"/><circle cx="8" cy="8" r="1.4"/><path d="M8 4.4 L8 6.6 M7 9 L4 11 M9 9 L12 11"/></symbol>
+    <symbol id="i-server" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="4"/><rect x="2" y="9" width="12" height="4"/><circle cx="4" cy="5" r="0.6" fill="currentColor" stroke="none"/><circle cx="4" cy="11" r="0.6" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-socket" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5"/><path d="M5 8 L11 8 M8 5 L8 11"/></symbol>
+    <symbol id="i-window" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="10"/><path d="M2 6 L14 6"/></symbol>
+    <symbol id="i-mobile" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="6" height="12"/><circle cx="8" cy="12" r="0.6" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 Q2 12 2 10 Q2 8 4 8 Q4 5 7 5 Q10 5 10 8 Q13 8 13 10.5 Q13 12 11 12 Z"/></symbol>
+    <symbol id="i-cube" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2 L14 5 L14 11 L8 14 L2 11 L2 5 Z M2 5 L8 8 L14 5 M8 8 L8 14"/></symbol>
+    <symbol id="i-db" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="8" cy="4" rx="5" ry="2"/><path d="M3 4 L3 12 Q3 14 8 14 Q13 14 13 12 L13 4"/><path d="M3 8 Q3 10 8 10 Q13 10 13 8"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13 L2 3 M2 13 L14 13 M5 10 L5 13 M8 7 L8 13 M11 9 L11 13"/></symbol>
+    <symbol id="i-gauge" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 11 Q2 4 8 4 Q14 4 14 11"/><path d="M8 11 L11 6"/></symbol>
+    <symbol id="i-card" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="12" height="8"/><path d="M2 7 L14 7 M4 10 L7 10"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2 L13 4 L13 9 Q13 12 8 14 Q3 12 3 9 L3 4 Z"/></symbol>
+    <symbol id="i-key" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="8" r="2.5"/><path d="M7.5 8 L14 8 L14 10 M12 8 L12 10"/></symbol>
+    <symbol id="i-bug" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="8" cy="9" rx="3.5" ry="4"/><path d="M8 5 L8 4 Q8 2.5 6.5 2.5 M8 4 Q8 2.5 9.5 2.5 M2 8 L4.5 8 M11.5 8 L14 8 M3 12 L4.5 11 M11.5 11 L13 12 M3 5 L4.5 6 M11.5 6 L13 5"/></symbol>
+    <symbol id="i-game" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6 L12 6 Q14 6 14 9 Q14 12 12 12 Q11 12 10 11 L6 11 Q5 12 4 12 Q2 12 2 9 Q2 6 4 6 Z"/><circle cx="11" cy="9" r="0.7" fill="currentColor" stroke="none"/><path d="M5 8 L5 10 M4 9 L6 9"/></symbol>
+    <symbol id="i-git" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="4" cy="4" r="1.5"/><circle cx="4" cy="12" r="1.5"/><circle cx="12" cy="8" r="1.5"/><path d="M4 5.5 L4 10.5 M5.5 4 Q12 4 12 6.5"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M11 3 L13 5 L5 13 L2 14 L3 11 Z"/></symbol>
+    <symbol id="i-link" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4 L4 4 Q2 4 2 6 L2 8 Q2 10 4 10 L7 10 M9 12 L12 12 Q14 12 14 10 L14 8 Q14 6 12 6 L9 6 M5 8 L11 8"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="4" height="8" rx="2"/><path d="M3 8 Q3 12 8 12 Q13 12 13 8 M8 12 L8 14"/></symbol>
+    <symbol id="i-route" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="3" cy="3" r="1.4"/><circle cx="13" cy="13" r="1.4"/><path d="M4.4 3 L9 3 Q13 3 13 7 Q13 11 9 11 L7 11 Q3 11 3 13 L3 11.6"/></symbol>
+    <symbol id="i-target" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="3"/><circle cx="8" cy="8" r="0.6" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 16 16" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="2.5"/><path d="M8 1.5 L8 3 M8 13 L8 14.5 M1.5 8 L3 8 M13 8 L14.5 8 M3.5 3.5 L4.5 4.5 M11.5 11.5 L12.5 12.5 M3.5 12.5 L4.5 11.5 M11.5 4.5 L12.5 3.5"/></symbol>
+  </defs>
+</svg>
 
 <!-- Background layers -->
 <div class="fixed inset-0 -z-10 pointer-events-none">
@@ -220,6 +258,7 @@
       <a href="#builds" class="text-dim hover:text-cyan transition-colors">BUILDS</a>
       <a href="#log" class="text-dim hover:text-cyan transition-colors">EXP_LOG</a>
       <a href="#projects" class="text-dim hover:text-cyan transition-colors">PROJECTS</a>
+      <a href="#blogs" class="text-dim hover:text-cyan transition-colors">BLOGS</a>
       <a href="#arsenal" class="text-dim hover:text-cyan transition-colors">ARSENAL</a>
       <a href="#contact" class="text-dim hover:text-cyan transition-colors">CONTACT</a>
     </nav>
@@ -254,7 +293,7 @@
         <a class="text-cyan hover:underline underline-offset-4" href="https://www.bolto.com" target="_blank" rel="noopener">Bolto (YC S23)</a>.
         Previously architected the Swarm engine at
         <a class="text-cyan hover:underline underline-offset-4" href="https://getspine.ai" target="_blank" rel="noopener">Spine AI (YC S23)</a>
-        and was a founding member at <span class="text-cyan">Sigiq.AI</span>.
+        and was a founding member at <a class="text-cyan hover:underline underline-offset-4" href="https://www.sigiq.ai/" target="_blank" rel="noopener">Sigiq.ai (10M seed funding)</a>.
         On the side I'm building <a class="text-lime hover:underline underline-offset-4" href="https://landing.jeenius.tech" target="_blank" rel="noopener">JEEnius AI</a>.
       </p>
 
@@ -351,7 +390,7 @@
       <div class="glass p-5 bento ascii-corner">
         <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
         <div class="font-mono text-[10px] tracking-[0.16em] text-dim">/// PLAY_STORE_RATING</div>
-        <div class="font-h font-bold text-[44px] leading-none mt-2 text-cyan text-glow-cyan num">4.8★</div>
+        <div class="font-h font-bold text-[44px] leading-none mt-2 text-cyan text-glow-cyan num">4.2★</div>
         <div class="font-mono text-[10px] text-dimmer mt-1">JEENIUS · ORGANIC_ONLY</div>
       </div>
       <div class="glass p-5 bento ascii-corner">
@@ -397,7 +436,7 @@
       <div class="font-mono text-[11px] tracking-[0.22em] text-cyan">// 0x02 · IMPACT_LOG</div>
       <h2 class="font-h font-semibold text-[40px] md:text-[64px] uppercase tracking-tight mt-1">Numbers, not narratives.</h2>
     </div>
-    <span class="font-mono text-[11px] text-dim hidden md:block">PAGE: 02 // 07</span>
+    <span class="font-mono text-[11px] text-dim hidden md:block">PAGE: 02 // 08</span>
   </div>
 
   <p class="text-dim max-w-[78ch] mb-8 reveal">
@@ -495,7 +534,7 @@
       <div class="font-mono text-[11px] tracking-[0.22em] text-lime">// 0x03 · SIGNATURE_BUILDS</div>
       <h2 class="font-h font-semibold text-[40px] md:text-[64px] uppercase tracking-tight mt-1">Products I shipped<span class="text-lime text-glow-lime">.</span></h2>
     </div>
-    <span class="font-mono text-[11px] text-dim hidden md:block">PAGE: 03 // 07</span>
+    <span class="font-mono text-[11px] text-dim hidden md:block">PAGE: 03 // 08</span>
   </div>
 
   <p class="text-dim max-w-[78ch] mb-10 reveal">
@@ -600,14 +639,14 @@
         </div>
         <h3 class="font-h font-bold text-[36px] md:text-[44px] uppercase tracking-tight">
           JEEnius<span class="text-lime"> </span>AI
-          <span class="block text-dim text-[16px] md:text-[18px] font-mono font-normal tracking-[0.12em] mt-1 normal-case">/// JEE prediction engine · 10k+ users · 4.8★ · solo-built</span>
+          <span class="block text-dim text-[16px] md:text-[18px] font-mono font-normal tracking-[0.12em] mt-1 normal-case">/// JEE prediction engine · 10k+ users · 4.2★ · solo-built</span>
         </h3>
         <p class="text-ink/85 max-w-[70ch]">
-          A side project that became a real product. RAG over 20+ years of PYQs + syllabus, multi-model reasoning across GPT-4o / o-series / Gemini 2.5 Pro / Fathom — dynamically routed per query type. Predicted <span class="text-lime">83%</span> of JEE Main 2026 January topics with <span class="text-lime">63 near-exact matches</span>, ground-truth validated post-exam. <span class="text-lime">10k+ users</span>, <span class="text-lime">4.8★</span>, paying subscribers, zero paid acquisition.
+          A side project that became a real product. RAG over 20+ years of PYQs + syllabus, multi-model reasoning across GPT-4o / o-series / Gemini 2.5 Pro / Fathom — dynamically routed per query type. Predicted <span class="text-lime">83%</span> of JEE Main 2026 January topics with <span class="text-lime">63 near-exact matches</span>, ground-truth validated post-exam. <span class="text-lime">10k+ users</span>, <span class="text-lime">4.2★</span>, paying subscribers, zero paid acquisition.
         </p>
         <div class="grid grid-cols-4 gap-3 pt-3 border-t border-line2">
           <div><div class="font-h font-bold text-[22px] text-lime num">10k+</div><div class="font-mono text-[10px] text-dimmer tracking-[0.12em]">USERS · ORGANIC</div></div>
-          <div><div class="font-h font-bold text-[22px] text-lime num">4.8★</div><div class="font-mono text-[10px] text-dimmer tracking-[0.12em]">PLAY_STORE</div></div>
+          <div><div class="font-h font-bold text-[22px] text-lime num">4.2★</div><div class="font-mono text-[10px] text-dimmer tracking-[0.12em]">PLAY_STORE</div></div>
           <div><div class="font-h font-bold text-[22px] text-lime num">83%</div><div class="font-mono text-[10px] text-dimmer tracking-[0.12em]">PREDICTION</div></div>
           <div><div class="font-h font-bold text-[22px] text-lime num">100k+</div><div class="font-mono text-[10px] text-dimmer tracking-[0.12em]">QS_INDEXED</div></div>
         </div>
@@ -631,7 +670,7 @@
       <div class="font-mono text-[11px] tracking-[0.22em] text-cyan">// 0x04 · EXP_LOG</div>
       <h2 class="font-h font-semibold text-[40px] md:text-[64px] uppercase tracking-tight mt-1">Execution trace.</h2>
     </div>
-    <span class="font-mono text-[11px] text-dim hidden md:block">PAGE: 04 // 07</span>
+    <span class="font-mono text-[11px] text-dim hidden md:block">PAGE: 04 // 08</span>
   </div>
 
   <div class="relative">
@@ -840,7 +879,7 @@
       <div class="font-mono text-[11px] tracking-[0.22em] text-lime">// 0x05 · CORE_DUMP</div>
       <h2 class="font-h font-semibold text-[40px] md:text-[64px] uppercase tracking-tight mt-1">Side quests &amp; signal.</h2>
     </div>
-    <span class="font-mono text-[11px] text-dim hidden md:block">PAGE: 05 // 07</span>
+    <span class="font-mono text-[11px] text-dim hidden md:block">PAGE: 05 // 08</span>
   </div>
 
   <p class="text-dim max-w-[78ch] mb-8 reveal">
@@ -1129,126 +1168,204 @@
   </div>
 </section>
 
+
+<!-- ============================== BLOGS ============================== -->
+<section id="blogs" class="px-5 md:px-10 py-20 max-w-[1440px] mx-auto">
+  <div class="flex items-end justify-between border-b-2 border-cyan/30 pb-4 mb-10 reveal">
+    <div>
+      <div class="font-mono text-[11px] tracking-[0.22em] text-cyan flex items-center gap-2"><svg class="ico"><use href="#i-pen"/></svg>// 0x06 · WRITING</div>
+      <h2 class="font-h font-semibold text-[40px] md:text-[64px] uppercase tracking-tight mt-1">Notes from the field.</h2>
+    </div>
+    <span class="font-mono text-[11px] text-dim hidden md:block">PAGE: 06 // 08</span>
+  </div>
+
+  <p class="text-dim max-w-[78ch] mb-10 reveal">
+    Occasional writing on systems quirks, model behaviour, and learning curves. Long-form on Medium.
+  </p>
+
+  <div class="grid grid-cols-12 gap-4">
+
+    <article class="col-span-12 lg:col-span-4 glass bento p-6 ascii-corner relative overflow-hidden flex flex-col h-full">
+      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+      <div class="flex items-center justify-between mb-3">
+        <span class="tag cyan flex items-center gap-1.5"><svg class="ico"><use href="#i-cpu"/></svg>SYSTEMS · TCP</span>
+        <span class="font-mono text-[10px] text-dimmer">2026 · MEDIUM</span>
+      </div>
+      <h3 class="font-h font-semibold text-[22px] md:text-[24px] leading-tight">
+        Mac Time Bomb T-49
+      </h3>
+      <p class="text-dim text-[14.5px] mt-3 leading-relaxed flex-grow">
+        A kernel quirk in macOS where TCP stops working after exactly <span class="text-cyan">49 days</span> of uptime. A 32-bit overflow in the <span class="font-mono text-cyan">tcp_now</span> counter freezes TIME_WAIT expiry, ephemeral ports run out, and new connections die. A small bug with a very specific clock.
+      </p>
+      <div class="flex flex-wrap gap-2 mt-5 pt-4 border-t border-line2">
+        <span class="tag">macOS</span><span class="tag">TCP</span><span class="tag">KERNEL</span><span class="tag">DEBUGGING</span>
+      </div>
+      <a href="https://sahilsingh08062001.medium.com/mac-time-bomb-t-49-c561ebb34bc5" target="_blank" rel="noopener" class="b-link mt-4">READ_ON_MEDIUM →</a>
+    </article>
+
+    <article class="col-span-12 lg:col-span-4 glass bento p-6 ascii-corner relative overflow-hidden flex flex-col h-full">
+      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+      <div class="flex items-center justify-between mb-3">
+        <span class="tag lime flex items-center gap-1.5"><svg class="ico"><use href="#i-spark"/></svg>AI · LLMS</span>
+        <span class="font-mono text-[10px] text-dimmer">OCT 2025 · MEDIUM</span>
+      </div>
+      <h3 class="font-h font-semibold text-[22px] md:text-[24px] leading-tight">
+        Why "scolding" your LLM is probably a good thing
+      </h3>
+      <p class="text-dim text-[14.5px] mt-3 leading-relaxed flex-grow">
+        Models trained for user approval drift into <span class="text-lime">sycophancy</span> — mirroring beliefs instead of pursuing accuracy. Respectful, corrective pressure plus structured reasoning and source-grounding measurably improves reasoning quality. The argument and the evidence.
+      </p>
+      <div class="flex flex-wrap gap-2 mt-5 pt-4 border-t border-line2">
+        <span class="tag">LLM</span><span class="tag">PROMPTING</span><span class="tag">EVALS</span><span class="tag">SYCOPHANCY</span>
+      </div>
+      <a href="https://medium.com/@sahilsingh08062001/why-scolding-your-llm-is-probably-a-good-thing-166034aec3e9" target="_blank" rel="noopener" class="b-link lime mt-4">READ_ON_MEDIUM →</a>
+    </article>
+
+    <article class="col-span-12 lg:col-span-4 glass bento p-6 ascii-corner relative overflow-hidden flex flex-col h-full">
+      <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
+      <div class="flex items-center justify-between mb-3">
+        <span class="tag flex items-center gap-1.5"><svg class="ico"><use href="#i-mobile"/></svg>LEARNING · MOBILE</span>
+        <span class="font-mono text-[10px] text-dimmer">APR 2021 · MEDIUM</span>
+      </div>
+      <h3 class="font-h font-semibold text-[22px] md:text-[24px] leading-tight">
+        How to start learning a new skill — Mobile App Development
+      </h3>
+      <p class="text-dim text-[14.5px] mt-3 leading-relaxed flex-grow">
+        How I started Android dev during COVID. Practical advice on starting well: lean on online resources, build confidence through reps, and use community over trying to understand everything before you ship anything.
+      </p>
+      <div class="flex flex-wrap gap-2 mt-5 pt-4 border-t border-line2">
+        <span class="tag">ANDROID</span><span class="tag">LEARNING</span><span class="tag">BEGINNERS</span>
+      </div>
+      <a href="https://medium.com/@sahilsingh08062001/how-to-start-learning-a-new-skill-mobile-app-development-67b455cf465b" target="_blank" rel="noopener" class="b-link ghost mt-4">READ_ON_MEDIUM →</a>
+    </article>
+
+  </div>
+
+  <div class="mt-8 reveal">
+    <a href="https://sahilsingh08062001.medium.com/" target="_blank" rel="noopener" class="b-link ghost">VIEW_ALL_POSTS_ON_MEDIUM ↗</a>
+  </div>
+</section>
+
 <!-- ============================== ARSENAL ============================== -->
 <section id="arsenal" class="px-5 md:px-10 py-20 max-w-[1440px] mx-auto">
   <div class="flex items-end justify-between border-b-2 border-cyan/30 pb-4 mb-10 reveal">
     <div>
-      <div class="font-mono text-[11px] tracking-[0.22em] text-cyan">// 0x06 · ARSENAL</div>
+      <div class="font-mono text-[11px] tracking-[0.22em] text-cyan">// 0x07 · ARSENAL</div>
       <h2 class="font-h font-semibold text-[40px] md:text-[64px] uppercase tracking-tight mt-1">Stack &amp; superpowers.</h2>
     </div>
-    <span class="font-mono text-[11px] text-dim hidden md:block">PAGE: 06 // 07</span>
+    <span class="font-mono text-[11px] text-dim hidden md:block">PAGE: 07 // 08</span>
   </div>
 
   <div class="grid grid-cols-12 gap-4">
     <div class="col-span-12 md:col-span-6 lg:col-span-3 glass p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
-      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">/// LANGUAGES</div>
+      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan flex items-center gap-2"><svg class="ico"><use href="#i-brackets"/></svg>/// LANGUAGES</div>
       <ul class="mt-4 space-y-1.5 font-mono text-[13.5px]">
-        <li class="flex justify-between"><span>Python</span><span class="text-dim">EXPERT</span></li>
-        <li class="flex justify-between"><span>TypeScript</span><span class="text-dim">EXPERT</span></li>
-        <li class="flex justify-between"><span>JavaScript</span><span class="text-dim">EXPERT</span></li>
-        <li class="flex justify-between"><span>C++ / C</span><span class="text-dim">PROFICIENT</span></li>
-        <li class="flex justify-between"><span>Dart</span><span class="text-dim">PROFICIENT</span></li>
-        <li class="flex justify-between"><span>Java</span><span class="text-dim">FAMILIAR</span></li>
-        <li class="flex justify-between"><span>C#</span><span class="text-dim">UNITY</span></li>
-        <li class="flex justify-between"><span>SQL</span><span class="text-dim">DAILY</span></li>
-        <li class="flex justify-between"><span>Bash / Shell</span><span class="text-dim">DAILY</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-brackets"/></svg><span>Python</span></span><span class="text-dim">EXPERT</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-brackets"/></svg><span>TypeScript</span></span><span class="text-dim">EXPERT</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-brackets"/></svg><span>JavaScript</span></span><span class="text-dim">EXPERT</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-cpu"/></svg><span>C++ / C</span></span><span class="text-dim">PROFICIENT</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-mobile"/></svg><span>Dart</span></span><span class="text-dim">PROFICIENT</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-cpu"/></svg><span>Java</span></span><span class="text-dim">FAMILIAR</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-game"/></svg><span>C#</span></span><span class="text-dim">UNITY</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-db"/></svg><span>SQL</span></span><span class="text-dim">DAILY</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-brackets"/></svg><span>Bash / Shell</span></span><span class="text-dim">DAILY</span></li>
       </ul>
     </div>
     <div class="col-span-12 md:col-span-6 lg:col-span-3 glass p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
-      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">/// AI / LLM SYSTEMS</div>
+      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan flex items-center gap-2"><svg class="ico"><use href="#i-spark"/></svg>/// AI / LLM SYSTEMS</div>
       <ul class="mt-4 space-y-1.5 font-mono text-[13.5px]">
-        <li class="flex justify-between"><span>Agent Orchestration</span><span class="text-dim">SHIPPED</span></li>
-        <li class="flex justify-between"><span>LLM Routing</span><span class="text-dim">400+_MODELS</span></li>
-        <li class="flex justify-between"><span>RAG / Vector DB</span><span class="text-dim">SHIPPED</span></li>
-        <li class="flex justify-between"><span>Prompt Engineering</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>OpenAI / Anthropic SDK</span><span class="text-dim">DAILY</span></li>
-        <li class="flex justify-between"><span>Gemini / Fathom</span><span class="text-dim">SHIPPED</span></li>
-        <li class="flex justify-between"><span>ASR / Speech</span><span class="text-dim">AI4SG</span></li>
-        <li class="flex justify-between"><span>Eval / Benchmarks</span><span class="text-dim">DEEPSEARCHQA</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-net"/></svg><span>Agent Orchestration</span></span><span class="text-dim">SHIPPED</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-route"/></svg><span>LLM Routing</span></span><span class="text-dim">400+_MODELS</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-db"/></svg><span>RAG / Vector DB</span></span><span class="text-dim">SHIPPED</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-pen"/></svg><span>Prompt Engineering</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-spark"/></svg><span>OpenAI / Anthropic SDK</span></span><span class="text-dim">DAILY</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-spark"/></svg><span>Gemini / Fathom</span></span><span class="text-dim">SHIPPED</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-mic"/></svg><span>ASR / Speech</span></span><span class="text-dim">AI4SG</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-target"/></svg><span>Eval / Benchmarks</span></span><span class="text-dim">DEEPSEARCHQA</span></li>
       </ul>
     </div>
     <div class="col-span-12 md:col-span-6 lg:col-span-3 glass p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
-      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">/// BACKEND</div>
+      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan flex items-center gap-2"><svg class="ico"><use href="#i-server"/></svg>/// BACKEND</div>
       <ul class="mt-4 space-y-1.5 font-mono text-[13.5px]">
-        <li class="flex justify-between"><span>Django / DRF</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>FastAPI / Flask</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>Node.js / Express</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>WebSockets</span><span class="text-dim">10k_CONC</span></li>
-        <li class="flex justify-between"><span>Celery / Queues</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>REST + GraphQL</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>Microservices</span><span class="text-dim">SHIPPED</span></li>
-        <li class="flex justify-between"><span>MCP / Webhooks</span><span class="text-dim">SHIPPED</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-server"/></svg><span>Django / DRF</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-server"/></svg><span>FastAPI / Flask</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-server"/></svg><span>Node.js / Express</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-socket"/></svg><span>WebSockets</span></span><span class="text-dim">10k_CONC</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-socket"/></svg><span>Celery / Queues</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-link"/></svg><span>REST + GraphQL</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-cube"/></svg><span>Microservices</span></span><span class="text-dim">SHIPPED</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-link"/></svg><span>MCP / Webhooks</span></span><span class="text-dim">SHIPPED</span></li>
       </ul>
     </div>
     <div class="col-span-12 md:col-span-6 lg:col-span-3 glass p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
-      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">/// FRONTEND</div>
+      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan flex items-center gap-2"><svg class="ico"><use href="#i-window"/></svg>/// FRONTEND</div>
       <ul class="mt-4 space-y-1.5 font-mono text-[13.5px]">
-        <li class="flex justify-between"><span>React</span><span class="text-dim">EXPERT</span></li>
-        <li class="flex justify-between"><span>Next.js</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>React Native</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>Flutter</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>Tailwind</span><span class="text-dim">DAILY</span></li>
-        <li class="flex justify-between"><span>Redux / Zustand</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>D3.js</span><span class="text-dim">SHIPPED</span></li>
-        <li class="flex justify-between"><span>ChartJS</span><span class="text-dim">SHIPPED</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-window"/></svg><span>React</span></span><span class="text-dim">EXPERT</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-window"/></svg><span>Next.js</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-mobile"/></svg><span>React Native</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-mobile"/></svg><span>Flutter</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-window"/></svg><span>Tailwind</span></span><span class="text-dim">DAILY</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-cube"/></svg><span>Redux / Zustand</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-chart"/></svg><span>D3.js</span></span><span class="text-dim">SHIPPED</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-chart"/></svg><span>ChartJS</span></span><span class="text-dim">SHIPPED</span></li>
       </ul>
     </div>
     <div class="col-span-12 md:col-span-6 lg:col-span-3 glass p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
-      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">/// INFRA / DEVOPS</div>
+      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan flex items-center gap-2"><svg class="ico"><use href="#i-cloud"/></svg>/// INFRA / DEVOPS</div>
       <ul class="mt-4 space-y-1.5 font-mono text-[13.5px]">
-        <li class="flex justify-between"><span>AWS</span><span class="text-dim">EC2/S3/RDS</span></li>
-        <li class="flex justify-between"><span>GCP</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>Azure</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>Docker</span><span class="text-dim">DAILY</span></li>
-        <li class="flex justify-between"><span>Nginx / PM2</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>Blue–Green Deploys</span><span class="text-dim">ZERO_DOWN</span></li>
-        <li class="flex justify-between"><span>CI/CD</span><span class="text-dim">DAILY</span></li>
-        <li class="flex justify-between"><span>Linux</span><span class="text-dim">DAILY</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-cloud"/></svg><span>AWS</span></span><span class="text-dim">EC2/S3/RDS</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-cloud"/></svg><span>GCP</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-cloud"/></svg><span>Azure</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-cube"/></svg><span>Docker</span></span><span class="text-dim">DAILY</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-server"/></svg><span>Nginx / PM2</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-route"/></svg><span>Blue–Green Deploys</span></span><span class="text-dim">ZERO_DOWN</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-gear"/></svg><span>CI/CD</span></span><span class="text-dim">DAILY</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-cpu"/></svg><span>Linux</span></span><span class="text-dim">DAILY</span></li>
       </ul>
     </div>
     <div class="col-span-12 md:col-span-6 lg:col-span-3 glass p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
-      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">/// DATA / STORAGE</div>
+      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan flex items-center gap-2"><svg class="ico"><use href="#i-db"/></svg>/// DATA / STORAGE</div>
       <ul class="mt-4 space-y-1.5 font-mono text-[13.5px]">
-        <li class="flex justify-between"><span>Postgres</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>MongoDB</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>Redis</span><span class="text-dim">CACHE+LB</span></li>
-        <li class="flex justify-between"><span>Firebase / Firestore</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>S3 / Object Storage</span><span class="text-dim">DAILY</span></li>
-        <li class="flex justify-between"><span>Pandas / NumPy</span><span class="text-dim">EXPERT</span></li>
-        <li class="flex justify-between"><span>Matplotlib / Seaborn</span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-db"/></svg><span>Postgres</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-db"/></svg><span>MongoDB</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-db"/></svg><span>Redis</span></span><span class="text-dim">CACHE+LB</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-cloud"/></svg><span>Firebase / Firestore</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-cube"/></svg><span>S3 / Object Storage</span></span><span class="text-dim">DAILY</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-chart"/></svg><span>Pandas / NumPy</span></span><span class="text-dim">EXPERT</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-chart"/></svg><span>Matplotlib / Seaborn</span></span><span class="text-dim">PROD</span></li>
       </ul>
     </div>
     <div class="col-span-12 md:col-span-6 lg:col-span-3 glass p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
-      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">/// OBSERVABILITY + PAYMENTS</div>
+      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan flex items-center gap-2"><svg class="ico"><use href="#i-gauge"/></svg>/// OBSERVABILITY + PAYMENTS</div>
       <ul class="mt-4 space-y-1.5 font-mono text-[13.5px]">
-        <li class="flex justify-between"><span>Datadog APM</span><span class="text-dim">ARCHITECT</span></li>
-        <li class="flex justify-between"><span>Centralized Logging</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>Sentry</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>Stripe</span><span class="text-dim">INTL+DOM</span></li>
-        <li class="flex justify-between"><span>Razorpay</span><span class="text-dim">SHIPPED</span></li>
-        <li class="flex justify-between"><span>FCM / Push</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>MoEngage</span><span class="text-dim">SHIPPED</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-gauge"/></svg><span>Datadog APM</span></span><span class="text-dim">ARCHITECT</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-chart"/></svg><span>Centralized Logging</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-bug"/></svg><span>Sentry</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-card"/></svg><span>Stripe</span></span><span class="text-dim">INTL+DOM</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-card"/></svg><span>Razorpay</span></span><span class="text-dim">SHIPPED</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-mobile"/></svg><span>FCM / Push</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-mobile"/></svg><span>MoEngage</span></span><span class="text-dim">SHIPPED</span></li>
       </ul>
     </div>
     <div class="col-span-12 md:col-span-6 lg:col-span-3 glass p-6 ascii-corner">
       <span class="tl">+</span><span class="tr">+</span><span class="bl">+</span><span class="br">+</span>
-      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan">/// SECURITY + GAME + MISC</div>
+      <div class="font-mono text-[11px] tracking-[0.18em] text-cyan flex items-center gap-2"><svg class="ico"><use href="#i-shield"/></svg>/// SECURITY + GAME + MISC</div>
       <ul class="mt-4 space-y-1.5 font-mono text-[13.5px]">
-        <li class="flex justify-between"><span>OWASP / Auth</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>OAuth / SSO</span><span class="text-dim">PROD</span></li>
-        <li class="flex justify-between"><span>Reverse Engineering</span><span class="text-dim">VAPT</span></li>
-        <li class="flex justify-between"><span>MITRE ATT&amp;CK</span><span class="text-dim">CASCADE</span></li>
-        <li class="flex justify-between"><span>Volatility / Log2T</span><span class="text-dim">FORENSICS</span></li>
-        <li class="flex justify-between"><span>Unity 2D/3D · C#</span><span class="text-dim">SHIPPED</span></li>
-        <li class="flex justify-between"><span>ShaderLab / HLSL</span><span class="text-dim">FAMILIAR</span></li>
-        <li class="flex justify-between"><span>Git / GitHub Actions</span><span class="text-dim">DAILY</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-shield"/></svg><span>OWASP / Auth</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-key"/></svg><span>OAuth / SSO</span></span><span class="text-dim">PROD</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-bug"/></svg><span>Reverse Engineering</span></span><span class="text-dim">VAPT</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-target"/></svg><span>MITRE ATT&amp;CK</span></span><span class="text-dim">CASCADE</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-bug"/></svg><span>Volatility / Log2T</span></span><span class="text-dim">FORENSICS</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-game"/></svg><span>Unity 2D/3D · C#</span></span><span class="text-dim">SHIPPED</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-game"/></svg><span>ShaderLab / HLSL</span></span><span class="text-dim">FAMILIAR</span></li>
+        <li class="skill-row"><span class="skill-name"><svg class="ico"><use href="#i-git"/></svg><span>Git / GitHub Actions</span></span><span class="text-dim">DAILY</span></li>
       </ul>
     </div>
   </div>
@@ -1284,10 +1401,10 @@
 <section id="contact" class="px-5 md:px-10 py-20 max-w-[1440px] mx-auto">
   <div class="flex items-end justify-between border-b-2 border-lime/30 pb-4 mb-10 reveal">
     <div>
-      <div class="font-mono text-[11px] tracking-[0.22em] text-lime">// 0x07 · INITIATE_COLLAB</div>
+      <div class="font-mono text-[11px] tracking-[0.22em] text-lime">// 0x08 · INITIATE_COLLAB</div>
       <h2 class="font-h font-semibold text-[40px] md:text-[64px] uppercase tracking-tight mt-1">Let's ship something.</h2>
     </div>
-    <span class="font-mono text-[11px] text-dim hidden md:block">PAGE: 07 // 07</span>
+    <span class="font-mono text-[11px] text-dim hidden md:block">PAGE: 08 // 08</span>
   </div>
 
   <div class="grid grid-cols-12 gap-5 items-stretch">
@@ -1315,7 +1432,6 @@
         <li class="flex justify-between border-b border-line2 pb-2"><span class="text-dim">PREVIOUS</span><span>Spine AI (YC S23) · Sigiq.AI</span></li>
         <li class="flex justify-between border-b border-line2 pb-2"><span class="text-dim">DEGREE</span><span>B.Tech · IIT Kanpur '24</span></li>
         <li class="flex justify-between border-b border-line2 pb-2"><span class="text-dim">EMAIL</span><a class="text-cyan hover:underline" href="mailto:sahil85.10s@gmail.com">sahil85.10s@gmail.com</a></li>
-        <li class="flex justify-between border-b border-line2 pb-2"><span class="text-dim">WORK_EMAIL</span><a class="text-cyan hover:underline" href="mailto:v-sahil.singh@bolto.com">v-sahil.singh@bolto.com</a></li>
         <li class="flex justify-between"><span class="text-dim">LOCATION</span><span>Remote · India</span></li>
       </ul>
     </aside>
@@ -1515,7 +1631,7 @@
         </div>
         <h2 class="font-h font-bold text-[36px] md:text-[44px] uppercase tracking-tight mt-3">JEEnius AI</h2>
         <p class="text-ink/85 mt-3 max-w-[78ch]">
-          Solo-built JEE preparation platform with a question-prediction engine at its core. Ranked <span class="text-lime">83% topic-coverage accuracy on JEE Main 2026 January</span> with <span class="text-lime">63 near-exact question matches</span> — Physics 92%, Chemistry 87% — ground-truth validated post-exam. Grew to <span class="text-lime">10,000+ users</span> with <span class="text-lime">4.8★ Play Store rating</span>, fully organic, paying subscribers across a freemium model.
+          Solo-built JEE preparation platform with a question-prediction engine at its core. Ranked <span class="text-lime">83% topic-coverage accuracy on JEE Main 2026 January</span> with <span class="text-lime">63 near-exact question matches</span> — Physics 92%, Chemistry 87% — ground-truth validated post-exam. Grew to <span class="text-lime">10,000+ users</span> with <span class="text-lime">4.2★ Play Store rating</span>, fully organic, paying subscribers across a freemium model.
         </p>
       </div>
 
@@ -1539,7 +1655,7 @@
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4 border-t border-line2">
         <div><div class="font-h font-bold text-[28px] text-lime num">10k+</div><div class="font-mono text-[11px] text-dim">USERS · ORGANIC</div></div>
-        <div><div class="font-h font-bold text-[28px] text-lime num">4.8★</div><div class="font-mono text-[11px] text-dim">PLAY_STORE</div></div>
+        <div><div class="font-h font-bold text-[28px] text-lime num">4.2★</div><div class="font-mono text-[11px] text-dim">PLAY_STORE</div></div>
         <div><div class="font-h font-bold text-[28px] text-lime num">83%</div><div class="font-mono text-[11px] text-dim">TOPIC_ACCURACY</div></div>
         <div><div class="font-h font-bold text-[28px] text-lime num">63</div><div class="font-mono text-[11px] text-dim">NEAR_EXACT_MATCHES</div></div>
       </div>
