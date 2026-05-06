@@ -1,5 +1,5 @@
 # 💫 About Me:
-🚀 Currently leading backend architecture and infrastructure at Sigiq.ai, building high-performance systems using Django, FastAPI, Go, and Google Cloud. I focus on creating scalable AI-powered platforms, driving product innovation from scratch to production.<br>🧠 Passionate about AI-assisted learning, I’ve worked on finetuning LLMs, building RAG pipelines, and integrating AI into real-world workflows.<br>🛠 I enjoy designing robust microservices, real-time WebSocket systems, and high-concurrency APIs—especially under the constraints of production reliability.<br>🎯 Participating in hackathons that tackle actual user problems, not just cool tech.<br>📚 On a continuous path of learning—currently diving deeper into low-latency systems, ethical hacking, and scaling multi-region deployments.<br>🤝 Open to collaborations, idea exchanges, and mentoring conversations around backend systems, product roadmaps, and technical leadership.
+- Building
 
 
 ## 🌐 Socials:
