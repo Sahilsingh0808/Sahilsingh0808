@@ -1,50 +1,49 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Sahil Singh - Software Engineer building AI products at scale</title>
-<meta name="description" content="Software engineer (IIT Kanpur '24). Currently at Bolto (YC S23). Previously Spine AI (YC S23) and founding engineer at Sigiq.AI. Built Spine Swarm (500+ concurrent agents, 400+ LLMs), Padhai.ai (175k+ users), EverTutor, and JEEnius AI." />
-<meta name="theme-color" content="#0b0b0e" />
+<title>Sahil Singh - Software Engineer</title>
+<meta name="description" content="Software engineer (IIT Kanpur '24) at Bolto (YC), on payroll infrastructure. Previously Spine AI (YC S23), where I built the Spine Swarm orchestration engine, and founding engineer at SigIQ.ai (Padhai.ai, EverTutor)." />
+<meta name="theme-color" content="#0b0b0c" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Sahil Singh - Software Engineer building AI products at scale" />
-<meta property="og:description" content="Agent orchestration, LLM routing across 400+ models, real-time consumer backends, multi-cloud infra. Currently at Bolto (YC S23)." />
+<meta property="og:title" content="Sahil Singh - Software Engineer" />
+<meta property="og:description" content="Backend, infra and AI systems. Software engineer at Bolto (YC). Previously Spine AI (YC S23) and founding engineer at SigIQ.ai." />
+<meta name="twitter:card" content="summary" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c5e86c'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='17' font-weight='700' text-anchor='middle' fill='%230b0b0c'%3ES%3C/text%3E%3C/svg%3E" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
 
-<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>
+  // Shape system: cards 16px, buttons and chips full pill, modal 20px.
   tailwind.config = {
-    darkMode: 'class',
     theme: {
       extend: {
         colors: {
-          bg: '#0b0b0e',
-          surface: '#101015',
-          surface2: '#16161c',
-          line: '#23232b',
-          line2: '#2e2e38',
-          ink: '#ededf1',
-          muted: '#9d9daa',
-          faint: '#6a6a76',
-          accent: '#7f8bff',
-          'accent-dim': '#5b67d6',
-          'accent-soft': '#aab1ff',
+          bg: '#0b0b0c',
+          surface: '#121214',
+          surface2: '#18181b',
+          line: '#232326',
+          line2: '#303035',
+          ink: '#ededef',
+          muted: '#a1a1a9',
+          faint: '#71717a',
+          accent: '#c5e86c',
+          'accent-soft': '#dcf29f',
+          'accent-dim': '#93b14a',
         },
         fontFamily: {
-          h: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
-          body: ['Inter', 'system-ui', 'sans-serif'],
-          mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
-          serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+          sans: ['Geist', 'system-ui', 'sans-serif'],
+          mono: ['"Geist Mono"', 'ui-monospace', 'monospace'],
         },
-        borderRadius: {
-          DEFAULT: '10px', sm: '7px', md: '10px', lg: '14px', xl: '18px', '2xl': '24px',
-        },
-        maxWidth: { content: '1140px' },
+        maxWidth: { content: '1160px' },
       },
     },
   };
@@ -53,204 +52,178 @@
 <style>
   :root { color-scheme: dark; }
   * { -webkit-tap-highlight-color: transparent; }
-  html { scroll-behavior: smooth; }
-  html, body { background: #0b0b0e; }
+  html { scroll-padding-top: 84px; background: #0b0b0c; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
   body {
-    font-family: 'Inter', system-ui, sans-serif;
-    color: #ededf1;
+    background: #0b0b0c;
+    font-family: 'Geist', system-ui, sans-serif;
+    color: #ededef;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     line-height: 1.6;
   }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+  .num { font-variant-numeric: tabular-nums; }
 
-  ::selection { background: rgba(127,139,255,0.28); color: #fff; }
+  ::selection { background: rgba(197,232,108,0.28); color: #fff; }
 
-  /* ---- Soft ambient background: ONE calm gradient, no grid/scan/noise ---- */
-  .ambient {
-    position: fixed; inset: 0; z-index: -10; pointer-events: none; overflow: hidden;
-  }
-  .ambient::before {
-    content: ''; position: absolute;
-    top: -28vh; left: 50%; transform: translateX(-50%);
-    width: 120vw; height: 80vh;
-    background: radial-gradient(60% 60% at 50% 0%, rgba(127,139,255,0.10), transparent 70%);
-  }
-  .ambient::after {
-    content: ''; position: absolute;
-    bottom: -30vh; right: -10vw;
-    width: 60vw; height: 60vh;
-    background: radial-gradient(50% 50% at 50% 50%, rgba(127,139,255,0.05), transparent 70%);
+  /* ---- Fixed grain, pointer-events off so it never repaints scroll layers ---- */
+  .grain {
+    position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: .035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  /* ---- Hero interactive swarm canvas ---- */
+  /* ---- Scroll progress: CSS scroll-driven, no scroll listener ---- */
+  .progress {
+    position: fixed; top: 0; left: 0; z-index: 70;
+    width: 100%; height: 2px; transform-origin: left; transform: scaleX(0);
+    background: #c5e86c; pointer-events: none; opacity: .8;
+  }
+  @supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .progress { animation: grow linear both; animation-timeline: scroll(root); }
+      @keyframes grow { to { transform: scaleX(1); } }
+    }
+  }
+  @supports not (animation-timeline: scroll()) { .progress { display: none; } }
+
+  /* ---- Hero swarm canvas, faded out under the copy ---- */
   .hero-canvas {
     position: absolute; inset: 0; width: 100%; height: 100%;
-    z-index: 0; pointer-events: none;
-    opacity: 0; transition: opacity .9s ease;
+    z-index: 0; pointer-events: none; opacity: 0; transition: opacity 1s ease;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.35) 30%, #000 62%);
+            mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.35) 30%, #000 62%);
   }
   .hero-canvas.ready { opacity: 1; }
-
-  /* ---- Magnetic buttons ---- */
-  .magnetic {
-    transition: transform .25s cubic-bezier(.16,.8,.3,1), background-color .18s ease, border-color .18s ease, color .18s ease;
-    will-change: transform;
+  @media (max-width: 767px) {
+    .hero-canvas { -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 70%); mask-image: linear-gradient(180deg, transparent 0%, #000 70%); }
   }
 
-  /* ---- Thin, subtle scroll progress ---- */
-  .progress {
-    position: fixed; top: 0; left: 0; z-index: 80;
-    width: 100%; height: 2px; transform-origin: left;
-    transform: scaleX(var(--p, 0));
-    background: linear-gradient(90deg, rgba(127,139,255,0.5), rgba(127,139,255,0.9));
-    pointer-events: none;
-  }
+  .magnetic { transition: transform .3s cubic-bezier(.16,1,.3,1), background-color .2s ease, border-color .2s ease, color .2s ease; }
 
-  /* ---- Eyebrow / section label ---- */
-  .eyebrow {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: #7f8bff;
-  }
-  .eyebrow-muted { color: #6a6a76; }
+  /* ---- The one eyebrow style (used three times on the page) ---- */
+  .eyebrow { font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #c5e86c; }
 
-  /* ---- Reveal on scroll (progressive enhancement: hidden only when JS arms it) ---- */
-  html.anim .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s cubic-bezier(.16,.8,.3,1), transform .7s cubic-bezier(.16,.8,.3,1); }
+  /* ---- Reveal (armed only when JS is present and motion is allowed) ---- */
+  html.anim .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); transition-delay: calc(var(--i, 0) * 70ms); }
   html.anim .reveal.in { opacity: 1; transform: none; }
 
-  /* ---- Buttons ---- */
+  /* ---- Buttons (full pill) ---- */
   .btn {
     display: inline-flex; align-items: center; gap: 8px;
-    padding: 11px 18px; border-radius: 10px;
-    font-size: 14px; font-weight: 500; letter-spacing: 0.01em;
-    border: 1px solid transparent;
-    transition: background-color .18s ease, border-color .18s ease, color .18s ease, transform .08s ease;
-    white-space: nowrap;
+    padding: 11px 20px; border-radius: 999px;
+    font-size: 14.5px; font-weight: 500;
+    border: 1px solid transparent; white-space: nowrap;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .1s ease;
   }
-  .btn:active { transform: translateY(1px); }
-  .btn-primary { background: #7f8bff; color: #0b0b0e; font-weight: 600; }
-  .btn-primary:hover { background: #9aa3ff; }
-  .btn-secondary { background: rgba(255,255,255,0.04); color: #ededf1; border-color: #2e2e38; }
-  .btn-secondary:hover { background: rgba(255,255,255,0.08); border-color: #3a3a46; }
-  .btn-ghost { color: #c7c7d0; border-color: transparent; padding-left: 12px; padding-right: 12px; }
-  .btn-ghost:hover { color: #fff; background: rgba(255,255,255,0.05); }
+  .btn:active { transform: scale(.98); }
+  .btn-primary { background: #c5e86c; color: #0b0b0c; font-weight: 600; }
+  .btn-primary:hover { background: #d4f08a; }
+  .btn-secondary { background: rgba(255,255,255,.04); color: #ededef; border-color: #303035; }
+  .btn-secondary:hover { background: rgba(255,255,255,.08); border-color: #45454c; }
+  .btn-icon { width: 42px; height: 42px; padding: 0; justify-content: center; color: #a1a1a9; font-size: 19px; }
+  .btn-icon:hover { color: #ededef; background: rgba(255,255,255,.06); }
 
-  /* ---- Cards ---- */
+  /* ---- Cards (16px) ---- */
   .card {
-    background: linear-gradient(180deg, rgba(255,255,255,0.022), rgba(255,255,255,0));
-    border: 1px solid #23232b; border-radius: 16px;
-    transition: border-color .25s ease, background-color .25s ease, transform .25s cubic-bezier(.16,.8,.3,1);
+    position: relative; border: 1px solid #232326; border-radius: 16px; background: #121214;
+    transition: border-color .3s ease, transform .4s cubic-bezier(.16,1,.3,1);
   }
-  .card-hover:hover { border-color: #3a3a46; transform: translateY(-2px); }
   .card-link { cursor: pointer; }
-  .card-link:hover { border-color: rgba(127,139,255,0.45); }
+  .card-link:hover { border-color: #3a3a40; transform: translateY(-3px); }
+  .card-link:hover .go { color: #c5e86c; transform: translateX(3px); }
+  .go { transition: transform .3s cubic-bezier(.16,1,.3,1), color .2s ease; }
 
-  /* ---- Tags / chips ---- */
+  /* Spotlight border that follows the cursor on work cards */
+  .spot::before {
+    content: ''; position: absolute; inset: -1px; border-radius: inherit; padding: 1px; pointer-events: none;
+    background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(197,232,108,.55), transparent 70%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    opacity: 0; transition: opacity .3s ease;
+  }
+  .spot:hover::before { opacity: 1; }
+
+  .tint-lime { background: radial-gradient(120% 90% at 100% 0%, rgba(197,232,108,.11), transparent 55%), #121214; }
+  .tint-dots { background: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px) 0 0 / 18px 18px, #121214; }
+  .tint-fade { background: linear-gradient(160deg, #19191c 0%, #121214 60%); }
+
+  /* ---- Chips (full pill) ---- */
   .chip {
     display: inline-flex; align-items: center; gap: 6px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; letter-spacing: 0.02em;
-    padding: 4px 9px; border-radius: 999px;
-    border: 1px solid #2a2a33; color: #b5b5c0;
-    background: rgba(255,255,255,0.015);
-    white-space: nowrap;
+    font-family: 'Geist Mono', monospace; font-size: 11.5px;
+    padding: 4px 10px; border-radius: 999px;
+    border: 1px solid #2a2a2e; color: #b4b4bb; background: rgba(255,255,255,.02); white-space: nowrap;
   }
-  .chip-accent { border-color: rgba(127,139,255,0.35); color: #aab1ff; background: rgba(127,139,255,0.07); }
+  .chip-accent { border-color: rgba(197,232,108,.32); color: #dcf29f; background: rgba(197,232,108,.07); }
 
-  /* ---- Inline links ---- */
-  .ilink { color: #aab1ff; text-decoration: none; box-shadow: inset 0 -1px 0 rgba(127,139,255,0.35); transition: box-shadow .18s, color .18s; }
-  .ilink:hover { color: #c7ccff; box-shadow: inset 0 -1px 0 rgba(127,139,255,0.8); }
+  /* ---- Links ---- */
+  .ilink { color: #ededef; text-decoration: none; box-shadow: inset 0 -1px 0 rgba(197,232,108,.45); transition: box-shadow .2s, color .2s; }
+  .ilink:hover { color: #dcf29f; box-shadow: inset 0 -1px 0 rgba(197,232,108,.9); }
+  .tlink { display: inline-flex; align-items: center; gap: 5px; font-size: 13.5px; color: #a1a1a9; transition: color .2s; }
+  .tlink:hover { color: #dcf29f; }
 
-  /* ---- Hairline divider ---- */
-  .hr { height: 1px; background: linear-gradient(90deg, transparent, #2a2a33 12%, #2a2a33 88%, transparent); }
+  .nav-link { color: #a1a1a9; transition: color .2s; position: relative; }
+  .nav-link:hover, .nav-link[aria-current="true"] { color: #ededef; }
+  .nav-link[aria-current="true"]::after { content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 1px; background: #c5e86c; }
 
-  /* ---- Nav ---- */
-  .nav-link { color: #9d9daa; transition: color .18s; }
-  .nav-link:hover { color: #ededf1; }
+  .bullet { position: relative; padding-left: 18px; }
+  .bullet::before { content: ''; position: absolute; left: 0; top: .78em; width: 8px; height: 1px; background: #5c5c63; }
 
-  /* ---- Timeline ---- */
-  .tl-dot { box-shadow: 0 0 0 4px #0b0b0e; }
-
-  /* ---- Icon sizing ---- */
-  .ic { width: 18px; height: 18px; flex-shrink: 0; }
-  .ic-sm { width: 15px; height: 15px; }
-
-  /* ---- Modal ---- */
-  dialog.modal {
-    margin: auto; padding: 0; border: 0; background: transparent;
-    color: #ededf1; max-width: min(880px, 94vw); width: 100%; max-height: 90vh;
-  }
-  dialog.modal::backdrop { background: rgba(6,6,9,0.72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
-  .modal-shell {
-    background: #101015; border: 1px solid #2a2a33; border-radius: 18px;
-    box-shadow: 0 40px 120px -30px rgba(0,0,0,0.8);
-    max-height: 90vh; overflow: auto;
-  }
-  .modal-shell::-webkit-scrollbar { width: 9px; }
-  .modal-shell::-webkit-scrollbar-thumb { background: #2e2e38; border-radius: 9px; }
-  .modal-shell::-webkit-scrollbar-track { background: transparent; }
-  dialog.modal[open] { animation: modalIn .26s cubic-bezier(.16,.8,.3,1); }
-  @keyframes modalIn { from { opacity: 0; transform: translateY(10px) scale(.99); } to { opacity: 1; transform: none; } }
-
-  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
-    outline: 2px solid #7f8bff; outline-offset: 3px; border-radius: 6px;
-  }
-
-  /* ---- Slow, calm affiliations marquee ---- */
-  .marquee { mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-  .marquee-track { animation: marq 50s linear infinite; }
+  /* ---- Marquee (the only one on the page) ---- */
+  .marquee { -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .marquee-track { animation: marq 55s linear infinite; }
   @keyframes marq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   .marquee:hover .marquee-track { animation-play-state: paused; }
 
-  @media (max-width: 640px) {
-    .card { border-radius: 14px; }
-    h1 { letter-spacing: -0.01em; }
-  }
+  /* ---- Details disclosure ---- */
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .caret { transform: rotate(180deg); }
+  .caret { transition: transform .3s cubic-bezier(.16,1,.3,1); }
+
+  /* ---- Modal (20px) ---- */
+  dialog.modal { margin: auto; padding: 0; border: 0; background: transparent; color: #ededef; max-width: min(860px, 94vw); width: 100%; max-height: 90dvh; }
+  dialog.modal::backdrop { background: rgba(5,5,6,.74); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+  .modal-shell { background: #121214; border: 1px solid #2a2a2e; border-radius: 20px; box-shadow: 0 40px 120px -30px rgba(0,0,0,.8); max-height: 90dvh; overflow: auto; }
+  .modal-shell::-webkit-scrollbar { width: 9px; }
+  .modal-shell::-webkit-scrollbar-thumb { background: #303035; border-radius: 9px; }
+  dialog.modal[open] { animation: modalIn .35s cubic-bezier(.16,1,.3,1); }
+  @keyframes modalIn { from { opacity: 0; transform: translateY(12px) scale(.985); } to { opacity: 1; transform: none; } }
+
+  .skip { position: absolute; left: 16px; top: -60px; z-index: 80; }
+  .skip:focus { top: 12px; }
+
+  a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-visible { outline: 2px solid #c5e86c; outline-offset: 3px; border-radius: 8px; }
 
   @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .reveal { opacity: 1; transform: none; transition: none; }
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
     .marquee-track { animation: none; }
     dialog.modal[open] { animation: none; }
+    .card-link:hover { transform: none; }
   }
 </style>
-</head>
 <script>
-  // Arm entrance animations before paint (no flash). Skip for reduced-motion / no-IntersectionObserver
-  // so content is always visible as a progressive-enhancement fallback.
+  // Arm entrance animations before paint; skipped for reduced motion so content is always visible.
   try {
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
       document.documentElement.classList.add('anim');
     }
   } catch (e) {}
 </script>
-<body class="font-body">
+</head>
+<body class="font-sans">
 
+<a href="#main" class="skip btn btn-primary">Skip to content</a>
 <div class="progress" aria-hidden="true"></div>
-<div class="ambient" aria-hidden="true"></div>
-
-<!-- Icon sprite -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="ar-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
-    <symbol id="ar-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></symbol>
-    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
-    <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.55-1.14-4.55-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05a9.34 9.34 0 0 1 5 0c1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.78-4.57 5.04.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></symbol>
-    <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5ZM3 9h4v12H3V9Zm6 0h3.8v1.64h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.66c0-1.35-.03-3.08-1.94-3.08-1.94 0-2.24 1.46-2.24 2.98V21H9V9Z"/></symbol>
-    <symbol id="i-medium" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12c0 3.04-2.42 5.5-5.4 5.5S2.74 15.04 2.74 12s2.42-5.5 5.4-5.5 5.4 2.46 5.4 5.5Zm5.93 0c0 2.86-1.21 5.18-2.7 5.18-1.49 0-2.7-2.32-2.7-5.18s1.21-5.18 2.7-5.18c1.49 0 2.7 2.32 2.7 5.18ZM24 12c0 2.56-.43 4.64-.95 4.64-.53 0-.95-2.08-.95-4.64s.42-4.64.95-4.64c.52 0 .95 2.08.95 4.64Z"/></symbol>
-    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6 18 18M18 6 6 18"/></symbol>
-    <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></symbol>
-    <symbol id="i-dot" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></symbol>
-  </defs>
-</svg>
+<div class="grain" aria-hidden="true"></div>
 
 <!-- ================= NAV ================= -->
-<header class="fixed top-0 inset-x-0 z-50 border-b border-line/70 bg-bg/70 backdrop-blur-xl">
-  <div class="max-w-content mx-auto px-5 md:px-8 h-16 flex items-center justify-between">
-    <a href="#top" class="font-h font-semibold text-[15px] tracking-tight text-ink flex items-center gap-2">
-      <span class="inline-block w-2 h-2 rounded-full bg-accent"></span>
-      Sahil Singh
-    </a>
-    <nav class="hidden md:flex items-center gap-8 text-[14px]">
+<header class="fixed top-0 inset-x-0 z-50 border-b border-line/70 bg-bg/75 backdrop-blur-xl">
+  <div class="max-w-content mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
+    <a href="#top" class="font-semibold text-[15px] tracking-tight text-ink">Sahil Singh</a>
+    <nav class="hidden md:flex items-center gap-8 text-[14px]" aria-label="Sections">
       <a href="#work" class="nav-link">Work</a>
       <a href="#experience" class="nav-link">Experience</a>
       <a href="#projects" class="nav-link">Projects</a>
@@ -258,193 +231,112 @@
       <a href="#stack" class="nav-link">Stack</a>
     </nav>
     <div class="flex items-center gap-2">
-      <a href="Sahil_Singh_Resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost hidden sm:inline-flex">Résumé <svg class="ic-sm"><use href="#ar-up-right"/></svg></a>
-      <a href="#contact" class="btn btn-primary magnetic">Get in touch</a>
+      <a href="Sahil_Singh_Resume.pdf" target="_blank" rel="noopener" class="nav-link text-[14px] hidden sm:inline-flex items-center gap-1 px-3">Résumé <i class="ph ph-arrow-up-right text-[13px]"></i></a>
+      <a href="#contact" class="btn btn-secondary magnetic !py-2 !px-4 text-[13.5px]">Contact</a>
     </div>
   </div>
 </header>
 
-<main id="top" class="pt-16">
+<main id="main" class="pt-16">
+<span id="top"></span>
 
 <!-- ================= HERO ================= -->
-<section class="relative max-w-content mx-auto px-5 md:px-8 pt-16 md:pt-28 pb-16 md:pb-24">
+<section class="relative overflow-hidden">
   <canvas id="swarm" class="hero-canvas" aria-hidden="true"></canvas>
-  <div class="relative z-[1]">
-  <div class="reveal">
-    <div class="flex items-center gap-2.5 text-[13px] text-muted">
-      <span class="inline-flex items-center gap-2 chip-accent chip"><span class="inline-block w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>Available for collaborations</span>
-      <span class="hidden sm:inline text-faint">·</span>
-      <span class="hidden sm:inline">IIT Kanpur '24</span>
-    </div>
-  </div>
+  <div class="relative z-[1] max-w-content mx-auto px-4 md:px-8 pt-20 md:pt-24 pb-20 md:pb-28">
+    <div class="reveal eyebrow">Backend, infra and AI systems</div>
 
-  <h1 class="reveal font-h font-medium text-[clamp(40px,7.5vw,80px)] leading-[1.04] tracking-[-0.02em] mt-7 max-w-[16ch]">
-    I build AI products that ship - <span class="font-serif italic font-normal text-accent-soft tracking-normal">from zero to one</span>, and to scale.
-  </h1>
+    <h1 class="reveal font-semibold text-[clamp(40px,6.4vw,76px)] leading-[1.02] tracking-[-0.035em] mt-6 max-w-[17ch]" style="--i:1">
+      I build the systems <span class="text-muted">AI products run on.</span>
+    </h1>
 
-  <p class="reveal text-[17px] md:text-[19px] text-muted leading-[1.65] mt-7 max-w-[62ch]">
-    Software engineer currently building at
-    <a class="ilink" href="https://www.bolto.com" target="_blank" rel="noopener">Bolto (YC&nbsp;S23)</a>.
-    Previously architected the Swarm engine at
-    <a class="ilink" href="https://getspine.ai" target="_blank" rel="noopener">Spine&nbsp;AI (YC&nbsp;S23)</a>
-    and was a founding engineer at
-    <a class="ilink" href="https://www.sigiq.ai/" target="_blank" rel="noopener">Sigiq.AI</a>.
-    I work on agent orchestration, LLM routing across 400+ models, real-time consumer backends, and multi-cloud infrastructure.
-  </p>
+    <p class="reveal text-[17px] md:text-[19px] text-muted leading-[1.6] mt-7 max-w-[52ch]" style="--i:2">
+      Software engineer at
+      <a class="ilink" href="https://www.bolto.com" target="_blank" rel="noopener">Bolto&nbsp;(YC)</a>.
+      Before that,
+      <a class="ilink" href="https://getspine.ai" target="_blank" rel="noopener">Spine&nbsp;AI&nbsp;(YC&nbsp;S23)</a>
+      and founding engineer at
+      <a class="ilink" href="https://www.sigiq.ai/" target="_blank" rel="noopener">SigIQ.ai</a>.
+    </p>
 
-  <div class="reveal flex flex-wrap items-center gap-3 mt-9">
-    <a href="#work" class="btn btn-primary magnetic">View selected work <svg class="ic-sm"><use href="#ar-right"/></svg></a>
-    <a href="Sahil_Singh_Resume.pdf" target="_blank" rel="noopener" class="btn btn-secondary magnetic">Résumé <svg class="ic-sm"><use href="#ar-up-right"/></svg></a>
-    <div class="flex items-center gap-1 ml-1">
-      <a href="https://github.com/Sahilsingh0808" target="_blank" rel="noopener" aria-label="GitHub" class="btn btn-ghost p-2.5"><svg class="ic"><use href="#i-github"/></svg></a>
-      <a href="https://www.linkedin.com/in/sahilsingh" target="_blank" rel="noopener" aria-label="LinkedIn" class="btn btn-ghost p-2.5"><svg class="ic"><use href="#i-linkedin"/></svg></a>
-      <a href="https://sahilsingh08062001.medium.com/" target="_blank" rel="noopener" aria-label="Medium" class="btn btn-ghost p-2.5"><svg class="ic"><use href="#i-medium"/></svg></a>
-      <a href="mailto:sahil85.10s@gmail.com" aria-label="Email" class="btn btn-ghost p-2.5"><svg class="ic"><use href="#i-mail"/></svg></a>
+    <div class="reveal flex flex-wrap items-center gap-3 mt-10" style="--i:3">
+      <a href="#work" class="btn btn-primary magnetic">Selected work <i class="ph ph-arrow-down text-[15px]"></i></a>
+      <a href="Sahil_Singh_Resume.pdf" target="_blank" rel="noopener" class="btn btn-secondary magnetic">Résumé <i class="ph ph-arrow-up-right text-[15px]"></i></a>
+      <div class="flex items-center gap-0.5 sm:ml-2">
+        <a href="https://github.com/Sahilsingh0808" target="_blank" rel="noopener" aria-label="GitHub" class="btn btn-icon"><i class="ph ph-github-logo"></i></a>
+        <a href="https://www.linkedin.com/in/sahilsingh0808" target="_blank" rel="noopener" aria-label="LinkedIn" class="btn btn-icon"><i class="ph ph-linkedin-logo"></i></a>
+        <a href="https://sahilsingh08062001.medium.com/" target="_blank" rel="noopener" aria-label="Medium" class="btn btn-icon"><i class="ph ph-medium-logo"></i></a>
+        <a href="mailto:sahil85.10s@gmail.com" aria-label="Email" class="btn btn-icon"><i class="ph ph-envelope-simple"></i></a>
+      </div>
     </div>
-  </div>
-
-  <!-- Stat strip -->
-  <div class="reveal grid grid-cols-2 md:grid-cols-4 gap-px mt-16 rounded-xl overflow-hidden border border-line bg-line">
-    <div class="bg-bg px-5 py-6">
-      <div class="font-h font-semibold text-[30px] md:text-[34px] tracking-tight num" data-count="500000" data-suffix="+">0+</div>
-      <div class="text-[12.5px] text-faint mt-1.5">Users reached</div>
-    </div>
-    <div class="bg-bg px-5 py-6">
-      <div class="font-h font-semibold text-[30px] md:text-[34px] tracking-tight num" data-count="400" data-suffix="+">0+</div>
-      <div class="text-[12.5px] text-faint mt-1.5">LLMs routed</div>
-    </div>
-    <div class="bg-bg px-5 py-6">
-      <div class="font-h font-semibold text-[30px] md:text-[34px] tracking-tight num" data-count="500" data-suffix="+">0+</div>
-      <div class="text-[12.5px] text-faint mt-1.5">Agents orchestrated</div>
-    </div>
-    <div class="bg-bg px-5 py-6">
-      <div class="font-h font-semibold text-[30px] md:text-[34px] tracking-tight num" data-count="4" data-suffix="+">0+</div>
-      <div class="text-[12.5px] text-faint mt-1.5">Products shipped</div>
-    </div>
-  </div>
   </div>
 </section>
 
-<!-- ================= AFFILIATIONS ================= -->
-<section class="border-y border-line/70 bg-surface/30 py-6">
-  <div class="max-w-content mx-auto px-5 md:px-8">
-    <div class="text-[11px] text-faint font-mono tracking-[0.18em] uppercase mb-4">Trajectory</div>
-    <div class="marquee overflow-hidden">
-      <div class="marquee-track flex items-center gap-8 whitespace-nowrap text-[13px] text-muted font-mono">
-        <span>Bolto · YC S23</span><span class="text-line2">/</span>
-        <span>Spine AI · YC S23</span><span class="text-line2">/</span>
-        <span>Sigiq.AI · Founding Engineer</span><span class="text-line2">/</span>
-        <span>IIT Kanpur · B.Tech '24</span><span class="text-line2">/</span>
-        <span>Google AI4SG · $30K Grant</span><span class="text-line2">/</span>
-        <span>GDSC IITK · Founder</span><span class="text-line2">/</span>
-        <span>Inter-IIT · Bronze</span><span class="text-line2">/</span>
-        <span>Google Code Jam · Rank 794</span><span class="text-line2">/</span>
-        <span aria-hidden="true">Bolto · YC S23</span><span class="text-line2" aria-hidden="true">/</span>
-        <span aria-hidden="true">Spine AI · YC S23</span><span class="text-line2" aria-hidden="true">/</span>
-        <span aria-hidden="true">Sigiq.AI · Founding Engineer</span><span class="text-line2" aria-hidden="true">/</span>
-        <span aria-hidden="true">IIT Kanpur · B.Tech '24</span><span class="text-line2" aria-hidden="true">/</span>
-        <span aria-hidden="true">Google AI4SG · $30K Grant</span><span class="text-line2" aria-hidden="true">/</span>
-        <span aria-hidden="true">GDSC IITK · Founder</span><span class="text-line2" aria-hidden="true">/</span>
-        <span aria-hidden="true">Inter-IIT · Bronze</span><span class="text-line2" aria-hidden="true">/</span>
-        <span aria-hidden="true">Google Code Jam · Rank 794</span><span class="text-line2" aria-hidden="true">/</span>
-      </div>
+<!-- ================= TRAJECTORY ================= -->
+<section class="border-y border-line/70 py-5" aria-label="Companies and recognition">
+  <div class="marquee overflow-hidden">
+    <div class="marquee-track flex w-max items-center gap-10 whitespace-nowrap text-[13.5px] text-muted font-mono">
+      <span>Bolto (YC)</span><span>Spine AI (YC S23)</span><span>SigIQ.ai, founding engineer</span><span>IIT Kanpur, B.Tech '24</span><span>Google AI4SG, $30K grant</span><span>GDSC IIT Kanpur, founder</span><span>Inter-IIT Tech Meet, bronze</span><span>Google Code Jam, rank 794</span>
+      <span aria-hidden="true">Bolto (YC)</span><span aria-hidden="true">Spine AI (YC S23)</span><span aria-hidden="true">SigIQ.ai, founding engineer</span><span aria-hidden="true">IIT Kanpur, B.Tech '24</span><span aria-hidden="true">Google AI4SG, $30K grant</span><span aria-hidden="true">GDSC IIT Kanpur, founder</span><span aria-hidden="true">Inter-IIT Tech Meet, bronze</span><span aria-hidden="true">Google Code Jam, rank 794</span>
     </div>
   </div>
 </section>
 
 <!-- ================= SELECTED WORK ================= -->
-<section id="work" class="max-w-content mx-auto px-5 md:px-8 py-20 md:py-28">
-  <div class="reveal max-w-[60ch]">
-    <div class="eyebrow">Selected work</div>
-    <h2 class="font-h font-medium text-[clamp(28px,4.5vw,46px)] tracking-[-0.02em] leading-[1.08] mt-3">Products I shipped end to end.</h2>
-    <p class="text-muted mt-4 text-[16px]">Each card opens a full deep dive - what I owned, what I built, and what's running in production. The external link goes to the live product.</p>
-  </div>
+<section id="work" class="max-w-content mx-auto px-4 md:px-8 py-24 md:py-32">
+  <h2 class="reveal font-semibold text-[clamp(30px,4.4vw,48px)] tracking-[-0.03em] leading-[1.06] max-w-[22ch]">Products I shipped end to end.</h2>
+  <p class="reveal text-muted mt-4 text-[16.5px] max-w-[58ch]" style="--i:1">Open a card for what I owned and built. The link goes to the live product.</p>
 
-  <div class="grid md:grid-cols-2 gap-4 md:gap-5 mt-12">
+  <div class="grid md:grid-cols-6 gap-4 md:gap-5 mt-14">
 
-    <!-- SPINE -->
-    <article class="card card-link card-hover p-6 md:p-8 flex flex-col group" data-modal="modal-spine" tabindex="0" role="button" aria-label="Open Spine AI deep dive">
-      <div class="flex items-center justify-between">
-        <span class="chip chip-accent">Spine AI · YC S23</span>
-        <span class="text-[12px] text-faint font-mono">2025 - 26</span>
+    <!-- SPINE (feature tile) -->
+    <article class="reveal card card-link spot tint-lime md:col-span-6 p-6 md:p-10 grid md:grid-cols-[1.25fr_1fr] gap-8 md:gap-12" data-modal="modal-spine" tabindex="0" role="button" aria-label="Open the Spine Swarm deep dive">
+      <div class="flex flex-col">
+        <div class="flex items-center gap-3 text-[13px] font-mono text-faint"><span class="chip chip-accent">Spine AI (YC S23)</span>2025 - 26</div>
+        <h3 class="font-semibold text-[30px] md:text-[40px] tracking-[-0.03em] leading-tight mt-6">Spine Swarm</h3>
+        <p class="text-[15.5px] text-ink/80 leading-relaxed mt-3 max-w-[54ch] flex-grow">
+          An AI research platform that runs teams of agents on a canvas and returns decks, PDFs and Excel models. I architected the orchestration engine behind Swarm, the model router across 400+ LLMs, the canvas APIs and the React canvas. #1 on DeepSearchQA.
+        </p>
+        <div class="flex items-center justify-between mt-8">
+          <a href="https://getspine.ai" target="_blank" rel="noopener" class="tlink">getspine.ai <i class="ph ph-arrow-up-right"></i></a>
+          <span class="text-[13.5px] text-faint inline-flex items-center gap-1.5">Deep dive <i class="ph ph-arrow-right go"></i></span>
+        </div>
       </div>
-      <h3 class="font-h font-semibold text-[26px] md:text-[30px] tracking-tight mt-5">Spine Swarm</h3>
-      <p class="text-[14.5px] text-muted mt-1.5">400+ LLMs orchestrated as parallel agents · #1 on DeepSearchQA</p>
-      <p class="text-[15px] text-ink/80 leading-relaxed mt-4 flex-grow">
-        An AI research platform that orchestrates models as parallel agents to produce client-ready research, decks, and Excel models. I architected the backend orchestration engine - <span class="text-ink">500+ concurrent agents</span>, 1–10 specialized agents per task - plus the model router, canvas APIs, and the React canvas. Took it 0→1 to 10k+ users.
-      </p>
-      <div class="grid grid-cols-4 gap-3 mt-6 pt-5 border-t border-line">
-        <div><div class="font-h font-semibold text-[19px] text-ink">500+</div><div class="text-[10.5px] text-faint mt-0.5">Agents</div></div>
-        <div><div class="font-h font-semibold text-[19px] text-ink">400+</div><div class="text-[10.5px] text-faint mt-0.5">LLMs</div></div>
-        <div><div class="font-h font-semibold text-[19px] text-ink">6.4k</div><div class="text-[10.5px] text-faint mt-0.5">Canvases</div></div>
-        <div><div class="font-h font-semibold text-[19px] text-accent-soft">151</div><div class="text-[10.5px] text-faint mt-0.5">Paying</div></div>
-      </div>
-      <div class="flex items-center justify-between mt-6">
-        <a href="https://getspine.ai" target="_blank" rel="noopener" class="ilink text-[14px] inline-flex items-center gap-1.5" onclick="event.stopPropagation()">getspine.ai <svg class="ic-sm"><use href="#ar-up-right"/></svg></a>
-        <span class="text-[12.5px] text-faint inline-flex items-center gap-1.5 group-hover:text-accent-soft transition-colors">Deep dive <svg class="ic-sm"><use href="#ar-right"/></svg></span>
-      </div>
-    </article>
-
-    <!-- JEENIUS -->
-    <article class="card card-link card-hover p-6 md:p-8 flex flex-col group" data-modal="modal-jeenius" tabindex="0" role="button" aria-label="Open JEEnius AI deep dive">
-      <div class="flex items-center justify-between">
-        <span class="chip chip-accent">JEEnius AI · Solo founder</span>
-        <span class="text-[12px] text-faint font-mono">2024 - now</span>
-      </div>
-      <h3 class="font-h font-semibold text-[26px] md:text-[30px] tracking-tight mt-5">JEEnius AI</h3>
-      <p class="text-[14.5px] text-muted mt-1.5">JEE prediction engine · 20k+ users · 4.5★ · solo-built</p>
-      <p class="text-[15px] text-ink/80 leading-relaxed mt-4 flex-grow">
-        A side project that became a real product. RAG over 20+ years of past papers, multi-model reasoning routed across GPT-4o / o-series / Gemini 2.5 Pro / Fathom. Predicted <span class="text-ink">92%</span> of JEE Main 2026 January topics with 218 near-exact matches, ground-truth validated post-exam. Fully organic, paying subscribers.
-      </p>
-      <div class="grid grid-cols-4 gap-3 mt-6 pt-5 border-t border-line">
-        <div><div class="font-h font-semibold text-[19px] text-ink">20k+</div><div class="text-[10.5px] text-faint mt-0.5">Users</div></div>
-        <div><div class="font-h font-semibold text-[19px] text-ink">4.5★</div><div class="text-[10.5px] text-faint mt-0.5">Play Store</div></div>
-        <div><div class="font-h font-semibold text-[19px] text-accent-soft">92%</div><div class="text-[10.5px] text-faint mt-0.5">Prediction</div></div>
-        <div><div class="font-h font-semibold text-[19px] text-ink">100k+</div><div class="text-[10.5px] text-faint mt-0.5">Qs indexed</div></div>
-      </div>
-      <div class="flex items-center justify-between mt-6">
-        <a href="https://jeenius.tech" target="_blank" rel="noopener" class="ilink text-[14px] inline-flex items-center gap-1.5" onclick="event.stopPropagation()">jeenius.tech <svg class="ic-sm"><use href="#ar-up-right"/></svg></a>
-        <span class="text-[12.5px] text-faint inline-flex items-center gap-1.5 group-hover:text-accent-soft transition-colors">Deep dive <svg class="ic-sm"><use href="#ar-right"/></svg></span>
-      </div>
+      <dl class="grid grid-cols-2 gap-px rounded-2xl overflow-hidden border border-line bg-line self-start">
+        <div class="bg-bg/80 p-5 md:p-6"><dt class="text-[12.5px] text-faint">Concurrent agents</dt><dd class="num font-semibold text-[28px] md:text-[34px] tracking-tight mt-1">500+</dd></div>
+        <div class="bg-bg/80 p-5 md:p-6"><dt class="text-[12.5px] text-faint">LLMs routed</dt><dd class="num font-semibold text-[28px] md:text-[34px] tracking-tight mt-1">400+</dd></div>
+        <div class="bg-bg/80 p-5 md:p-6"><dt class="text-[12.5px] text-faint">Users, 0 to 1</dt><dd class="num font-semibold text-[28px] md:text-[34px] tracking-tight mt-1">10k+</dd></div>
+        <div class="bg-bg/80 p-5 md:p-6"><dt class="text-[12.5px] text-faint">Live canvases</dt><dd class="num font-semibold text-[28px] md:text-[34px] tracking-tight mt-1 text-accent">6.4k</dd></div>
+      </dl>
     </article>
 
     <!-- PADHAI -->
-    <article class="card card-link card-hover p-6 md:p-8 flex flex-col group" data-modal="modal-padhai" tabindex="0" role="button" aria-label="Open Padhai.ai deep dive">
-      <div class="flex items-center justify-between">
-        <span class="chip">Sigiq.AI · UPSC</span>
-        <span class="text-[12px] text-faint font-mono">2024</span>
-      </div>
-      <h3 class="font-h font-semibold text-[26px] md:text-[30px] tracking-tight mt-5">Padhai.ai</h3>
-      <p class="text-[14.5px] text-muted mt-1.5">UPSC AI tutor · 175k+ active students</p>
+    <article class="reveal card card-link spot tint-fade md:col-span-3 p-6 md:p-8 flex flex-col" data-modal="modal-padhai" tabindex="0" role="button" aria-label="Open the Padhai.ai deep dive" style="--i:1">
+      <div class="flex items-center gap-3 text-[13px] font-mono text-faint"><span class="chip">SigIQ.ai</span>2024 - 25</div>
+      <h3 class="font-semibold text-[26px] md:text-[30px] tracking-[-0.03em] mt-6">Padhai.ai</h3>
+      <p class="text-[14.5px] text-muted mt-1">AI tutor for UPSC aspirants</p>
       <p class="text-[15px] text-ink/80 leading-relaxed mt-4 flex-grow">
-        UPSC prep companion with <span class="text-ink">175k+ students</span>, 25M tutor interactions, and 10M AI summaries. I owned the AI webserver refactor, built the 10k-concurrent WebSocket microservice and Redis leaderboard, and architected blue–green deploys with Datadog APM across the stack.
+        175k+ students and 25M tutor interactions. I owned the AI webserver refactor, built the WebSocket service for 10k concurrent sessions and the Redis leaderboard, and moved deploys to Docker blue-green with Datadog APM.
       </p>
-      <div class="flex flex-wrap gap-2 mt-6 pt-5 border-t border-line">
-        <span class="chip">Django</span><span class="chip">Redis</span><span class="chip">WebSockets</span><span class="chip">Docker</span><span class="chip">Datadog</span>
-      </div>
-      <div class="flex items-center justify-between mt-6">
-        <a href="https://padhai.ai" target="_blank" rel="noopener" class="ilink text-[14px] inline-flex items-center gap-1.5" onclick="event.stopPropagation()">padhai.ai <svg class="ic-sm"><use href="#ar-up-right"/></svg></a>
-        <span class="text-[12.5px] text-faint inline-flex items-center gap-1.5 group-hover:text-accent-soft transition-colors">Deep dive <svg class="ic-sm"><use href="#ar-right"/></svg></span>
+      <div class="flex flex-wrap gap-2 mt-6"><span class="chip">Django</span><span class="chip">Redis</span><span class="chip">WebSockets</span><span class="chip">Docker</span><span class="chip">Datadog</span></div>
+      <div class="flex items-center justify-between mt-7 pt-5 border-t border-line">
+        <a href="https://padhai.ai" target="_blank" rel="noopener" class="tlink">padhai.ai <i class="ph ph-arrow-up-right"></i></a>
+        <span class="text-[13.5px] text-faint inline-flex items-center gap-1.5">Deep dive <i class="ph ph-arrow-right go"></i></span>
       </div>
     </article>
 
     <!-- EVERTUTOR -->
-    <article class="card card-link card-hover p-6 md:p-8 flex flex-col group" data-modal="modal-evertutor" tabindex="0" role="button" aria-label="Open EverTutor deep dive">
-      <div class="flex items-center justify-between">
-        <span class="chip">Sigiq.AI · K-12 + GRE</span>
-        <span class="text-[12px] text-faint font-mono">2024</span>
-      </div>
-      <h3 class="font-h font-semibold text-[26px] md:text-[30px] tracking-tight mt-5">EverTutor.ai</h3>
-      <p class="text-[14.5px] text-muted mt-1.5">Voice-first AI tutoring · backend &amp; infra owned</p>
+    <article class="reveal card card-link spot tint-dots md:col-span-3 p-6 md:p-8 flex flex-col" data-modal="modal-evertutor" tabindex="0" role="button" aria-label="Open the EverTutor deep dive" style="--i:2">
+      <div class="flex items-center gap-3 text-[13px] font-mono text-faint"><span class="chip">SigIQ.ai</span>2024 - 25</div>
+      <h3 class="font-semibold text-[26px] md:text-[30px] tracking-[-0.03em] mt-6">EverTutor.ai</h3>
+      <p class="text-[14.5px] text-muted mt-1">Voice-first AI tutoring, K-12 and GRE</p>
       <p class="text-[15px] text-ink/80 leading-relaxed mt-4 flex-grow">
-        AI tutoring across K-12 intervention and GRE prep - voice-first, 50+ languages, FERPA/COPPA compliant. I built the entire backend &amp; DevOps backbone: the Stripe gateway for international + domestic payments, the AI webserver, and the markdown-LaTeX renderer in React Native that ships every tutor response to learners.
+        I built the backend and DevOps behind it: Stripe billing for domestic and international payments, the AI webserver, and the React Native Markdown and LaTeX renderer that shows every tutor answer.
       </p>
-      <div class="flex flex-wrap gap-2 mt-6 pt-5 border-t border-line">
-        <span class="chip">Stripe</span><span class="chip">React Native</span><span class="chip">Django</span><span class="chip">Celery</span><span class="chip">FCM</span>
-      </div>
-      <div class="flex items-center justify-between mt-6">
-        <a href="https://evertutor.ai/" target="_blank" rel="noopener" class="ilink text-[14px] inline-flex items-center gap-1.5" onclick="event.stopPropagation()">evertutor.ai <svg class="ic-sm"><use href="#ar-up-right"/></svg></a>
-        <span class="text-[12.5px] text-faint inline-flex items-center gap-1.5 group-hover:text-accent-soft transition-colors">Deep dive <svg class="ic-sm"><use href="#ar-right"/></svg></span>
+      <div class="flex flex-wrap gap-2 mt-6"><span class="chip">Stripe</span><span class="chip">React Native</span><span class="chip">Django</span><span class="chip">Celery</span><span class="chip">FCM</span></div>
+      <div class="flex items-center justify-between mt-7 pt-5 border-t border-line">
+        <a href="https://evertutor.ai/" target="_blank" rel="noopener" class="tlink">evertutor.ai <i class="ph ph-arrow-up-right"></i></a>
+        <span class="text-[13.5px] text-faint inline-flex items-center gap-1.5">Deep dive <i class="ph ph-arrow-right go"></i></span>
       </div>
     </article>
 
@@ -452,596 +344,458 @@
 </section>
 
 <!-- ================= BY THE NUMBERS ================= -->
-<section id="impact" class="max-w-content mx-auto px-5 md:px-8 pb-20 md:pb-28">
-  <div class="reveal max-w-[60ch]">
-    <div class="eyebrow">By the numbers</div>
-    <h2 class="font-h font-medium text-[clamp(28px,4.5vw,46px)] tracking-[-0.02em] leading-[1.08] mt-3">Production systems, not vanity metrics.</h2>
-    <p class="text-muted mt-4 text-[16px]">Every figure is from a live system I owned end to end - users who paid, agents that executed, and exams that got predicted.</p>
-  </div>
+<section id="impact" class="max-w-content mx-auto px-4 md:px-8 pb-24 md:pb-32">
+  <h2 class="reveal font-semibold text-[clamp(30px,4.4vw,48px)] tracking-[-0.03em] leading-[1.06] max-w-[22ch]">Numbers from systems I ran in production.</h2>
 
-  <div class="reveal grid grid-cols-2 lg:grid-cols-3 gap-px mt-12 rounded-2xl overflow-hidden border border-line bg-line">
-    <div class="bg-bg p-6 md:p-7">
-      <div class="font-h font-semibold text-[36px] md:text-[42px] tracking-tight num" data-count="175000" data-suffix="k+" data-divide="1000">0</div>
-      <div class="text-[13px] text-muted mt-2">Active students on Padhai.ai</div>
+  <div class="reveal grid grid-cols-2 lg:grid-cols-4 gap-px mt-12 rounded-2xl overflow-hidden border border-line bg-line" style="--i:1">
+    <div class="col-span-2 lg:row-span-2 tint-lime p-7 md:p-10 flex flex-col justify-between min-h-[220px]">
+      <div class="text-[14px] text-muted max-w-[30ch]">Students using Padhai.ai, the UPSC tutor whose backend I owned at SigIQ.ai</div>
+      <div class="num font-semibold text-[64px] md:text-[96px] leading-none tracking-[-0.04em] text-accent mt-8" data-count="175000" data-suffix="k+" data-divide="1000">175k+</div>
     </div>
-    <div class="bg-bg p-6 md:p-7">
-      <div class="font-h font-semibold text-[36px] md:text-[42px] tracking-tight num" data-count="25" data-suffix="M">0</div>
-      <div class="text-[13px] text-muted mt-2">AI tutor interactions served</div>
+    <div class="bg-surface p-6 md:p-7">
+      <div class="num font-semibold text-[34px] md:text-[40px] tracking-tight" data-count="25" data-suffix="M">25M</div>
+      <div class="text-[13.5px] text-muted mt-2">AI tutor interactions served</div>
     </div>
-    <div class="bg-bg p-6 md:p-7">
-      <div class="font-h font-semibold text-[36px] md:text-[42px] tracking-tight num" data-count="10000" data-suffix="">0</div>
-      <div class="text-[13px] text-muted mt-2">Concurrent WebSocket connections</div>
+    <div class="bg-surface p-6 md:p-7">
+      <div class="num font-semibold text-[34px] md:text-[40px] tracking-tight" data-count="10000">10,000</div>
+      <div class="text-[13.5px] text-muted mt-2">Concurrent WebSocket sessions</div>
     </div>
-    <div class="bg-bg p-6 md:p-7">
-      <div class="font-h font-semibold text-[36px] md:text-[42px] tracking-tight num" data-count="6400" data-suffix="+">0</div>
-      <div class="text-[13px] text-muted mt-2">Live canvas environments on Spine</div>
+    <div class="bg-surface p-6 md:p-7">
+      <div class="num font-semibold text-[34px] md:text-[40px] tracking-tight" data-count="500" data-suffix="+">500+</div>
+      <div class="text-[13.5px] text-muted mt-2">Agents running at once in Spine Swarm</div>
     </div>
-    <div class="bg-bg p-6 md:p-7">
-      <div class="font-h font-semibold text-[36px] md:text-[42px] tracking-tight text-accent-soft">$30K</div>
-      <div class="text-[13px] text-muted mt-2">Google AI4SG grant · top 1 of 1000+</div>
-    </div>
-    <div class="bg-bg p-6 md:p-7">
-      <div class="font-h font-semibold text-[36px] md:text-[42px] tracking-tight">99.9%</div>
-      <div class="text-[13px] text-muted mt-2">Uptime · zero-downtime blue–green deploys</div>
+    <div class="bg-surface p-6 md:p-7">
+      <div class="num font-semibold text-[34px] md:text-[40px] tracking-tight">$30K</div>
+      <div class="text-[13.5px] text-muted mt-2">Google AI4SG grant, picked from 1,000+ applications</div>
     </div>
   </div>
 </section>
 
 <!-- ================= EXPERIENCE ================= -->
-<section id="experience" class="max-w-content mx-auto px-5 md:px-8 py-20 md:py-28 border-t border-line/70">
-  <div class="reveal max-w-[60ch]">
-    <div class="eyebrow">Experience</div>
-    <h2 class="font-h font-medium text-[clamp(28px,4.5vw,46px)] tracking-[-0.02em] leading-[1.08] mt-3">Where I've shipped.</h2>
-  </div>
+<section id="experience" class="border-t border-line/70">
+  <div class="max-w-content mx-auto px-4 md:px-8 py-24 md:py-32">
+    <h2 class="reveal font-semibold text-[clamp(30px,4.4vw,48px)] tracking-[-0.03em] leading-[1.06]">Where I've shipped.</h2>
 
-  <div class="relative mt-12 pl-7 md:pl-9">
-    <div class="absolute left-[7px] md:left-[11px] top-2 bottom-2 w-px bg-gradient-to-b from-accent/50 via-line2 to-line2"></div>
+    <div class="mt-14 divide-y divide-line/70 border-t border-line/70">
 
-    <!-- BOLTO -->
-    <div class="reveal relative pb-12">
-      <div class="absolute -left-[27px] md:-left-[35px] top-1.5 w-3.5 h-3.5 rounded-full bg-accent tl-dot"></div>
-      <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <h3 class="font-h font-semibold text-[20px] md:text-[22px]">Software Engineer · Bolto <span class="text-faint font-body font-normal text-[15px]">(YC S23)</span></h3>
-        <div class="text-[13px] text-faint font-mono">May 2026 - Present · New York / Remote</div>
+      <!-- BOLTO -->
+      <div class="reveal grid md:grid-cols-[240px_1fr] gap-4 md:gap-12 py-10">
+        <div>
+          <div class="text-[13px] font-mono text-faint">May 2026 - now</div>
+          <div class="mt-2 inline-flex"><span class="chip chip-accent">Current</span></div>
+        </div>
+        <div>
+          <h3 class="font-semibold text-[21px] md:text-[24px] tracking-tight">Software Engineer, Bolto <span class="text-faint font-normal">(YC)</span></h3>
+          <p class="text-[15.5px] text-muted leading-relaxed mt-2 max-w-[68ch]">Payroll and HR platform for US companies hiring employees and contractors.</p>
+          <ul class="mt-5 space-y-2.5 text-[15px] text-ink/80 max-w-[72ch]">
+            <li class="bullet">Built the employee termination system end to end: scheduled terminations applied by daily background jobs, final payouts, transfer of duties, permission checks and a full audit trail.</li>
+            <li class="bullet">Shipped payroll groups and pay schedules: moving workers between groups, a second recurring payday, reopening payroll runs and changing pay dates.</li>
+            <li class="bullet">Built timesheet-to-payroll draft sync, offer-letter flows, and onboarding gates for companies migrating their payroll in.</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 mt-5"><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">tRPC</span><span class="chip">Drizzle</span><span class="chip">Postgres</span><span class="chip">Trigger.dev</span><span class="chip">Redis</span></div>
+        </div>
       </div>
-      <div class="mt-1.5"><span class="chip chip-accent"><svg class="ic-sm"><use href="#i-dot"/></svg>Current</span></div>
-      <p class="text-[15px] text-muted leading-relaxed mt-4 max-w-[78ch]">
-        Bolto is the AI-powered hiring and HR stack for engineering teams - sourcing, AI vetting, scheduling, payroll, and compliance in one place.
-      </p>
-      <ul class="mt-3 space-y-2 text-[15px] text-ink/80 max-w-[78ch]">
-        <li class="flex gap-3"><span class="text-accent mt-2 shrink-0 w-1 h-1 rounded-full bg-accent"></span><span>Building AI-driven engineer sourcing &amp; vetting pipelines that ingest signal from public code and match candidates to companies at scale.</span></li>
-        <li class="flex gap-3"><span class="text-accent mt-2 shrink-0 w-1 h-1 rounded-full bg-accent"></span><span>Owning full-stack slices across sourcing, technical assessment, scheduling, and the recruiter experience.</span></li>
-        <li class="flex gap-3"><span class="text-accent mt-2 shrink-0 w-1 h-1 rounded-full bg-accent"></span><span>Bringing the agent-orchestration and LLM-routing playbook from Spine into recruiting workflows.</span></li>
-      </ul>
-    </div>
 
-    <!-- SPINE -->
-    <div class="reveal relative pb-12">
-      <div class="absolute -left-[25px] md:-left-[33px] top-1.5 w-2.5 h-2.5 rounded-full bg-line2 tl-dot"></div>
-      <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <h3 class="font-h font-semibold text-[20px] md:text-[22px]">Software Engineer · Spine AI <span class="text-faint font-body font-normal text-[15px]">(YC S23)</span></h3>
-        <div class="text-[13px] text-faint font-mono">Aug 2025 - Apr 2026 · Remote</div>
+      <!-- SPINE -->
+      <div class="reveal grid md:grid-cols-[240px_1fr] gap-4 md:gap-12 py-10">
+        <div class="text-[13px] font-mono text-faint">Aug 2025 - Apr 2026</div>
+        <div>
+          <h3 class="font-semibold text-[21px] md:text-[24px] tracking-tight">Software Engineer, Spine AI <span class="text-faint font-normal">(YC S23)</span></h3>
+          <p class="text-[15.5px] text-muted leading-relaxed mt-2 max-w-[68ch]">AI research platform whose deep-research engine ranked #1 on Google DeepMind's DeepSearchQA benchmark.</p>
+          <ul class="mt-5 space-y-2.5 text-[15px] text-ink/80 max-w-[72ch]">
+            <li class="bullet">Architected the orchestration engine for Spine Swarm: 1 to 10 specialised agents per task and 500+ running concurrently, in parallel rather than in sequence.</li>
+            <li class="bullet">Built the model router that picks from 400+ LLMs at each step for quality, latency and cost; it has processed 106k+ intelligence nodes.</li>
+            <li class="bullet">Built the APIs behind 6,400+ canvas environments: collaborative agent runs, artifact persistence, branching and inspectable intermediate state.</li>
+            <li class="bullet">Owned DevOps across AWS, GCP and Azure with zero-downtime blue-green deploys, through launch to 10k+ users.</li>
+          </ul>
+        </div>
       </div>
-      <p class="text-[15px] text-muted leading-relaxed mt-4 max-w-[78ch]">
-        Spine ships an AI research platform whose deep-research engine ranked <span class="text-ink">#1 on Google DeepMind's DeepSearchQA</span> benchmark. I owned the orchestration engine, model router, and large parts of the canvas runtime.
-      </p>
-      <ul class="mt-3 space-y-2 text-[15px] text-ink/80 max-w-[78ch]">
-        <li class="flex gap-3"><span class="mt-2 shrink-0 w-1 h-1 rounded-full bg-accent"></span><span>Architected the backend orchestration engine for Spine Swarm - 1–10 specialized agents per task, 500+ concurrent, parallel non-sequential execution at production scale.</span></li>
-        <li class="flex gap-3"><span class="mt-2 shrink-0 w-1 h-1 rounded-full bg-accent"></span><span>Built the intelligent model router - 400+ LLMs selected dynamically per step, optimizing for quality, latency, and cost. Cumulatively processed 106k+ intelligence nodes.</span></li>
-        <li class="flex gap-3"><span class="mt-2 shrink-0 w-1 h-1 rounded-full bg-accent"></span><span>Powered 6,400+ active canvas environments with collaborative agent execution, artifact persistence, branching, and full inspectability.</span></li>
-        <li class="flex gap-3"><span class="mt-2 shrink-0 w-1 h-1 rounded-full bg-accent"></span><span>Shipped APIs that produce client-ready outputs - decks, PDFs, Excel models with formulas - and the React canvas frontend.</span></li>
-        <li class="flex gap-3"><span class="mt-2 shrink-0 w-1 h-1 rounded-full bg-accent"></span><span>Owned multi-cloud DevOps (AWS / GCP / Azure) with zero-downtime blue–green deploys; took Spine 0→1 to 10k+ users · 151 paying · 2.5% conversion.</span></li>
-      </ul>
-    </div>
 
-    <!-- SIGIQ FT -->
-    <div class="reveal relative pb-12">
-      <div class="absolute -left-[25px] md:-left-[33px] top-1.5 w-2.5 h-2.5 rounded-full bg-line2 tl-dot"></div>
-      <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <h3 class="font-h font-semibold text-[20px] md:text-[22px]">Founding Engineer · Sigiq.AI</h3>
-        <div class="text-[13px] text-faint font-mono">Jun 2024 - Jul 2025 · Gurgaon</div>
+      <!-- SIGIQ FT -->
+      <div class="reveal grid md:grid-cols-[240px_1fr] gap-4 md:gap-12 py-10">
+        <div class="text-[13px] font-mono text-faint">Jun 2024 - Jul 2025</div>
+        <div>
+          <h3 class="font-semibold text-[21px] md:text-[24px] tracking-tight">Founding Engineer, SigIQ.ai</h3>
+          <p class="text-[15.5px] text-muted leading-relaxed mt-2 max-w-[68ch]">AI tutors: Padhai.ai in India and EverTutor in the US. Joined before launch; the team raised $9.5M.</p>
+          <ul class="mt-5 space-y-2.5 text-[15px] text-ink/80 max-w-[72ch]">
+            <li class="bullet">Owned the backend for Padhai.ai (Django, FastAPI, Redis, Supabase): 175k+ students, 25M tutor interactions, 10M AI summaries.</li>
+            <li class="bullet">Designed the WebSocket layer for AI chat agents (streaming, reconnect, session history) for 10k concurrent sessions.</li>
+            <li class="bullet">Moved 12 deployments from PM2 to Docker blue-green with zero downtime, and added Datadog APM and health checks.</li>
+            <li class="bullet">Built the React Native app's Markdown and LaTeX renderer, the EverTutor backend and Stripe billing; mentored interns.</li>
+          </ul>
+        </div>
       </div>
-      <p class="text-[15px] text-muted leading-relaxed mt-4 max-w-[78ch]">
-        Founding-member SDE for the company behind Padhai.ai (UPSC, 175k+ users), EverTutor (K-12 + GRE), and a portfolio of AI tutoring products. Owned backend, infra, and reliability across the entire stack.
-      </p>
-      <ul class="mt-3 space-y-2 text-[15px] text-ink/80 max-w-[78ch]">
-        <li class="flex gap-3"><span class="mt-2 shrink-0 w-1 h-1 rounded-full bg-accent"></span><span>Owned the AI webserver behind Padhai.ai - comprehensive refactor and error-handling overhaul, with major stability gains under peak exam-season load.</span></li>
-        <li class="flex gap-3"><span class="mt-2 shrink-0 w-1 h-1 rounded-full bg-accent"></span><span>Owned EverTutor's backend &amp; infra end-to-end - integrated Stripe for international + domestic payments and unlocked the entire revenue path.</span></li>
-        <li class="flex gap-3"><span class="mt-2 shrink-0 w-1 h-1 rounded-full bg-accent"></span><span>Led migration from PM2 processes to a containerized ecosystem; designed blue–green deploys with Docker for zero-downtime updates.</span></li>
-        <li class="flex gap-3"><span class="mt-2 shrink-0 w-1 h-1 rounded-full bg-accent"></span><span>Built a 10,000-concurrent WebSocket microservice for real-time AI interactions, plus a separate CPU-intensive recordkeeping service to keep latency low.</span></li>
-        <li class="flex gap-3"><span class="mt-2 shrink-0 w-1 h-1 rounded-full bg-accent"></span><span>Architected Datadog APM + centralized logging; shipped a Redis sorted-set leaderboard and a React Native markdown + LaTeX renderer for every tutor response.</span></li>
-        <li class="flex gap-3"><span class="mt-2 shrink-0 w-1 h-1 rounded-full bg-accent"></span><span>Managed containerized microservices across AWS / GCP / Azure; led and mentored a team of interns.</span></li>
-      </ul>
-    </div>
 
-    <!-- COMPACT EARLIER ROLES -->
-    <div class="reveal relative pb-12">
-      <div class="absolute -left-[25px] md:-left-[33px] top-1.5 w-2.5 h-2.5 rounded-full bg-line2 tl-dot"></div>
-      <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <h3 class="font-h font-semibold text-[20px] md:text-[22px]">SDE Intern · Sigiq.AI <span class="text-faint font-body font-normal text-[14px]">· PPO offered</span></h3>
-        <div class="text-[13px] text-faint font-mono">Oct 2023 - May 2024 · Remote</div>
+      <!-- SIGIQ INTERN -->
+      <div class="reveal grid md:grid-cols-[240px_1fr] gap-4 md:gap-12 py-10">
+        <div class="text-[13px] font-mono text-faint">Oct 2023 - May 2024</div>
+        <div>
+          <h3 class="font-semibold text-[21px] md:text-[24px] tracking-tight">Full Stack Intern, SigIQ.ai <span class="text-faint font-normal text-[16px]">Return offer</span></h3>
+          <p class="text-[15px] text-muted leading-relaxed mt-2 max-w-[72ch]">Django APIs and WebSockets for AI chat, a Redis leaderboard, an FCM and Celery notification panel (bulk send, CSV upload, analytics), and deeplink sharing with generated preview images.</p>
+        </div>
       </div>
-      <p class="text-[15px] text-muted leading-relaxed mt-3 max-w-[78ch]">
-        Shipped React Native + Redux app features and Django APIs/websockets for AI chat; built a Redis cache leaderboard, an FCM notification panel (bulk send, CSV upload, Celery delivery), a deeplink-driven sharing pipeline with dynamic image generation, and a D3.js chat-graph visualization for conversation inspection.
-      </p>
-    </div>
 
-    <div class="reveal relative pb-12">
-      <div class="absolute -left-[25px] md:-left-[33px] top-1.5 w-2.5 h-2.5 rounded-full bg-line2 tl-dot"></div>
-      <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <h3 class="font-h font-semibold text-[20px] md:text-[22px]">SDE Intern · GIVA <span class="text-faint font-body font-normal text-[14px]">· PPO offered</span></h3>
-        <div class="text-[13px] text-faint font-mono">May 2023 - Jul 2023 · Bangalore</div>
+      <!-- GIVA -->
+      <div class="reveal grid md:grid-cols-[240px_1fr] gap-4 md:gap-12 py-10">
+        <div class="text-[13px] font-mono text-faint">May 2023 - Jul 2023</div>
+        <div>
+          <h3 class="font-semibold text-[21px] md:text-[24px] tracking-tight">Tech Intern, GIVA <span class="text-faint font-normal text-[16px]">Return offer</span></h3>
+          <p class="text-[15px] text-muted leading-relaxed mt-2 max-w-[72ch]">POS flows in Next.js and Node shipped to the React Native app, Shopify webhooks for real-time order sync and Razorpay payments. Found and fixed an OTP flaw that let codes stay valid indefinitely.</p>
+        </div>
       </div>
-      <p class="text-[15px] text-muted leading-relaxed mt-3 max-w-[78ch]">
-        Built mission-critical POS flows in Next.js + Node used in production across stores. Shopify order sync via APIs/webhooks, Razorpay payments, SearchTap reindexing. Discovered and fixed an indefinite-OTP verification flaw, hardening the mobile auth flow.
-      </p>
-    </div>
 
-    <div class="reveal relative pb-12">
-      <div class="absolute -left-[25px] md:-left-[33px] top-1.5 w-2.5 h-2.5 rounded-full bg-line2 tl-dot"></div>
-      <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <h3 class="font-h font-semibold text-[20px] md:text-[22px]">Cybersecurity Intern · Vaticinari &amp; C3iHub IITK</h3>
-        <div class="text-[13px] text-faint font-mono">Apr 2023 - Sep 2023</div>
+      <!-- SECURITY -->
+      <div class="reveal grid md:grid-cols-[240px_1fr] gap-4 md:gap-12 py-10">
+        <div class="text-[13px] font-mono text-faint">Apr 2023 - Sep 2023</div>
+        <div>
+          <h3 class="font-semibold text-[21px] md:text-[24px] tracking-tight">Cybersecurity Intern, Vaticinari and C3iHub IIT Kanpur</h3>
+          <p class="text-[15px] text-muted leading-relaxed mt-2 max-w-[72ch]">Built an incident-response GUI on Volatility, Log2Timeline and RegRipper for forensic timelines, mapped adversary tactics with MITRE ATT&amp;CK CASCADE, wrote an ETL log parser for Windows pktmon and tracerpt, and reverse-engineered WannaCry to find its kill switch.</p>
+        </div>
       </div>
-      <p class="text-[15px] text-muted leading-relaxed mt-3 max-w-[78ch]">
-        Built an Incident Response GUI from scratch using Volatility, Log2Timeline, and RegRipper for forensic timelines. Mapped adversary tactics with MITRE ATT&amp;CK CASCADE, built an ETL log parser for Windows pktmon/tracerpt, and reverse-engineered WannaCry on Remnux to identify its kill-switch.
-      </p>
-    </div>
 
-    <div class="reveal relative">
-      <div class="absolute -left-[25px] md:-left-[33px] top-1.5 w-2.5 h-2.5 rounded-full bg-line2 tl-dot"></div>
-      <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <h3 class="font-h font-semibold text-[20px] md:text-[22px]">Earlier · Basta Neural &amp; Centre for Teacher Accreditation</h3>
-        <div class="text-[13px] text-faint font-mono">2021 - 2023</div>
+      <!-- EARLIER -->
+      <div class="reveal grid md:grid-cols-[240px_1fr] gap-4 md:gap-12 py-10">
+        <div class="text-[13px] font-mono text-faint">2021 - 2023</div>
+        <div>
+          <h3 class="font-semibold text-[21px] md:text-[24px] tracking-tight">Earlier: Basta Neural and Centre for Teacher Accreditation</h3>
+          <p class="text-[15px] text-muted leading-relaxed mt-2 max-w-[72ch]">Full-stack work at Basta (Razorpay integration, REST APIs in Node). At CTA, built a scoring and self-assessment tool used by <span class="text-ink">400,000+ teachers</span> across India, on Flask with a Pandas scoring engine and Google Sheets sync.</p>
+        </div>
       </div>
-      <p class="text-[15px] text-muted leading-relaxed mt-3 max-w-[78ch]">
-        Full-stack dev at Basta (Razorpay integration, REST APIs in Node). At CTA, built a scoring + self-assessment web tool used by <span class="text-ink">400,000+ teachers</span> across India - Pandas/NumPy scoring, Flask backend, Google Sheets integration via oauth2/gspread.
-      </p>
-    </div>
 
+    </div>
   </div>
 </section>
 
 <!-- ================= PROJECTS ================= -->
-<section id="projects" class="max-w-content mx-auto px-5 md:px-8 py-20 md:py-28 border-t border-line/70">
-  <div class="reveal max-w-[60ch]">
-    <div class="eyebrow">Projects &amp; side quests</div>
-    <h2 class="font-h font-medium text-[clamp(28px,4.5vw,46px)] tracking-[-0.02em] leading-[1.08] mt-3">Funded research, awards, and experiments.</h2>
-    <p class="text-muted mt-4 text-[16px]">Full-stack experiments, security work, game dev, and published apps. Most link to source.</p>
-  </div>
+<section id="projects" class="border-t border-line/70">
+  <div class="max-w-content mx-auto px-4 md:px-8 py-24 md:py-32">
+    <div class="reveal eyebrow">Projects</div>
+    <h2 class="reveal font-semibold text-[clamp(30px,4.4vw,48px)] tracking-[-0.03em] leading-[1.06] mt-4 max-w-[24ch]" style="--i:1">Research, awards and things I build to learn.</h2>
 
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
-
-    <article class="card card-hover p-6 flex flex-col">
-      <div class="flex items-center justify-between mb-3"><span class="chip chip-accent">Google AI4SG · $30K</span><span class="text-[11px] text-faint font-mono">2022</span></div>
-      <h3 class="font-h font-semibold text-[19px]">AI Labor-Room Smart Assistant</h3>
-      <p class="text-[14px] text-muted mt-2 leading-relaxed flex-grow">ASR-driven assistant for nurses in low-resource Bihar - timely documentation and complication detection. Funded with $30,000 from Google AI for Social Good (top picks from 1000+ global applications). Led a Flutter + Flask + ASR stack with custom KV-pair extraction.</p>
-      <div class="flex flex-wrap gap-2 mt-4">
-        <a href="https://docs.google.com/document/d/1T8kV7RIviT5pI5IvKkWE0xkAX9SKidaUK1EwNXSo-_M/edit" target="_blank" rel="noopener" class="chip hover:border-accent/40 hover:text-accent-soft transition-colors">Proposal ↗</a>
-        <a href="https://github.com/Sahilsingh0808/AI4SG-Backend" target="_blank" rel="noopener" class="chip hover:border-accent/40 hover:text-accent-soft transition-colors">Backend ↗</a>
-        <a href="https://github.com/Sahilsingh0808/ASR" target="_blank" rel="noopener" class="chip hover:border-accent/40 hover:text-accent-soft transition-colors">ASR ↗</a>
+    <!-- Research and awards -->
+    <div class="mt-16">
+      <h3 class="reveal text-[15px] font-medium text-muted pb-4 border-b border-line">Research and awards</h3>
+      <div class="grid sm:grid-cols-2 gap-x-12 gap-y-10 mt-8">
+        <article class="reveal">
+          <div class="text-[12.5px] font-mono text-faint">Google AI4SG grant, $30K &nbsp;/&nbsp; 2022</div>
+          <h4 class="font-semibold text-[19px] tracking-tight mt-2">AI labour-room assistant</h4>
+          <p class="text-[14.5px] text-muted mt-2 leading-relaxed">Speech-driven documentation and complication alerts for nurses in low-resource labour rooms in Bihar. Picked from 1,000+ applications. I led the team and built the Flask backend, Flutter app and ASR pipeline.</p>
+          <div class="flex flex-wrap gap-x-5 gap-y-2 mt-3">
+            <a href="https://docs.google.com/document/d/1T8kV7RIviT5pI5IvKkWE0xkAX9SKidaUK1EwNXSo-_M/edit" target="_blank" rel="noopener" class="tlink">Proposal <i class="ph ph-arrow-up-right"></i></a>
+            <a href="https://github.com/Sahilsingh0808/AI4SG-Backend" target="_blank" rel="noopener" class="tlink">Backend <i class="ph ph-arrow-up-right"></i></a>
+            <a href="https://github.com/Sahilsingh0808/ASR" target="_blank" rel="noopener" class="tlink">ASR <i class="ph ph-arrow-up-right"></i></a>
+          </div>
+        </article>
+        <article class="reveal" style="--i:1">
+          <div class="text-[12.5px] font-mono text-faint">Inter-IIT Tech Meet 10.0, bronze &nbsp;/&nbsp; 2022</div>
+          <h4 class="font-semibold text-[19px] tracking-tight mt-2">Solar burst identifier for ISRO</h4>
+          <p class="text-[14.5px] text-muted mt-2 leading-relaxed">Finds solar bursts in X-ray light curves. React and Chart.js front end, Flask APIs over a Python detection backend, downloadable CSV reports.</p>
+          <div class="text-[13px] text-faint mt-3">Private repo</div>
+        </article>
+        <article class="reveal">
+          <div class="text-[12.5px] font-mono text-faint">Founder and lead &nbsp;/&nbsp; 2023 - 24</div>
+          <h4 class="font-semibold text-[19px] tracking-tight mt-2">GDSC IIT Kanpur</h4>
+          <p class="text-[14.5px] text-muted mt-2 leading-relaxed">Founded the chapter and grew it to 1,000+ members and 5,000+ event participants. Ran ideathons, Cloud Jams and Winter Projects, including a 4-week Flutter track I wrote and taught.</p>
+          <div class="flex flex-wrap gap-x-5 gap-y-2 mt-3"><a href="https://docs.google.com/document/d/1MS49FEyEXQjVhTs6wS2nRzZUWMaMTgJcz9SDB2k0TH0/edit?usp=sharing" target="_blank" rel="noopener" class="tlink">Track data <i class="ph ph-arrow-up-right"></i></a></div>
+        </article>
+        <article class="reveal" style="--i:1">
+          <div class="text-[12.5px] font-mono text-faint">Google Solution Challenge &nbsp;/&nbsp; 2024</div>
+          <h4 class="font-semibold text-[19px] tracking-tight mt-2">FeedHarmony</h4>
+          <p class="text-[14.5px] text-muted mt-2 leading-relaxed">GDSC IITK's entry on global hunger: a Flutter app with predictive ML. Ran the product, dev and ML teams to a working prototype in three weeks.</p>
+          <div class="flex flex-wrap gap-x-5 gap-y-2 mt-3"><a href="https://github.com/GDSC-IITK/solutions-challenge-2024-iitk" target="_blank" rel="noopener" class="tlink">Repo <i class="ph ph-arrow-up-right"></i></a></div>
+        </article>
       </div>
-    </article>
-
-    <article class="card card-hover p-6 flex flex-col">
-      <div class="flex items-center justify-between mb-3"><span class="chip">Inter-IIT · Bronze</span><span class="text-[11px] text-faint font-mono">2022</span></div>
-      <h3 class="font-h font-semibold text-[19px]">Solar Burst Identifier (ISRO)</h3>
-      <p class="text-[14px] text-muted mt-2 leading-relaxed flex-grow">Web tool for ISRO to identify solar bursts in X-Ray light curves at Inter IIT Tech Meet 10.0. ReactJS + ChartJS frontend, Flask REST APIs to a Python detection backend, downloadable CSV reports. Bronze medal.</p>
-      <div class="mt-4"><span class="text-[12px] text-faint font-mono">Private repo · demo on request</span></div>
-    </article>
-
-    <article class="card card-hover p-6 flex flex-col">
-      <div class="flex items-center justify-between mb-3"><span class="chip">GDSC IITK · Founder</span><span class="text-[11px] text-faint font-mono">2023 - 24</span></div>
-      <h3 class="font-h font-semibold text-[19px]">Founded GDSC at IIT Kanpur</h3>
-      <p class="text-[14px] text-muted mt-2 leading-relaxed flex-grow">Founded and led the Google Developer Student Club at IITK - 1,000+ members, 9-member core, 50 volunteers. Ran ideathons (228 teams), GenAI workshops, Cloud Jam, and Winter Projects. 5,000+ event participants over the year.</p>
-      <div class="flex flex-wrap gap-2 mt-4"><a href="https://docs.google.com/document/d/1MS49FEyEXQjVhTs6wS2nRzZUWMaMTgJcz9SDB2k0TH0/edit?usp=sharing" target="_blank" rel="noopener" class="chip hover:border-accent/40 hover:text-accent-soft transition-colors">Track data ↗</a></div>
-    </article>
-
-    <article class="card card-hover p-6 flex flex-col">
-      <div class="flex items-center justify-between mb-3"><span class="chip chip-accent">Google Solutions Challenge</span><span class="text-[11px] text-faint font-mono">2024</span></div>
-      <h3 class="font-h font-semibold text-[19px]">FeedHarmony</h3>
-      <p class="text-[14px] text-muted mt-2 leading-relaxed flex-grow">GDSC IITK's Solutions Challenge entry for global hunger - Flutter app + predictive ML. Managed Product, Dev, and ML teams to a working prototype in a 3-week deadline.</p>
-      <div class="flex flex-wrap gap-2 mt-4"><a href="https://github.com/GDSC-IITK/solutions-challenge-2024-iitk" target="_blank" rel="noopener" class="chip hover:border-accent/40 hover:text-accent-soft transition-colors">Repo ↗</a></div>
-    </article>
-
-    <article class="card card-hover p-6 flex flex-col">
-      <div class="flex items-center justify-between mb-3"><span class="chip">National scale</span><span class="text-[11px] text-faint font-mono">2021</span></div>
-      <h3 class="font-h font-semibold text-[19px]">CTA Self-Assessment Tool</h3>
-      <p class="text-[14px] text-muted mt-2 leading-relaxed flex-grow">Scoring + self-assessment web tool used by 400,000+ teachers across India. Pandas + NumPy scoring algorithm on a Flask backend.</p>
-    </article>
-
-    <article class="card card-hover p-6 flex flex-col">
-      <div class="flex items-center justify-between mb-3"><span class="chip">SPEC · IITK</span><span class="text-[11px] text-faint font-mono">2021 - 22</span></div>
-      <h3 class="font-h font-semibold text-[19px]">IITK Sports Booking Portal</h3>
-      <p class="text-[14px] text-muted mt-2 leading-relaxed flex-grow">Online sports facility booking for IIT Kanpur post-COVID, scaled for 3,000+ campus residents. Flutter + Firebase Auth + Cloud Firestore.</p>
-      <div class="flex flex-wrap gap-2 mt-4"><a href="https://github.com/Sahilsingh0808/IITK-Sports-Booking-Portal" target="_blank" rel="noopener" class="chip hover:border-accent/40 hover:text-accent-soft transition-colors">Repo ↗</a></div>
-    </article>
-
-    <article class="card card-hover p-6 flex flex-col">
-      <div class="flex items-center justify-between mb-3"><span class="chip chip-accent">CLI · DX tooling</span><span class="text-[11px] text-faint font-mono">Side</span></div>
-      <h3 class="font-h font-semibold text-[19px]">Comet</h3>
-      <p class="text-[14px] text-muted mt-2 leading-relaxed flex-grow">AI-driven commit-message CLI in Python. OpenAI for context-rich messages, TextBlob NLP fallback when no API key, optional Jira ticket linking.</p>
-      <div class="flex flex-wrap gap-2 mt-4"><a href="https://github.com/Sahilsingh0808/comet" target="_blank" rel="noopener" class="chip hover:border-accent/40 hover:text-accent-soft transition-colors">Repo ↗</a></div>
-    </article>
-
-    <article class="card card-hover p-6 flex flex-col">
-      <div class="flex items-center justify-between mb-3"><span class="chip">C3iHub · VAPT</span><span class="text-[11px] text-faint font-mono">2023</span></div>
-      <h3 class="font-h font-semibold text-[19px]">WannaCry RE + Ransomware Lab</h3>
-      <p class="text-[14px] text-muted mt-2 leading-relaxed flex-grow">Reverse-engineered WannaCry with Remnux and identified the kill-switch. Wrote a basic Python ransomware to study lifecycle internals, in a Windows + Ubuntu malware lab.</p>
-      <div class="flex flex-wrap gap-2 mt-4"><a href="https://github.com/Sahilsingh0808/Ransomware" target="_blank" rel="noopener" class="chip hover:border-accent/40 hover:text-accent-soft transition-colors">Repo ↗</a></div>
-    </article>
-
-    <article class="card card-hover p-6 flex flex-col">
-      <div class="flex items-center justify-between mb-3"><span class="chip">Columbia research</span><span class="text-[11px] text-faint font-mono">2021 - 22</span></div>
-      <h3 class="font-h font-semibold text-[19px]">US States Debt Structures</h3>
-      <p class="text-[14px] text-muted mt-2 leading-relaxed flex-grow">Database build for Prof. Oliver Giesecke (Columbia) - extracted maturity-structure data from US-state financial reports. Pandas/NumPy + AWS pipeline.</p>
-      <div class="flex flex-wrap gap-2 mt-4"><a href="https://github.com/Sahilsingh0808/US-Debt-Structures" target="_blank" rel="noopener" class="chip hover:border-accent/40 hover:text-accent-soft transition-colors">Repo ↗</a></div>
-    </article>
-
-    <article class="card card-hover p-6 flex flex-col">
-      <div class="flex items-center justify-between mb-3"><span class="chip chip-accent">ML · IME672</span><span class="text-[11px] text-faint font-mono">2022</span></div>
-      <h3 class="font-h font-semibold text-[19px]">Loan Default Classification</h3>
-      <p class="text-[14px] text-muted mt-2 leading-relaxed flex-grow">Predictive ML pipeline on a ~200k-row loan dataset - Random Forest, AdaBoost, Logistic Regression, and ANN benchmarked side by side with full EDA.</p>
-      <div class="flex flex-wrap gap-2 mt-4"><a href="https://github.com/Sahilsingh0808/IME672_Project" target="_blank" rel="noopener" class="chip hover:border-accent/40 hover:text-accent-soft transition-colors">Repo ↗</a></div>
-    </article>
-
-    <article class="card card-hover p-6 flex flex-col">
-      <div class="flex items-center justify-between mb-3"><span class="chip">Unity · C#</span><span class="text-[11px] text-faint font-mono">2021</span></div>
-      <h3 class="font-h font-semibold text-[19px]">The Lost Prince + Haunted 3D</h3>
-      <p class="text-[14px] text-muted mt-2 leading-relaxed flex-grow">Unity 2D &amp; 3D games with the IITK Gamedev Society - C# for enemy AI, movement, scene transitions, health systems, plus ShaderLab work on the 3D horror experiment.</p>
-      <div class="flex flex-wrap gap-2 mt-4">
-        <a href="https://github.com/Sahilsingh0808/The-Lost-Prince" target="_blank" rel="noopener" class="chip hover:border-accent/40 hover:text-accent-soft transition-colors">2D ↗</a>
-        <a href="https://github.com/Sahilsingh0808/Haunted-3D-Game-Unity" target="_blank" rel="noopener" class="chip hover:border-accent/40 hover:text-accent-soft transition-colors">3D ↗</a>
-      </div>
-    </article>
-
-    <article class="card card-hover p-6 flex flex-col">
-      <div class="flex items-center justify-between mb-3"><span class="chip chip-accent">Play Store · published</span><span class="text-[11px] text-faint font-mono">2021</span></div>
-      <h3 class="font-h font-semibold text-[19px]">Noted, TicTacToe &amp; Number Magic</h3>
-      <p class="text-[14px] text-muted mt-2 leading-relaxed flex-grow">Three cross-platform apps published on Google Play. Noted is a Flutter + Node + MongoDB note app; the others are mobile-first games with clean state management.</p>
-      <div class="flex flex-wrap gap-2 mt-4">
-        <a href="https://github.com/Sahilsingh0808/Noted--Note-Making-App" target="_blank" rel="noopener" class="chip hover:border-accent/40 hover:text-accent-soft transition-colors">Noted ↗</a>
-        <a href="https://github.com/Sahilsingh0808/TicTacToe" target="_blank" rel="noopener" class="chip hover:border-accent/40 hover:text-accent-soft transition-colors">TicTacToe ↗</a>
-        <a href="https://github.com/Sahilsingh0808/Number-Magic" target="_blank" rel="noopener" class="chip hover:border-accent/40 hover:text-accent-soft transition-colors">Magic ↗</a>
-      </div>
-    </article>
-
-  </div>
-
-  <!-- Awards -->
-  <div class="reveal grid sm:grid-cols-3 gap-4 mt-6">
-    <div class="card p-5">
-      <div class="eyebrow eyebrow-muted">Award</div>
-      <div class="font-h font-semibold text-[17px] mt-1.5">Google Code Jam 2021</div>
-      <div class="text-[13px] text-muted mt-0.5">Global rank 794 of 37,000+</div>
+      <p class="reveal text-[14px] text-muted mt-10">Also: Google Code Jam 2021, global rank 794. Google Kick Start 2021, best rank 1,544.</p>
     </div>
-    <div class="card p-5">
-      <div class="eyebrow eyebrow-muted">Award</div>
-      <div class="font-h font-semibold text-[17px] mt-1.5">Google Kick Start 2021</div>
-      <div class="text-[13px] text-muted mt-0.5">Best rank 1,544 · 19,000+ globally</div>
-    </div>
-    <div class="card p-5">
-      <div class="eyebrow eyebrow-muted">Published</div>
-      <div class="font-h font-semibold text-[17px] mt-1.5">3 apps on Play Store</div>
-      <div class="text-[13px] text-muted mt-0.5">Noted · TicTacToe · Number Magic</div>
+
+    <!-- Side builds -->
+    <div class="mt-16">
+      <h3 class="reveal text-[15px] font-medium text-muted pb-4 border-b border-line">Things I build to learn</h3>
+      <div class="grid sm:grid-cols-2 gap-x-12 gap-y-10 mt-8">
+        <article class="reveal">
+          <div class="text-[12.5px] font-mono text-faint">Python &nbsp;/&nbsp; 2026</div>
+          <h4 class="font-semibold text-[19px] tracking-tight mt-2">kronos-india</h4>
+          <p class="text-[14.5px] text-muted mt-2 leading-relaxed">An event-driven backtester for Indian markets (NSE): market data, signals, orders and fills flow through one event queue, so a strategy runs the same way in a backtest as it would live.</p>
+          <div class="text-[13px] text-faint mt-3">Private repo</div>
+        </article>
+        <article class="reveal" style="--i:1">
+          <div class="text-[12.5px] font-mono text-faint">Hugging Face &nbsp;/&nbsp; 2025</div>
+          <h4 class="font-semibold text-[19px] tracking-tight mt-2">Mental-health conversation dataset</h4>
+          <p class="text-[14.5px] text-muted mt-2 leading-relaxed">An open dataset of mental-health conversations for fine-tuning and evaluating supportive chat models.</p>
+          <div class="flex flex-wrap gap-x-5 gap-y-2 mt-3"><a href="https://huggingface.co/datasets/sahil007123/mental_health" target="_blank" rel="noopener" class="tlink">Dataset <i class="ph ph-arrow-up-right"></i></a></div>
+        </article>
+        <article class="reveal">
+          <div class="text-[12.5px] font-mono text-faint">CLI &nbsp;/&nbsp; Python</div>
+          <h4 class="font-semibold text-[19px] tracking-tight mt-2">Comet</h4>
+          <p class="text-[14.5px] text-muted mt-2 leading-relaxed">Writes commit messages from the diff with OpenAI, falls back to TextBlob when there is no API key, and can link Jira tickets.</p>
+          <div class="flex flex-wrap gap-x-5 gap-y-2 mt-3"><a href="https://github.com/Sahilsingh0808/comet" target="_blank" rel="noopener" class="tlink">Repo <i class="ph ph-arrow-up-right"></i></a></div>
+        </article>
+        <article class="reveal" style="--i:1">
+          <div class="text-[12.5px] font-mono text-faint">Games and Sports Council, IITK &nbsp;/&nbsp; 2021 - 22</div>
+          <h4 class="font-semibold text-[19px] tracking-tight mt-2">IIT Kanpur sports booking portal</h4>
+          <p class="text-[14.5px] text-muted mt-2 leading-relaxed">Facility booking for 3,000+ campus residents after COVID. Flutter, Firebase Auth and Cloud Firestore.</p>
+          <div class="flex flex-wrap gap-x-5 gap-y-2 mt-3"><a href="https://github.com/Sahilsingh0808/IITK-Sports-Booking-Portal" target="_blank" rel="noopener" class="tlink">Repo <i class="ph ph-arrow-up-right"></i></a></div>
+        </article>
+      </div>
+
+      <details class="reveal mt-12 group">
+        <summary class="inline-flex items-center gap-2 text-[14.5px] text-ink hover:text-accent-soft transition-colors">
+          Four more from university <i class="ph ph-caret-down caret"></i>
+        </summary>
+        <div class="grid sm:grid-cols-2 gap-x-12 gap-y-10 mt-8">
+          <article>
+            <div class="text-[12.5px] font-mono text-faint">C3iHub &nbsp;/&nbsp; 2023</div>
+            <h4 class="font-semibold text-[19px] tracking-tight mt-2">WannaCry teardown and ransomware lab</h4>
+            <p class="text-[14.5px] text-muted mt-2 leading-relaxed">Reverse-engineered WannaCry on Remnux and found the kill switch, then wrote a basic Python ransomware in a Windows and Ubuntu lab to study the lifecycle.</p>
+            <div class="flex flex-wrap gap-x-5 gap-y-2 mt-3"><a href="https://github.com/Sahilsingh0808/Ransomware" target="_blank" rel="noopener" class="tlink">Repo <i class="ph ph-arrow-up-right"></i></a></div>
+          </article>
+          <article>
+            <div class="text-[12.5px] font-mono text-faint">Columbia research &nbsp;/&nbsp; 2021 - 22</div>
+            <h4 class="font-semibold text-[19px] tracking-tight mt-2">US state debt structures</h4>
+            <p class="text-[14.5px] text-muted mt-2 leading-relaxed">A database of maturity structures pulled from US state financial reports, for Prof. Oliver Giesecke. Pandas and an AWS pipeline.</p>
+            <div class="flex flex-wrap gap-x-5 gap-y-2 mt-3"><a href="https://github.com/Sahilsingh0808/US-Debt-Structures" target="_blank" rel="noopener" class="tlink">Repo <i class="ph ph-arrow-up-right"></i></a></div>
+          </article>
+          <article>
+            <div class="text-[12.5px] font-mono text-faint">IME672 &nbsp;/&nbsp; 2022</div>
+            <h4 class="font-semibold text-[19px] tracking-tight mt-2">Loan default classification</h4>
+            <p class="text-[14.5px] text-muted mt-2 leading-relaxed">Random forest, AdaBoost, logistic regression and a small neural net compared on a 200k-row loan dataset, with full EDA.</p>
+            <div class="flex flex-wrap gap-x-5 gap-y-2 mt-3"><a href="https://github.com/Sahilsingh0808/IME672_Project" target="_blank" rel="noopener" class="tlink">Repo <i class="ph ph-arrow-up-right"></i></a></div>
+          </article>
+          <article>
+            <div class="text-[12.5px] font-mono text-faint">Unity, C# &nbsp;/&nbsp; 2021</div>
+            <h4 class="font-semibold text-[19px] tracking-tight mt-2">The Lost Prince and Haunted 3D</h4>
+            <p class="text-[14.5px] text-muted mt-2 leading-relaxed">2D and 3D games with the IITK Gamedev Society: enemy AI, movement, scene transitions and health systems in C#, plus ShaderLab work.</p>
+            <div class="flex flex-wrap gap-x-5 gap-y-2 mt-3">
+              <a href="https://github.com/Sahilsingh0808/The-Lost-Prince" target="_blank" rel="noopener" class="tlink">2D game <i class="ph ph-arrow-up-right"></i></a>
+              <a href="https://github.com/Sahilsingh0808/Haunted-3D-Game-Unity" target="_blank" rel="noopener" class="tlink">3D game <i class="ph ph-arrow-up-right"></i></a>
+            </div>
+          </article>
+        </div>
+      </details>
     </div>
   </div>
 </section>
 
 <!-- ================= WRITING ================= -->
-<section id="writing" class="max-w-content mx-auto px-5 md:px-8 py-20 md:py-28 border-t border-line/70">
-  <div class="reveal flex flex-wrap items-end justify-between gap-4 max-w-content">
-    <div class="max-w-[60ch]">
-      <div class="eyebrow">Writing</div>
-      <h2 class="font-h font-medium text-[clamp(28px,4.5vw,46px)] tracking-[-0.02em] leading-[1.08] mt-3">Notes from the field.</h2>
-      <p class="text-muted mt-4 text-[16px]">Occasional writing on systems quirks, model behaviour, and learning curves.</p>
-    </div>
-    <a href="https://sahilsingh08062001.medium.com/" target="_blank" rel="noopener" class="btn btn-secondary">All posts on Medium <svg class="ic-sm"><use href="#ar-up-right"/></svg></a>
-  </div>
+<section id="writing" class="border-t border-line/70">
+  <div class="max-w-content mx-auto px-4 md:px-8 py-24 md:py-32">
+    <h2 class="reveal font-semibold text-[clamp(30px,4.4vw,48px)] tracking-[-0.03em] leading-[1.06]">Writing</h2>
+    <p class="reveal text-muted mt-4 text-[16.5px] max-w-[58ch]" style="--i:1">Occasional posts on systems quirks, model behaviour and learning.</p>
+    <a href="https://sahilsingh08062001.medium.com/" target="_blank" rel="noopener" class="reveal tlink mt-3" style="--i:2">All posts on Medium <i class="ph ph-arrow-up-right"></i></a>
 
-  <div class="grid md:grid-cols-3 gap-4 mt-12">
-    <a href="https://sahilsingh08062001.medium.com/mac-time-bomb-t-49-c561ebb34bc5" target="_blank" rel="noopener" class="card card-hover p-6 flex flex-col group">
-      <div class="flex items-center justify-between mb-4"><span class="chip">Systems · TCP</span><span class="text-[11px] text-faint font-mono">2026</span></div>
-      <h3 class="font-h font-semibold text-[20px] leading-snug">Mac Time Bomb T-49</h3>
-      <p class="text-[14px] text-muted mt-3 leading-relaxed flex-grow">A kernel quirk where macOS TCP stops working after exactly 49 days of uptime - a 32-bit overflow in the <span class="font-mono text-ink/80">tcp_now</span> counter freezes TIME_WAIT expiry and ephemeral ports run out.</p>
-      <span class="ilink text-[13.5px] inline-flex items-center gap-1.5 mt-5">Read <svg class="ic-sm"><use href="#ar-up-right"/></svg></span>
-    </a>
-    <a href="https://medium.com/@sahilsingh08062001/why-scolding-your-llm-is-probably-a-good-thing-166034aec3e9" target="_blank" rel="noopener" class="card card-hover p-6 flex flex-col group">
-      <div class="flex items-center justify-between mb-4"><span class="chip chip-accent">AI · LLMs</span><span class="text-[11px] text-faint font-mono">Oct 2025</span></div>
-      <h3 class="font-h font-semibold text-[20px] leading-snug">Why "scolding" your LLM is probably a good thing</h3>
-      <p class="text-[14px] text-muted mt-3 leading-relaxed flex-grow">Models trained for approval drift into sycophancy. Respectful corrective pressure, structured reasoning, and source-grounding measurably improve reasoning quality - the argument and the evidence.</p>
-      <span class="ilink text-[13.5px] inline-flex items-center gap-1.5 mt-5">Read <svg class="ic-sm"><use href="#ar-up-right"/></svg></span>
-    </a>
-    <a href="https://medium.com/@sahilsingh08062001/how-to-start-learning-a-new-skill-mobile-app-development-67b455cf465b" target="_blank" rel="noopener" class="card card-hover p-6 flex flex-col group">
-      <div class="flex items-center justify-between mb-4"><span class="chip">Learning · Mobile</span><span class="text-[11px] text-faint font-mono">Apr 2021</span></div>
-      <h3 class="font-h font-semibold text-[20px] leading-snug">How to start learning a new skill</h3>
-      <p class="text-[14px] text-muted mt-3 leading-relaxed flex-grow">How I started Android dev during COVID. Practical advice on starting well: lean on online resources, build confidence through reps, and use community instead of trying to understand everything before you ship.</p>
-      <span class="ilink text-[13.5px] inline-flex items-center gap-1.5 mt-5">Read <svg class="ic-sm"><use href="#ar-up-right"/></svg></span>
-    </a>
+    <div class="mt-12 border-t border-line divide-y divide-line">
+      <a href="https://sahilsingh08062001.medium.com/mac-time-bomb-t-49-c561ebb34bc5" target="_blank" rel="noopener" class="reveal group grid md:grid-cols-[1fr_160px] gap-3 md:gap-10 py-8">
+        <div>
+          <h3 class="font-semibold text-[21px] md:text-[24px] tracking-tight group-hover:text-accent-soft transition-colors">Mac Time Bomb T-49</h3>
+          <p class="text-[15px] text-muted mt-2 leading-relaxed max-w-[70ch]">After exactly 49 days of uptime, macOS TCP stops working: a 32-bit overflow in <span class="font-mono text-ink/80 text-[13.5px]">tcp_now</span> freezes TIME_WAIT expiry until ephemeral ports run out.</p>
+        </div>
+        <div class="text-[13px] font-mono text-faint md:text-right flex md:flex-col gap-3 md:gap-1"><span>2026</span><span>Systems</span></div>
+      </a>
+      <a href="https://medium.com/@sahilsingh08062001/why-scolding-your-llm-is-probably-a-good-thing-166034aec3e9" target="_blank" rel="noopener" class="reveal group grid md:grid-cols-[1fr_160px] gap-3 md:gap-10 py-8">
+        <div>
+          <h3 class="font-semibold text-[21px] md:text-[24px] tracking-tight group-hover:text-accent-soft transition-colors">Why "scolding" your LLM is probably a good thing</h3>
+          <p class="text-[15px] text-muted mt-2 leading-relaxed max-w-[70ch]">Models trained for approval drift into sycophancy. Respectful corrective pressure, structured reasoning and source grounding improve their answers.</p>
+        </div>
+        <div class="text-[13px] font-mono text-faint md:text-right flex md:flex-col gap-3 md:gap-1"><span>Oct 2025</span><span>LLMs</span></div>
+      </a>
+      <a href="https://medium.com/@sahilsingh08062001/how-to-start-learning-a-new-skill-mobile-app-development-67b455cf465b" target="_blank" rel="noopener" class="reveal group grid md:grid-cols-[1fr_160px] gap-3 md:gap-10 py-8">
+        <div>
+          <h3 class="font-semibold text-[21px] md:text-[24px] tracking-tight group-hover:text-accent-soft transition-colors">How to start learning a new skill</h3>
+          <p class="text-[15px] text-muted mt-2 leading-relaxed max-w-[70ch]">How I started Android development during COVID: lean on online resources, build confidence through reps, and use the community instead of waiting to understand everything.</p>
+        </div>
+        <div class="text-[13px] font-mono text-faint md:text-right flex md:flex-col gap-3 md:gap-1"><span>Apr 2021</span><span>Learning</span></div>
+      </a>
+    </div>
   </div>
 </section>
 
 <!-- ================= STACK ================= -->
-<section id="stack" class="max-w-content mx-auto px-5 md:px-8 py-20 md:py-28 border-t border-line/70">
-  <div class="reveal max-w-[60ch]">
-    <div class="eyebrow">Stack</div>
-    <h2 class="font-h font-medium text-[clamp(28px,4.5vw,46px)] tracking-[-0.02em] leading-[1.08] mt-3">Tools I reach for.</h2>
-  </div>
-
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10 mt-12">
-    <div class="reveal">
-      <div class="flex items-center gap-2 text-[13px] font-mono text-accent-soft"><svg class="ic-sm"><use href="#i-spark"/></svg>AI / LLM systems</div>
-      <div class="flex flex-wrap gap-2 mt-4">
-        <span class="chip">Agent orchestration</span><span class="chip">LLM routing · 400+</span><span class="chip">RAG / Vector DB</span><span class="chip">Prompt engineering</span><span class="chip">OpenAI · Anthropic</span><span class="chip">Gemini · Fathom</span><span class="chip">ASR / Speech</span><span class="chip">Evals · DeepSearchQA</span><span class="chip">MCP</span>
+<section id="stack" class="border-t border-line/70">
+  <div class="max-w-content mx-auto px-4 md:px-8 py-24 md:py-32 grid lg:grid-cols-[280px_1fr] gap-10 lg:gap-16">
+    <h2 class="reveal font-semibold text-[clamp(30px,4.4vw,48px)] tracking-[-0.03em] leading-[1.06] lg:sticky lg:top-28 self-start">Tools I reach for.</h2>
+    <div class="grid sm:grid-cols-2 gap-x-10 gap-y-10">
+      <div class="reveal">
+        <h3 class="text-[14px] font-medium text-accent-soft">AI and LLM systems</h3>
+        <div class="flex flex-wrap gap-2 mt-4"><span class="chip">Agent orchestration</span><span class="chip">LLM routing</span><span class="chip">RAG</span><span class="chip">Vector DBs</span><span class="chip">OpenAI</span><span class="chip">Anthropic</span><span class="chip">Gemini</span><span class="chip">ASR</span><span class="chip">Evals</span><span class="chip">MCP</span></div>
       </div>
-    </div>
-    <div class="reveal">
-      <div class="text-[13px] font-mono text-muted">Languages</div>
-      <div class="flex flex-wrap gap-2 mt-4">
-        <span class="chip">Python</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">C / C++</span><span class="chip">Dart</span><span class="chip">Java</span><span class="chip">C#</span><span class="chip">SQL</span><span class="chip">Bash</span>
+      <div class="reveal" style="--i:1">
+        <h3 class="text-[14px] font-medium text-muted">Backend</h3>
+        <div class="flex flex-wrap gap-2 mt-4"><span class="chip">Django</span><span class="chip">FastAPI</span><span class="chip">Flask</span><span class="chip">Node</span><span class="chip">tRPC</span><span class="chip">WebSockets</span><span class="chip">Celery</span><span class="chip">Trigger.dev</span><span class="chip">REST</span><span class="chip">GraphQL</span></div>
       </div>
-    </div>
-    <div class="reveal">
-      <div class="text-[13px] font-mono text-muted">Backend</div>
-      <div class="flex flex-wrap gap-2 mt-4">
-        <span class="chip">Django / DRF</span><span class="chip">FastAPI / Flask</span><span class="chip">Node / Express</span><span class="chip">WebSockets · 10k</span><span class="chip">Celery / Queues</span><span class="chip">REST + GraphQL</span><span class="chip">Microservices</span><span class="chip">Webhooks</span>
+      <div class="reveal">
+        <h3 class="text-[14px] font-medium text-muted">Languages</h3>
+        <div class="flex flex-wrap gap-2 mt-4"><span class="chip">Python</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">C++</span><span class="chip">C</span><span class="chip">Dart</span><span class="chip">Java</span><span class="chip">C#</span><span class="chip">SQL</span><span class="chip">Bash</span></div>
       </div>
-    </div>
-    <div class="reveal">
-      <div class="text-[13px] font-mono text-muted">Frontend</div>
-      <div class="flex flex-wrap gap-2 mt-4">
-        <span class="chip">React</span><span class="chip">Next.js</span><span class="chip">React Native</span><span class="chip">Flutter</span><span class="chip">Tailwind</span><span class="chip">Redux / Zustand</span><span class="chip">D3.js</span><span class="chip">Chart.js</span>
+      <div class="reveal" style="--i:1">
+        <h3 class="text-[14px] font-medium text-muted">Frontend and mobile</h3>
+        <div class="flex flex-wrap gap-2 mt-4"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">React Native</span><span class="chip">Flutter</span><span class="chip">Tailwind</span><span class="chip">Redux</span><span class="chip">Zustand</span><span class="chip">D3.js</span></div>
       </div>
-    </div>
-    <div class="reveal">
-      <div class="text-[13px] font-mono text-muted">Infra / DevOps</div>
-      <div class="flex flex-wrap gap-2 mt-4">
-        <span class="chip">AWS</span><span class="chip">GCP</span><span class="chip">Azure</span><span class="chip">Docker</span><span class="chip">Nginx / PM2</span><span class="chip">Blue–green</span><span class="chip">CI/CD</span><span class="chip">Linux</span>
+      <div class="reveal">
+        <h3 class="text-[14px] font-medium text-muted">Infra and DevOps</h3>
+        <div class="flex flex-wrap gap-2 mt-4"><span class="chip">AWS</span><span class="chip">GCP</span><span class="chip">Azure</span><span class="chip">Docker</span><span class="chip">Terraform</span><span class="chip">Blue-green deploys</span><span class="chip">CI/CD</span><span class="chip">Nginx</span><span class="chip">Linux</span></div>
       </div>
-    </div>
-    <div class="reveal">
-      <div class="text-[13px] font-mono text-muted">Data, observability &amp; more</div>
-      <div class="flex flex-wrap gap-2 mt-4">
-        <span class="chip">Postgres</span><span class="chip">MongoDB</span><span class="chip">Redis</span><span class="chip">Firebase</span><span class="chip">Pandas / NumPy</span><span class="chip">Datadog</span><span class="chip">Sentry</span><span class="chip">Stripe · Razorpay</span><span class="chip">VAPT · OWASP</span><span class="chip">Unity · C#</span>
+      <div class="reveal" style="--i:1">
+        <h3 class="text-[14px] font-medium text-muted">Data and observability</h3>
+        <div class="flex flex-wrap gap-2 mt-4"><span class="chip">Postgres</span><span class="chip">Drizzle</span><span class="chip">Supabase</span><span class="chip">Redis</span><span class="chip">MongoDB</span><span class="chip">Firebase</span><span class="chip">Datadog</span><span class="chip">Sentry</span><span class="chip">Stripe</span><span class="chip">Razorpay</span></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ================= CONTACT ================= -->
-<section id="contact" class="max-w-content mx-auto px-5 md:px-8 py-20 md:py-28 border-t border-line/70">
-  <div class="card p-8 md:p-12 reveal relative overflow-hidden">
-    <div class="absolute -right-20 -top-24 w-[380px] h-[380px] rounded-full bg-accent/10 blur-[110px] pointer-events-none"></div>
-    <div class="relative">
-      <div class="eyebrow">Get in touch</div>
-      <h2 class="font-h font-medium text-[clamp(28px,4.5vw,48px)] tracking-[-0.02em] leading-[1.06] mt-3 max-w-[18ch]">
-        Building AI products at Bolto. Always up for a good problem.
-      </h2>
-      <p class="text-muted mt-5 text-[16.5px] leading-relaxed max-w-[58ch]">
-        If you're working on agent platforms, applied AI, real-time consumer products, or hard infra problems and want to compare notes - reach out. Allergic to architecture astronautics; biased toward shipping.
-      </p>
-      <div class="flex flex-wrap items-center gap-3 mt-8">
-        <a href="mailto:sahil85.10s@gmail.com" class="btn btn-primary"><svg class="ic-sm"><use href="#i-mail"/></svg> sahil85.10s@gmail.com</a>
-        <a href="Sahil_Singh_Resume.pdf" target="_blank" rel="noopener" class="btn btn-secondary">Résumé <svg class="ic-sm"><use href="#ar-up-right"/></svg></a>
-        <a href="https://www.linkedin.com/in/sahilsingh" target="_blank" rel="noopener" class="btn btn-secondary">LinkedIn</a>
-        <a href="https://github.com/Sahilsingh0808" target="_blank" rel="noopener" class="btn btn-secondary">GitHub</a>
+<section id="contact" class="border-t border-line/70">
+  <div class="max-w-content mx-auto px-4 md:px-8 py-24 md:py-32">
+    <div class="reveal card tint-lime p-8 md:p-14 overflow-hidden">
+      <div class="eyebrow">Contact</div>
+      <h2 class="font-semibold text-[clamp(30px,4.6vw,52px)] tracking-[-0.03em] leading-[1.05] mt-5 max-w-[20ch]">Always up for talking shop.</h2>
+      <p class="text-muted mt-5 text-[16.5px] leading-relaxed max-w-[56ch]">Agent orchestration, real-time systems, payroll infrastructure or a hard infra problem: if you want to compare notes, email me.</p>
+      <div class="flex flex-wrap items-center gap-3 mt-9">
+        <a href="mailto:sahil85.10s@gmail.com" class="btn btn-primary magnetic"><i class="ph ph-envelope-simple text-[16px]"></i> sahil85.10s@gmail.com</a>
+        <a href="https://www.linkedin.com/in/sahilsingh0808" target="_blank" rel="noopener" class="btn btn-secondary"><i class="ph ph-linkedin-logo text-[16px]"></i> LinkedIn</a>
+        <a href="https://github.com/Sahilsingh0808" target="_blank" rel="noopener" class="btn btn-secondary"><i class="ph ph-github-logo text-[16px]"></i> GitHub</a>
       </div>
 
-      <div class="hr my-9"></div>
-
-      <dl class="grid sm:grid-cols-2 lg:grid-cols-4 gap-y-5 gap-x-6 text-[14px]">
-        <div><dt class="text-faint text-[12px] font-mono uppercase tracking-wider">Current</dt><dd class="mt-1">Bolto (YC S23)</dd></div>
-        <div><dt class="text-faint text-[12px] font-mono uppercase tracking-wider">Previously</dt><dd class="mt-1">Spine AI · Sigiq.AI</dd></div>
-        <div><dt class="text-faint text-[12px] font-mono uppercase tracking-wider">Degree</dt><dd class="mt-1">B.Tech · IIT Kanpur '24</dd></div>
-        <div><dt class="text-faint text-[12px] font-mono uppercase tracking-wider">Location</dt><dd class="mt-1">Remote · India</dd></div>
+      <dl class="grid grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-6 text-[14.5px] mt-12 pt-8 border-t border-line">
+        <div><dt class="text-faint text-[13px]">Now</dt><dd class="mt-1">Bolto (YC)</dd></div>
+        <div><dt class="text-faint text-[13px]">Before</dt><dd class="mt-1">Spine AI, SigIQ.ai</dd></div>
+        <div><dt class="text-faint text-[13px]">Degree</dt><dd class="mt-1">B.Tech, IIT Kanpur '24</dd></div>
+        <div><dt class="text-faint text-[13px]">Based in</dt><dd class="mt-1">India</dd></div>
       </dl>
     </div>
   </div>
 </section>
 
+</main>
+
 <!-- ================= FOOTER ================= -->
 <footer class="border-t border-line/70">
-  <div class="max-w-content mx-auto px-5 md:px-8 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
-    <div class="text-[13px] text-faint">© 2026 Sahil Singh · Designed &amp; built from scratch.</div>
-    <div class="flex items-center gap-5 text-muted">
-      <a href="https://github.com/Sahilsingh0808" target="_blank" rel="noopener" aria-label="GitHub" class="hover:text-ink transition-colors"><svg class="ic"><use href="#i-github"/></svg></a>
-      <a href="https://www.linkedin.com/in/sahilsingh" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-ink transition-colors"><svg class="ic"><use href="#i-linkedin"/></svg></a>
-      <a href="https://sahilsingh08062001.medium.com/" target="_blank" rel="noopener" aria-label="Medium" class="hover:text-ink transition-colors"><svg class="ic"><use href="#i-medium"/></svg></a>
-      <a href="mailto:sahil85.10s@gmail.com" aria-label="Email" class="hover:text-ink transition-colors"><svg class="ic"><use href="#i-mail"/></svg></a>
+  <div class="max-w-content mx-auto px-4 md:px-8 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+    <div class="text-[13.5px] text-faint">© 2026 Sahil Singh. Built by hand, no framework.</div>
+    <div class="flex items-center gap-1 text-[19px]">
+      <a href="https://github.com/Sahilsingh0808" target="_blank" rel="noopener" aria-label="GitHub" class="btn btn-icon"><i class="ph ph-github-logo"></i></a>
+      <a href="https://www.linkedin.com/in/sahilsingh0808" target="_blank" rel="noopener" aria-label="LinkedIn" class="btn btn-icon"><i class="ph ph-linkedin-logo"></i></a>
+      <a href="https://sahilsingh08062001.medium.com/" target="_blank" rel="noopener" aria-label="Medium" class="btn btn-icon"><i class="ph ph-medium-logo"></i></a>
+      <a href="mailto:sahil85.10s@gmail.com" aria-label="Email" class="btn btn-icon"><i class="ph ph-envelope-simple"></i></a>
     </div>
   </div>
 </footer>
 
-</main>
-
 <!-- ================= MODALS ================= -->
 
 <!-- SPINE -->
-<dialog id="modal-spine" class="modal">
+<dialog id="modal-spine" class="modal" aria-labelledby="t-spine">
   <div class="modal-shell">
-    <header class="sticky top-0 z-10 flex items-center justify-between border-b border-line bg-surface/95 backdrop-blur px-6 py-3.5">
-      <div class="eyebrow">Deep dive - Spine Swarm</div>
-      <button class="btn btn-ghost p-2 modal-close" aria-label="Close"><svg class="ic"><use href="#i-close"/></svg></button>
+    <header class="sticky top-0 z-10 flex items-center justify-between border-b border-line bg-surface/95 backdrop-blur px-6 py-3">
+      <div class="text-[13px] text-muted">Deep dive</div>
+      <button class="btn btn-icon modal-close" aria-label="Close"><i class="ph ph-x"></i></button>
     </header>
-    <div class="p-6 md:p-9 space-y-7">
+    <div class="p-6 md:p-10 space-y-8">
       <div>
-        <div class="flex flex-wrap items-center gap-2">
-          <span class="chip chip-accent">Spine AI · YC S23</span><span class="chip">Research platform</span><span class="chip">2025 - 26</span>
-        </div>
-        <h2 class="font-h font-semibold text-[30px] md:text-[38px] tracking-tight mt-4">Spine - Spine Swarm</h2>
-        <p class="text-[15.5px] text-ink/80 leading-relaxed mt-3 max-w-[72ch]">
-          Spine is an AI research platform that orchestrates 400+ models as parallel agents to produce client-ready deliverables - decks, PDFs, Excel models with formulas - in minutes, not days. Its deep-research engine ranked <span class="text-accent-soft">#1 on Google DeepMind's DeepSearchQA</span> benchmark (87.6% accuracy). Investors, consultants, legal, medical, and GTM teams use it to compress days of analyst work into a single run.
+        <div class="flex flex-wrap items-center gap-2"><span class="chip chip-accent">Spine AI (YC S23)</span><span class="chip">Research platform</span><span class="chip">2025 - 26</span></div>
+        <h2 id="t-spine" class="font-semibold text-[30px] md:text-[40px] tracking-[-0.03em] mt-5">Spine Swarm</h2>
+        <p class="text-[15.5px] text-ink/80 leading-relaxed mt-3 max-w-[70ch]">
+          Spine is an AI research platform that runs 400+ models as parallel agents and returns client-ready decks, PDFs and Excel models with formulas. Its deep-research engine ranked <span class="text-accent-soft">#1 on Google DeepMind's DeepSearchQA</span> benchmark at 87.6% accuracy. Investors, consultants, legal, medical and GTM teams use it to turn days of analyst work into a single run.
         </p>
       </div>
       <div>
-        <h3 class="font-h font-semibold text-[19px] mb-3">What I built</h3>
-        <ul class="space-y-3 text-[15px] text-ink/80 max-w-[72ch]">
-          <li class="flex gap-3"><span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent"></span><span><b class="text-ink">Spine Swarm orchestration engine.</b> Architected and owned the backend coordinating 1–10 specialized agents per task - 500+ running concurrently - enabling parallel, non-sequential execution of multi-step research workflows.</span></li>
-          <li class="flex gap-3"><span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent"></span><span><b class="text-ink">Intelligent model router.</b> Dynamic selection across 400+ LLMs per step, optimizing for quality, latency, and cost. Cumulative 106k+ intelligence nodes processed.</span></li>
-          <li class="flex gap-3"><span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent"></span><span><b class="text-ink">Canvas APIs + data layer.</b> Powered 6,400+ active canvas environments with real-time collaborative agent execution, artifact persistence, branching, and full inspectability.</span></li>
-          <li class="flex gap-3"><span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent"></span><span><b class="text-ink">React canvas frontend + 0→1 product.</b> Built the visual canvas UI, scheduled-workflow system, and integrations across MCP, webhooks, and external APIs.</span></li>
-          <li class="flex gap-3"><span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent"></span><span><b class="text-ink">Multi-cloud DevOps.</b> AWS / GCP / Azure with zero-downtime blue–green deploys; reliability across hundreds of concurrent long-running agent tasks.</span></li>
+        <h3 class="font-semibold text-[19px] mb-3">What I built</h3>
+        <ul class="space-y-3 text-[15px] text-ink/80 max-w-[70ch]">
+          <li class="bullet"><b class="text-ink font-semibold">The Swarm orchestration engine.</b> The backend that coordinates 1 to 10 specialised agents per task, with 500+ running at once, so multi-step research runs in parallel instead of in sequence.</li>
+          <li class="bullet"><b class="text-ink font-semibold">The model router.</b> Picks from 400+ LLMs at each step for quality, latency and cost. It has processed 106k+ intelligence nodes.</li>
+          <li class="bullet"><b class="text-ink font-semibold">Canvas APIs and data layer.</b> 6,400+ canvas environments with collaborative agent runs, artifact persistence, branching and inspectable intermediate state.</li>
+          <li class="bullet"><b class="text-ink font-semibold">The React canvas.</b> The visual canvas UI, scheduled workflows, and integrations over MCP, webhooks and external APIs.</li>
+          <li class="bullet"><b class="text-ink font-semibold">Multi-cloud DevOps.</b> AWS, GCP and Azure with zero-downtime blue-green deploys, kept reliable across hundreds of long-running agent tasks.</li>
         </ul>
       </div>
       <div>
-        <h3 class="font-h font-semibold text-[19px] mb-2">Why it matters</h3>
-        <p class="text-[15px] text-ink/80 leading-relaxed max-w-[72ch]">Most "AI research" tools generate chat. Spine generates deliverables - and orchestrates models per step instead of pinning the whole task to one LLM. The Swarm pattern is what makes it possible to push a research task into a parallel DAG and get back artifacts a human would otherwise spend a day producing.</p>
+        <h3 class="font-semibold text-[19px] mb-2">Why it matters</h3>
+        <p class="text-[15px] text-ink/80 leading-relaxed max-w-[70ch]">Most AI research tools return chat. Spine returns deliverables, and chooses a model per step instead of pinning a whole task to one LLM. Swarm is what lets a research task run as a parallel graph and come back as artifacts a person would otherwise spend a day producing.</p>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-5 border-t border-line">
-        <div><div class="font-h font-semibold text-[24px]">500+</div><div class="text-[12px] text-faint mt-0.5">Concurrent agents</div></div>
-        <div><div class="font-h font-semibold text-[24px]">400+</div><div class="text-[12px] text-faint mt-0.5">LLMs routed</div></div>
-        <div><div class="font-h font-semibold text-[24px]">6.4k+</div><div class="text-[12px] text-faint mt-0.5">Canvas envs</div></div>
-        <div><div class="font-h font-semibold text-[24px] text-accent-soft">151</div><div class="text-[12px] text-faint mt-0.5">Paying · 2.5% conv</div></div>
-      </div>
-      <div class="flex flex-wrap gap-2">
-        <span class="chip">React</span><span class="chip">Node</span><span class="chip">Python</span><span class="chip">AWS</span><span class="chip">GCP</span><span class="chip">Azure</span><span class="chip">Docker</span><span class="chip">Blue–green</span><span class="chip">MCP</span><span class="chip">Webhooks</span>
-      </div>
-      <a href="https://getspine.ai" target="_blank" rel="noopener" class="btn btn-primary w-max">Try Spine - getspine.ai <svg class="ic-sm"><use href="#ar-up-right"/></svg></a>
+      <dl class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-line">
+        <div><dd class="num font-semibold text-[26px]">500+</dd><dt class="text-[12.5px] text-faint mt-0.5">Concurrent agents</dt></div>
+        <div><dd class="num font-semibold text-[26px]">400+</dd><dt class="text-[12.5px] text-faint mt-0.5">LLMs routed</dt></div>
+        <div><dd class="num font-semibold text-[26px]">6.4k+</dd><dt class="text-[12.5px] text-faint mt-0.5">Canvas environments</dt></div>
+        <div><dd class="num font-semibold text-[26px] text-accent">10k+</dd><dt class="text-[12.5px] text-faint mt-0.5">Users at launch</dt></div>
+      </dl>
+      <div class="flex flex-wrap gap-2"><span class="chip">React</span><span class="chip">Node</span><span class="chip">Python</span><span class="chip">AWS</span><span class="chip">GCP</span><span class="chip">Azure</span><span class="chip">Docker</span><span class="chip">MCP</span><span class="chip">Webhooks</span></div>
+      <a href="https://getspine.ai" target="_blank" rel="noopener" class="btn btn-primary w-max">Visit getspine.ai <i class="ph ph-arrow-up-right"></i></a>
     </div>
   </div>
 </dialog>
 
 <!-- PADHAI -->
-<dialog id="modal-padhai" class="modal">
+<dialog id="modal-padhai" class="modal" aria-labelledby="t-padhai">
   <div class="modal-shell">
-    <header class="sticky top-0 z-10 flex items-center justify-between border-b border-line bg-surface/95 backdrop-blur px-6 py-3.5">
-      <div class="eyebrow">Deep dive - Padhai.ai</div>
-      <button class="btn btn-ghost p-2 modal-close" aria-label="Close"><svg class="ic"><use href="#i-close"/></svg></button>
+    <header class="sticky top-0 z-10 flex items-center justify-between border-b border-line bg-surface/95 backdrop-blur px-6 py-3">
+      <div class="text-[13px] text-muted">Deep dive</div>
+      <button class="btn btn-icon modal-close" aria-label="Close"><i class="ph ph-x"></i></button>
     </header>
-    <div class="p-6 md:p-9 space-y-7">
+    <div class="p-6 md:p-10 space-y-8">
       <div>
-        <div class="flex flex-wrap items-center gap-2">
-          <span class="chip chip-accent">Sigiq.AI</span><span class="chip">UPSC · Civil services</span><span class="chip">2024</span>
-        </div>
-        <h2 class="font-h font-semibold text-[30px] md:text-[38px] tracking-tight mt-4">Padhai.ai</h2>
-        <p class="text-[15.5px] text-ink/80 leading-relaxed mt-3 max-w-[72ch]">
-          Padhai.ai is the AI study companion for Indian civil-services aspirants. It runs an AI tutor across the full UPSC syllabus, curates daily current affairs linked to past questions, ships 8,000+ previous-year questions with model answers and unlimited AI evaluation for Mains, and chats over the NCERT/UPSC textbook corpus. Today it serves <span class="text-accent-soft">175,000+ active students</span>, 25M+ tutor interactions, and 10M+ AI summaries.
+        <div class="flex flex-wrap items-center gap-2"><span class="chip chip-accent">SigIQ.ai</span><span class="chip">UPSC civil services</span><span class="chip">2024 - 25</span></div>
+        <h2 id="t-padhai" class="font-semibold text-[30px] md:text-[40px] tracking-[-0.03em] mt-5">Padhai.ai</h2>
+        <p class="text-[15.5px] text-ink/80 leading-relaxed mt-3 max-w-[70ch]">
+          Padhai.ai is an AI study companion for Indian civil-services aspirants: an AI tutor across the UPSC syllabus, daily current affairs linked to past questions, 8,000+ previous-year questions with model answers and AI evaluation for Mains, and chat over the NCERT and UPSC textbooks. It serves <span class="text-accent-soft">175,000+ students</span>, with 25M+ tutor interactions and 10M+ AI summaries.
         </p>
       </div>
       <div>
-        <h3 class="font-h font-semibold text-[19px] mb-3">What I built</h3>
-        <ul class="space-y-3 text-[15px] text-ink/80 max-w-[72ch]">
-          <li class="flex gap-3"><span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent"></span><span><b class="text-ink">AI webserver refactor.</b> Owned a comprehensive refactor - restructured the codebase, hardened error handling, and significantly improved stability under exam-season concurrent load.</span></li>
-          <li class="flex gap-3"><span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent"></span><span><b class="text-ink">10k-concurrent WebSocket microservice.</b> Built the real-time layer powering AI tutor chat at scale, plus a separate CPU-intensive recordkeeping service - hot path and heavy path cleanly split.</span></li>
-          <li class="flex gap-3"><span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent"></span><span><b class="text-ink">Redis leaderboard.</b> Real-time, low-latency rank surfacing using sorted sets - logarithmic-time access without DB hammering.</span></li>
-          <li class="flex gap-3"><span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent"></span><span><b class="text-ink">Blue–green deploys + Datadog APM.</b> Zero-downtime updates with Docker + PM2; centralized logging and APM across AI webservers - full request traces, faster outage response.</span></li>
-          <li class="flex gap-3"><span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent"></span><span><b class="text-ink">Containerization + growth surfaces.</b> Migrated off PM2-managed environments into containers; built FCM-driven notifications and deeplink sharing with dynamic image generation.</span></li>
+        <h3 class="font-semibold text-[19px] mb-3">What I built</h3>
+        <ul class="space-y-3 text-[15px] text-ink/80 max-w-[70ch]">
+          <li class="bullet"><b class="text-ink font-semibold">AI webserver refactor.</b> Restructured the codebase and hardened error handling, which made it far more stable under exam-season load.</li>
+          <li class="bullet"><b class="text-ink font-semibold">WebSocket service for 10k concurrent sessions.</b> The real-time layer behind tutor chat, with a separate CPU-heavy recordkeeping service so the hot path stays fast.</li>
+          <li class="bullet"><b class="text-ink font-semibold">Redis leaderboard.</b> Real-time ranks from sorted sets, with logarithmic-time reads and no load on the database.</li>
+          <li class="bullet"><b class="text-ink font-semibold">Blue-green deploys and Datadog APM.</b> Zero-downtime releases on Docker, with centralised logging and request traces across the AI webservers.</li>
+          <li class="bullet"><b class="text-ink font-semibold">Growth surfaces.</b> FCM notifications and deeplink sharing with generated preview images.</li>
         </ul>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-5 border-t border-line">
-        <div><div class="font-h font-semibold text-[24px]">175k+</div><div class="text-[12px] text-faint mt-0.5">Active students</div></div>
-        <div><div class="font-h font-semibold text-[24px]">25M+</div><div class="text-[12px] text-faint mt-0.5">Tutor interactions</div></div>
-        <div><div class="font-h font-semibold text-[24px]">10k</div><div class="text-[12px] text-faint mt-0.5">WS concurrent</div></div>
-        <div><div class="font-h font-semibold text-[24px] text-accent-soft">0</div><div class="text-[12px] text-faint mt-0.5">Downtime · blue–green</div></div>
-      </div>
-      <div class="flex flex-wrap gap-2">
-        <span class="chip">Django</span><span class="chip">Redis</span><span class="chip">WebSockets</span><span class="chip">Docker</span><span class="chip">PM2</span><span class="chip">Datadog</span><span class="chip">Celery</span><span class="chip">FCM</span><span class="chip">AWS · GCP · Azure</span>
-      </div>
-      <a href="https://padhai.ai" target="_blank" rel="noopener" class="btn btn-primary w-max">Try Padhai - padhai.ai <svg class="ic-sm"><use href="#ar-up-right"/></svg></a>
+      <dl class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-line">
+        <div><dd class="num font-semibold text-[26px]">175k+</dd><dt class="text-[12.5px] text-faint mt-0.5">Students</dt></div>
+        <div><dd class="num font-semibold text-[26px]">25M+</dd><dt class="text-[12.5px] text-faint mt-0.5">Tutor interactions</dt></div>
+        <div><dd class="num font-semibold text-[26px]">10k</dd><dt class="text-[12.5px] text-faint mt-0.5">Concurrent sessions</dt></div>
+        <div><dd class="num font-semibold text-[26px] text-accent">12</dd><dt class="text-[12.5px] text-faint mt-0.5">Deploys moved, zero downtime</dt></div>
+      </dl>
+      <div class="flex flex-wrap gap-2"><span class="chip">Django</span><span class="chip">FastAPI</span><span class="chip">Redis</span><span class="chip">WebSockets</span><span class="chip">Docker</span><span class="chip">Datadog</span><span class="chip">Celery</span><span class="chip">FCM</span></div>
+      <a href="https://padhai.ai" target="_blank" rel="noopener" class="btn btn-primary w-max">Visit padhai.ai <i class="ph ph-arrow-up-right"></i></a>
     </div>
   </div>
 </dialog>
 
 <!-- EVERTUTOR -->
-<dialog id="modal-evertutor" class="modal">
+<dialog id="modal-evertutor" class="modal" aria-labelledby="t-evertutor">
   <div class="modal-shell">
-    <header class="sticky top-0 z-10 flex items-center justify-between border-b border-line bg-surface/95 backdrop-blur px-6 py-3.5">
-      <div class="eyebrow">Deep dive - EverTutor</div>
-      <button class="btn btn-ghost p-2 modal-close" aria-label="Close"><svg class="ic"><use href="#i-close"/></svg></button>
+    <header class="sticky top-0 z-10 flex items-center justify-between border-b border-line bg-surface/95 backdrop-blur px-6 py-3">
+      <div class="text-[13px] text-muted">Deep dive</div>
+      <button class="btn btn-icon modal-close" aria-label="Close"><i class="ph ph-x"></i></button>
     </header>
-    <div class="p-6 md:p-9 space-y-7">
+    <div class="p-6 md:p-10 space-y-8">
       <div>
-        <div class="flex flex-wrap items-center gap-2">
-          <span class="chip chip-accent">Sigiq.AI</span><span class="chip">K-12 + GRE</span><span class="chip">2024</span>
-        </div>
-        <h2 class="font-h font-semibold text-[30px] md:text-[38px] tracking-tight mt-4">EverTutor.ai</h2>
-        <p class="text-[15.5px] text-ink/80 leading-relaxed mt-3 max-w-[72ch]">
-          EverTutor delivers personalized, voice-first AI tutoring to help struggling students reach grade-level proficiency. Voice-first across 50+ languages, real-time adaptive difficulty, integrations with Zearn / Illustrative Math / Desmos / Waggle, and FERPA + COPPA compliance. It launched as a GRE prep product before evolving into the K-12 intervention platform it is today.
+        <div class="flex flex-wrap items-center gap-2"><span class="chip chip-accent">SigIQ.ai</span><span class="chip">K-12 and GRE</span><span class="chip">2024 - 25</span></div>
+        <h2 id="t-evertutor" class="font-semibold text-[30px] md:text-[40px] tracking-[-0.03em] mt-5">EverTutor.ai</h2>
+        <p class="text-[15.5px] text-ink/80 leading-relaxed mt-3 max-w-[70ch]">
+          EverTutor gives struggling students personalised, voice-first AI tutoring to reach grade level: 50+ languages, adaptive difficulty, integrations with Zearn, Illustrative Math, Desmos and Waggle, and FERPA and COPPA compliance. It started as a GRE prep product before becoming the K-12 intervention platform it is today.
         </p>
       </div>
       <div>
-        <h3 class="font-h font-semibold text-[19px] mb-3">What I built</h3>
-        <ul class="space-y-3 text-[15px] text-ink/80 max-w-[72ch]">
-          <li class="flex gap-3"><span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent"></span><span><b class="text-ink">Backend &amp; infra end-to-end.</b> Owned the AI webserver, microservices, queues, and DevOps across Sigiq's evolution from GRE → K-12.</span></li>
-          <li class="flex gap-3"><span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent"></span><span><b class="text-ink">Stripe payments - international + domestic.</b> Implemented the full Stripe gateway to process global transactions, secure the revenue path, and streamline subscriptions.</span></li>
-          <li class="flex gap-3"><span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent"></span><span><b class="text-ink">React Native rich-text + LaTeX renderer.</b> Built the rendering runtime that ships AI tutor responses to learners - markdown plus a LaTeX plugin and custom components for every richtext type, including math/STEM-heavy answers.</span></li>
-          <li class="flex gap-3"><span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent"></span><span><b class="text-ink">Containerized multi-cloud deploys.</b> AWS / GCP / Azure with a blue–green release cadence; CI/CD optimized for cost and availability, with Datadog APM observability.</span></li>
+        <h3 class="font-semibold text-[19px] mb-3">What I built</h3>
+        <ul class="space-y-3 text-[15px] text-ink/80 max-w-[70ch]">
+          <li class="bullet"><b class="text-ink font-semibold">Backend and infra.</b> The AI webserver, microservices, queues and DevOps, through the move from GRE to K-12.</li>
+          <li class="bullet"><b class="text-ink font-semibold">Stripe billing.</b> The full Stripe integration for domestic and international payments and subscriptions.</li>
+          <li class="bullet"><b class="text-ink font-semibold">React Native rich text and LaTeX renderer.</b> The runtime that renders every tutor answer: Markdown, LaTeX and custom components for math-heavy responses.</li>
+          <li class="bullet"><b class="text-ink font-semibold">Containerised multi-cloud deploys.</b> AWS, GCP and Azure on blue-green releases, with CI/CD tuned for cost and availability and Datadog APM.</li>
         </ul>
       </div>
       <div>
-        <h3 class="font-h font-semibold text-[19px] mb-2">Why it matters</h3>
-        <p class="text-[15px] text-ink/80 leading-relaxed max-w-[72ch]">High-dosage 1:1 tutoring is the gold-standard intervention; cost is what kills it at scale. EverTutor's voice-first AI gets close to the gold standard at a price point schools can actually deploy. The backend I owned - letting payments, content, and AI flow through reliably - is the part that determines whether a tutoring product survives a real classroom.</p>
+        <h3 class="font-semibold text-[19px] mb-2">Why it matters</h3>
+        <p class="text-[15px] text-ink/80 leading-relaxed max-w-[70ch]">One-to-one tutoring is the strongest intervention there is, and cost is what stops it scaling. Voice-first AI gets close at a price schools can pay. Whether such a product survives a real classroom comes down to the backend that keeps payments, content and AI flowing reliably, which is the part I owned.</p>
       </div>
-      <div class="flex flex-wrap gap-2">
-        <span class="chip">Stripe</span><span class="chip">Django</span><span class="chip">React Native</span><span class="chip">Celery</span><span class="chip">FCM</span><span class="chip">Docker</span><span class="chip">Datadog</span><span class="chip">AWS · GCP · Azure</span>
-      </div>
-      <a href="https://evertutor.ai/" target="_blank" rel="noopener" class="btn btn-primary w-max">Try EverTutor - evertutor.ai <svg class="ic-sm"><use href="#ar-up-right"/></svg></a>
-    </div>
-  </div>
-</dialog>
-
-<!-- JEENIUS -->
-<dialog id="modal-jeenius" class="modal">
-  <div class="modal-shell">
-    <header class="sticky top-0 z-10 flex items-center justify-between border-b border-line bg-surface/95 backdrop-blur px-6 py-3.5">
-      <div class="eyebrow">Deep dive - JEEnius AI</div>
-      <button class="btn btn-ghost p-2 modal-close" aria-label="Close"><svg class="ic"><use href="#i-close"/></svg></button>
-    </header>
-    <div class="p-6 md:p-9 space-y-7">
-      <div>
-        <div class="flex flex-wrap items-center gap-2">
-          <span class="chip chip-accent">Solo founder &amp; sole engineer</span><span class="chip">JEE prep</span><span class="chip">2024 - present</span>
-        </div>
-        <h2 class="font-h font-semibold text-[30px] md:text-[38px] tracking-tight mt-4">JEEnius AI</h2>
-        <p class="text-[15.5px] text-ink/80 leading-relaxed mt-3 max-w-[72ch]">
-          A solo-built JEE preparation platform with a question-prediction engine at its core. It hit <span class="text-accent-soft">92% topic-coverage accuracy on JEE Main 2026 January</span> with 218 near-exact question matches, ground-truth validated post-exam. Grew to 20,000+ users with a 4.5★ Play Store rating, fully organic, with paying subscribers on a freemium model.
-        </p>
-      </div>
-      <div>
-        <h3 class="font-h font-semibold text-[19px] mb-3">What I built</h3>
-        <ul class="space-y-3 text-[15px] text-ink/80 max-w-[72ch]">
-          <li class="flex gap-3"><span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent"></span><span><b class="text-ink">Question-prediction engine.</b> RAG over a vector-indexed corpus of 20+ years of past papers and syllabus data, with semantic similarity search and concept-graph traversal to surface high-probability topics.</span></li>
-          <li class="flex gap-3"><span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent"></span><span><b class="text-ink">Multi-model reasoning stack.</b> Routes per-query across GPT-4o, o-series, Gemini 2.5 Pro, and Fathom - optimizing for quality, latency, and cost across 100,000+ practice questions.</span></li>
-          <li class="flex gap-3"><span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent"></span><span><b class="text-ink">Adaptive learning pipeline.</b> Tracks per-concept accuracy, solve timing, and misconception patterns per user - continuously re-ranking difficulty and auto-adjusting study plans.</span></li>
-          <li class="flex gap-3"><span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent"></span><span><b class="text-ink">Full product surface.</b> Android app, landing page, AI backend, real-time 1v1 duel system, image-based doubt solver, and analytics dashboard - 0 to production in a few months, all solo.</span></li>
-          <li class="flex gap-3"><span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent"></span><span><b class="text-ink">End-to-end infra.</b> Backend APIs, database, CI/CD, and the Play Store release pipeline - production reliability under high-traffic concurrent load through exam season.</span></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="font-h font-semibold text-[19px] mb-2">Pricing</h3>
-        <p class="text-[15px] text-ink/80 leading-relaxed max-w-[72ch]">Freemium · Pro at ₹499/mo · Pro+ at ₹999/mo. PMF validated independently with paying customers and zero paid acquisition.</p>
-      </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-5 border-t border-line">
-        <div><div class="font-h font-semibold text-[24px]">20k+</div><div class="text-[12px] text-faint mt-0.5">Users · organic</div></div>
-        <div><div class="font-h font-semibold text-[24px]">4.5★</div><div class="text-[12px] text-faint mt-0.5">Play Store</div></div>
-        <div><div class="font-h font-semibold text-[24px] text-accent-soft">92%</div><div class="text-[12px] text-faint mt-0.5">Topic accuracy</div></div>
-        <div><div class="font-h font-semibold text-[24px]">218</div><div class="text-[12px] text-faint mt-0.5">Near-exact matches</div></div>
-      </div>
-      <div class="flex flex-wrap gap-2">
-        <span class="chip">RAG</span><span class="chip">Vector DB</span><span class="chip">GPT-4o</span><span class="chip">Gemini 2.5 Pro</span><span class="chip">Fathom</span><span class="chip">Android</span><span class="chip">Python</span><span class="chip">CI/CD</span>
-      </div>
-      <div class="flex flex-wrap gap-3">
-        <a href="https://jeenius.tech" target="_blank" rel="noopener" class="btn btn-primary">Try JEEnius - jeenius.tech <svg class="ic-sm"><use href="#ar-up-right"/></svg></a>
-        <a href="https://landing.jeenius.tech" target="_blank" rel="noopener" class="btn btn-secondary">landing.jeenius.tech</a>
-      </div>
+      <div class="flex flex-wrap gap-2"><span class="chip">Stripe</span><span class="chip">Django</span><span class="chip">React Native</span><span class="chip">Celery</span><span class="chip">FCM</span><span class="chip">Docker</span><span class="chip">Datadog</span></div>
+      <a href="https://evertutor.ai/" target="_blank" rel="noopener" class="btn btn-primary w-max">Visit evertutor.ai <i class="ph ph-arrow-up-right"></i></a>
     </div>
   </div>
 </dialog>
 
 <script>
-  // ===== Scroll progress =====
-  const progress = document.querySelector('.progress');
-  let ticking = false;
-  function updateProgress() {
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    const ratio = max > 0 ? window.scrollY / max : 0;
-    if (progress) progress.style.setProperty('--p', Math.min(1, Math.max(0, ratio)));
-    ticking = false;
-  }
-  window.addEventListener('scroll', () => {
-    if (!ticking) { requestAnimationFrame(updateProgress); ticking = true; }
-  }, { passive: true });
-  updateProgress();
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ===== Reveal on scroll (defensive: never leave content stuck hidden) =====
   try {
@@ -1055,88 +809,79 @@
     document.documentElement.classList.remove('anim');
   }
 
-  // ===== Number counters =====
+  // ===== Number counters (final values are already in the markup) =====
   function fmt(n, suffix, divide) {
-    let v = divide ? n / divide : n;
-    let s;
-    if (divide) { s = (Math.round(v * 10) / 10).toString(); }
-    else if (v >= 1000) { s = Math.round(v).toLocaleString('en-US'); }
-    else { s = Math.round(v).toString(); }
+    const v = divide ? n / divide : n;
+    const s = divide ? (Math.round(v * 10) / 10).toString() : v >= 1000 ? Math.round(v).toLocaleString('en-US') : Math.round(v).toString();
     return s + (suffix || '');
   }
   function animateCount(el) {
     const target = parseFloat(el.dataset.count);
     const suffix = el.dataset.suffix || '';
     const divide = el.dataset.divide ? parseFloat(el.dataset.divide) : null;
-    const duration = 1100;
     const start = performance.now();
     function step(now) {
-      const t = Math.min(1, (now - start) / duration);
-      const eased = 1 - Math.pow(1 - t, 3);
-      el.textContent = fmt(target * eased, suffix, divide);
+      const t = Math.min(1, (now - start) / 1200);
+      el.textContent = fmt(target * (1 - Math.pow(1 - t, 3)), suffix, divide);
       if (t < 1) requestAnimationFrame(step);
-      else el.textContent = fmt(target, suffix, divide);
     }
     requestAnimationFrame(step);
   }
-  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const numIO = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (e.isIntersecting) {
-        if (reduceMotion) {
-          const el = e.target;
-          el.textContent = fmt(parseFloat(el.dataset.count), el.dataset.suffix || '', el.dataset.divide ? parseFloat(el.dataset.divide) : null);
-        } else { animateCount(e.target); }
-        numIO.unobserve(e.target);
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const numIO = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) { animateCount(e.target); numIO.unobserve(e.target); }
       }
-    }
-  }, { threshold: 0.4 });
-  document.querySelectorAll('[data-count]').forEach(el => numIO.observe(el));
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-count]').forEach(el => numIO.observe(el));
+  }
 
-  // ===== Smooth scroll with offset for fixed nav =====
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const id = a.getAttribute('href');
-      if (id.length > 1) {
-        const t = document.querySelector(id);
-        if (t) {
-          e.preventDefault();
-          const top = t.getBoundingClientRect().top + window.scrollY - 72;
-          window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
-          history.replaceState(null, '', id);
-        }
+  // ===== Active section in the nav =====
+  if ('IntersectionObserver' in window) {
+    const links = new Map([...document.querySelectorAll('.nav-link[href^="#"]')].map(a => [a.getAttribute('href').slice(1), a]));
+    const navIO = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        links.forEach(a => a.removeAttribute('aria-current'));
+        const a = links.get(e.target.id);
+        if (a) a.setAttribute('aria-current', 'true');
       }
-    });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('main section[id]').forEach(s => navIO.observe(s));
+  }
+
+  // ===== Spotlight border position on work cards =====
+  document.querySelectorAll('.spot').forEach(card => {
+    card.addEventListener('pointermove', (e) => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    }, { passive: true });
   });
 
   // ===== Product modals =====
   function openModal(id) {
     const dlg = document.getElementById(id);
     if (!dlg) return;
-    if (typeof dlg.showModal === 'function') dlg.showModal();
-    else dlg.setAttribute('open', '');
+    if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
     document.body.style.overflow = 'hidden';
   }
   function closeModal(dlg) {
-    if (typeof dlg.close === 'function') dlg.close();
-    else dlg.removeAttribute('open');
+    if (typeof dlg.close === 'function') dlg.close(); else dlg.removeAttribute('open');
     document.body.style.overflow = '';
   }
   document.querySelectorAll('[data-modal]').forEach(card => {
     const id = card.dataset.modal;
-    card.addEventListener('click', (e) => {
-      if (e.target.closest('a, button')) return;
-      openModal(id);
-    });
+    card.addEventListener('click', (e) => { if (!e.target.closest('a, button')) openModal(id); });
     card.addEventListener('keydown', (e) => {
+      if (e.target !== card) return;
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(id); }
     });
   });
   document.querySelectorAll('dialog.modal').forEach(dlg => {
     dlg.addEventListener('click', (e) => {
-      const rect = dlg.getBoundingClientRect();
-      const inDialog = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
-      if (!inDialog) closeModal(dlg);
+      const r = dlg.getBoundingClientRect();
+      if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) closeModal(dlg);
     });
     dlg.querySelectorAll('.modal-close').forEach(btn => btn.addEventListener('click', () => closeModal(dlg)));
     dlg.addEventListener('close', () => { document.body.style.overflow = ''; });
@@ -1144,74 +889,63 @@
 </script>
 
 <script>
-  // ===== Hero agent-swarm + cursor glow (a nod to Spine Swarm / parallel agents) =====
+  // ===== Hero agent swarm (a nod to Spine Swarm): drifting nodes that link up near the cursor =====
   (function () {
     const canvas = document.getElementById('swarm');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const ACCENT = '127,139,255';
-    const LINK = 130;        // node-to-node connect distance
-    const CURSOR_LINK = 175; // cursor-to-node connect distance
-    let w = 0, h = 0, dpr = 1, nodes = [], raf = null, running = false, visible = true;
+    const ACCENT = '197,232,108';
+    const LINK = 130, CURSOR_LINK = 175;
+    let w = 0, h = 0, nodes = [], raf = null, running = false, visible = true;
     const mouse = { x: null, y: null, active: false };
 
     function size() {
       const r = canvas.getBoundingClientRect();
       w = r.width; h = r.height;
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.max(1, Math.round(w * dpr));
       canvas.height = Math.max(1, Math.round(h * dpr));
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
     function makeNodes() {
-      const count = Math.max(16, Math.min(54, Math.floor(w / 27)));
+      const count = Math.max(16, Math.min(60, Math.floor(w / 24)));
       nodes = [];
       for (let i = 0; i < count; i++) {
-        nodes.push({
-          x: Math.random() * w, y: Math.random() * h,
-          vx: (Math.random() - 0.5) * 0.22, vy: (Math.random() - 0.5) * 0.22,
-          r: Math.random() * 1.3 + 0.7
-        });
+        nodes.push({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - 0.5) * 0.22, vy: (Math.random() - 0.5) * 0.22, r: Math.random() * 1.3 + 0.7 });
       }
     }
     function draw() {
       ctx.clearRect(0, 0, w, h);
-
-      if (mouse.active && mouse.x != null) {
-        const g = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 230);
-        g.addColorStop(0, 'rgba(' + ACCENT + ',0.10)');
+      const m = mouse.active && mouse.x != null;
+      if (m) {
+        const g = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 240);
+        g.addColorStop(0, 'rgba(' + ACCENT + ',0.08)');
         g.addColorStop(1, 'rgba(' + ACCENT + ',0)');
-        ctx.fillStyle = g;
-        ctx.fillRect(0, 0, w, h);
+        ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
       }
-
       for (const n of nodes) {
         n.x += n.vx; n.y += n.vy;
         if (n.x < 0 || n.x > w) n.vx *= -1;
         if (n.y < 0 || n.y > h) n.vy *= -1;
-        n.x = Math.max(0, Math.min(w, n.x));
-        n.y = Math.max(0, Math.min(h, n.y));
-        if (mouse.active && mouse.x != null) {
+        n.x = Math.max(0, Math.min(w, n.x)); n.y = Math.max(0, Math.min(h, n.y));
+        if (m) {
           const dx = mouse.x - n.x, dy = mouse.y - n.y, d = Math.hypot(dx, dy);
           if (d < 150 && d > 0.01) { const f = (150 - d) / 150 * 0.55; n.x += dx / d * f; n.y += dy / d * f; }
         }
       }
-
       ctx.lineWidth = 1;
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
-          const a = nodes[i], b = nodes[j];
-          const dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy);
+          const a = nodes[i], b = nodes[j], d = Math.hypot(a.x - b.x, a.y - b.y);
           if (d < LINK) {
-            ctx.strokeStyle = 'rgba(' + ACCENT + ',' + ((1 - d / LINK) * 0.12).toFixed(3) + ')';
+            ctx.strokeStyle = 'rgba(' + ACCENT + ',' + ((1 - d / LINK) * 0.13).toFixed(3) + ')';
             ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
           }
         }
       }
-
-      if (mouse.active && mouse.x != null) {
+      if (m) {
         for (const n of nodes) {
           const d = Math.hypot(mouse.x - n.x, mouse.y - n.y);
           if (d < CURSOR_LINK) {
@@ -1220,10 +954,9 @@
           }
         }
       }
-
       for (const n of nodes) {
-        const near = mouse.active && mouse.x != null && Math.hypot(mouse.x - n.x, mouse.y - n.y) < CURSOR_LINK;
-        ctx.fillStyle = 'rgba(' + ACCENT + ',' + (near ? 0.85 : 0.42) + ')';
+        const near = m && Math.hypot(mouse.x - n.x, mouse.y - n.y) < CURSOR_LINK;
+        ctx.fillStyle = 'rgba(' + ACCENT + ',' + (near ? 0.9 : 0.4) + ')';
         ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
       }
     }
@@ -1233,16 +966,14 @@
 
     const hero = canvas.closest('section');
     if (!reduce && hero) {
-      hero.addEventListener('mousemove', (e) => {
+      hero.addEventListener('pointermove', (e) => {
         const r = canvas.getBoundingClientRect();
         mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; mouse.active = true;
       }, { passive: true });
-      hero.addEventListener('mouseleave', () => { mouse.active = false; });
+      hero.addEventListener('pointerleave', () => { mouse.active = false; });
     }
     if ('IntersectionObserver' in window) {
-      new IntersectionObserver((es) => {
-        for (const e of es) { visible = e.isIntersecting; if (visible) start(); else stop(); }
-      }, { threshold: 0 }).observe(canvas);
+      new IntersectionObserver((es) => { for (const e of es) { visible = e.isIntersecting; if (visible) start(); else stop(); } }, { threshold: 0 }).observe(canvas);
     }
     document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); else if (visible) start(); });
     let rt = null;
@@ -1253,21 +984,19 @@
     if (reduce) draw(); else start();
   })();
 
-  // ===== Magnetic buttons =====
+  // ===== Magnetic buttons (pointer devices only) =====
   (function () {
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (!matchMedia('(hover: hover)').matches) return;
-    const STR = 0.28, MAX = 7;
+    const STR = 0.28, MAX = 6;
     document.querySelectorAll('.magnetic').forEach((el) => {
-      el.addEventListener('mousemove', (e) => {
+      el.addEventListener('pointermove', (e) => {
         const r = el.getBoundingClientRect();
-        let x = (e.clientX - (r.left + r.width / 2)) * STR;
-        let y = (e.clientY - (r.top + r.height / 2)) * STR;
-        x = Math.max(-MAX, Math.min(MAX, x));
-        y = Math.max(-MAX, Math.min(MAX, y));
+        const x = Math.max(-MAX, Math.min(MAX, (e.clientX - (r.left + r.width / 2)) * STR));
+        const y = Math.max(-MAX, Math.min(MAX, (e.clientY - (r.top + r.height / 2)) * STR));
         el.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)';
       });
-      el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+      el.addEventListener('pointerleave', () => { el.style.transform = ''; });
     });
   })();
 </script>
