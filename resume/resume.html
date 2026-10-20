@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Sahil Singh - Résumé</title>
+<!-- Source for ../Sahil_Singh_Resume.pdf. Rebuild:
+     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --no-pdf-header-footer \
+       --print-to-pdf=Sahil_Singh_Resume.pdf resume/resume.html -->
+<style>
+  @page { size: letter; margin: 0.32in 0.45in; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Charter, "Bitstream Charter", Georgia, serif; font-size: 9pt; line-height: 1.21; color: #111; }
+  a { color: inherit; text-decoration: none; }
+  header { display: flex; justify-content: space-between; align-items: flex-end; }
+  h1 { font-size: 20pt; font-weight: 700; letter-spacing: .01em; }
+  .sub { margin-top: 2pt; }
+  .contact { text-align: right; }
+  h2 { font-size: 11pt; font-weight: 700; margin: 7pt 0 2pt; padding-bottom: 1pt; border-bottom: .7pt solid #111; }
+  .row { display: flex; justify-content: space-between; gap: 12pt; margin-top: 3pt; }
+  .row b { font-weight: 700; }
+  .date { white-space: nowrap; }
+  ul { margin: 1.5pt 0 0 13pt; }
+  li { margin-top: .5pt; }
+  .skills li { list-style: none; margin-left: -13pt; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Sahil Singh</h1>
+    <div class="sub">B.Tech, Mechanical Engineering, IIT Kanpur</div>
+    <div>CPI: 7.93/10 (2020 - 2024)</div>
+  </div>
+  <div class="contact">
+    <div><a href="mailto:sahil85.10s@gmail.com">sahil85.10s@gmail.com</a> | +91-9874082672</div>
+    <div>GitHub: <a href="https://github.com/Sahilsingh0808">Sahilsingh0808</a> | LinkedIn: <a href="https://www.linkedin.com/in/sahilsingh0808">sahilsingh0808</a></div>
+  </div>
+</header>
+
+<h2>Work Experience</h2>
+
+<div class="row"><div><b>Bolto (YC S23)</b> | Software Engineer | Remote</div><div class="date">May'26 - Present</div></div>
+<ul>
+  <li>Built the employee termination system end to end on a payroll and HR platform for US companies: scheduled terminations applied by daily background jobs, final payouts, transfer of duties, permission checks and a full audit trail.</li>
+  <li>Shipped payroll groups and pay schedules: moving workers between groups, a second recurring payday, reopening payroll runs and changing pay dates.</li>
+  <li>Built timesheet-to-payroll draft sync, offer-letter flows, and onboarding gates for companies migrating payroll in (payroll-provider enrollment, filing authorisation). Next.js, TypeScript, tRPC, Drizzle, Postgres, Trigger.dev, Redis.</li>
+</ul>
+
+<div class="row"><div><b>Spine AI (YC S23)</b> | SDE | Remote</div><div class="date">Aug'25 - Apr'26</div></div>
+<ul>
+  <li>Architected the backend orchestration engine powering Spine Swarm, coordinating 1 to 10 specialized AI agents per task with 500+ agents running concurrently for parallel multi-step workflows at production scale.</li>
+  <li>Built intelligent model routing dynamically selecting across 300+ LLMs per execution step, processing 106,000+ intelligence nodes cumulatively to reduce single-model bias and improve output reliability across reasoning, coding and retrieval tasks.</li>
+  <li>Designed backend APIs powering 6,500+ active canvas environments with real-time collaborative agent execution, artifact persistence, branching, and full inspectability of intermediate agent state across concurrent user sessions.</li>
+  <li>Went 0 to 1 across the full stack (React canvas, backend, DevOps), scaling Spine to 10k+ users and 151 paying customers (2.5% conversion) with zero-downtime blue-green deployments across AWS, GCP and Azure.</li>
+</ul>
+
+<div class="row"><div><b>SigIQ.ai</b> | SDE, Founding Member | Gurgaon</div><div class="date">Jun'24 - Jul'25</div></div>
+<ul>
+  <li>Migrated backend services from PM2 to a containerized ecosystem, improving scalability and deployment consistency.</li>
+  <li>Built a high-concurrency WebSocket microservice handling 10k concurrent requests and a Redis-powered real-time leaderboard delivering low-latency user-engagement insights across the platform's service usage rankings.</li>
+  <li>Integrated Stripe for domestic and international payments (GRE product); architected Datadog APM with centralized logging across AI webservers, improving real-time monitoring and reducing outage response times via proactive alerting.</li>
+  <li>Executed blue-green deployments with Docker and PM2 ensuring zero downtime; led and mentored a team of interns across backend and DevOps, delegating tasks, reviewing code, and driving continuous team development.</li>
+</ul>
+
+<div class="row"><div><b>SigIQ.ai</b> | SDE Intern | Remote | PPO Offered</div><div class="date">Oct'23 - May'24</div></div>
+<ul>
+  <li>Built backend APIs and WebSockets in Django for AI chat interactions and a Redis leaderboard with logarithmic-time access.</li>
+  <li>Developed a custom notification panel with FCM and Celery (bulk, CSV upload, analytics, internal testing); implemented deeplink-based article sharing via Firebase with auto-generated images stored in AWS S3.</li>
+</ul>
+
+<div class="row"><div><b>GIVA Indiejewels</b> | SDE Intern | Bangalore | PPO Offered</div><div class="date">May'23 - Jul'23</div></div>
+<ul>
+  <li>Full-stack work on internal POS tools (Next.js, Node.js); shipped mission-critical UI flows to the React Native mobile app.</li>
+  <li>Integrated Shopify webhooks for real-time order sync and Razorpay for secure domestic payments; discovered and patched an indefinite-OTP vulnerability via timeout invalidation to prevent unauthorized access.</li>
+</ul>
+
+<h2>Key Projects</h2>
+
+<div class="row"><div><b>AI-based Labor Room Smart Assistant</b> | Google AI4SG '21-'22 | Prof. Vipul Arora, EE</div><div class="date">Jan'22 - Jan'23</div></div>
+<ul>
+  <li>Secured USD 30,000 funding from Google's AI for Social Good program (out of 1000+ global applicants); built a Flutter and Flask app with ASR for timely data documentation in low-resource labor rooms in Bihar.</li>
+</ul>
+
+<div class="row"><div><b>Feed Harmony</b> | GDSC IITK, Google Solution Challenge | Overall Manager</div><div class="date">Feb'24</div></div>
+<ul>
+  <li>Led Product/Design, Development and ML teams to ship a mobile app tackling global hunger with predictive ML models within a 3-week sprint; contributed core mobile components and drove cross-team integration end to end.</li>
+</ul>
+
+<div class="row"><div><b>kronos-india</b> | Event-driven backtester for Indian markets | Python</div><div class="date">2026</div></div>
+<ul>
+  <li>Market data, signals, orders and fills flow through a single event queue, so a strategy runs the same way in a backtest as it would live on NSE.</li>
+</ul>
+
+<h2>Awards &amp; Leadership</h2>
+<ul>
+  <li>Founder &amp; Lead, Google Developer Student Club, IIT Kanpur: grew to 1,000+ members with 5,000+ event participants; led a 9-member core team and 50 volunteers across Ideathons, Cloud Jams and Generative AI workshops.</li>
+  <li>Bronze medal, Inter IIT Tech Meet 10.0: built ISRO's solar burst identifier tool for X-ray light curves.</li>
+  <li>Google Code Jam 2021: Global Rank 794; Google Kick Start 2021: best rank 1544 (56k+ global participants).</li>
+</ul>
+
+<h2>Technical Skills</h2>
+<ul class="skills">
+  <li><b>Languages:</b> C++, C, Python, Java, JavaScript, TypeScript, Dart, C#, SQL</li>
+  <li><b>Backend &amp; Data:</b> Django, Flask, FastAPI, Node.js, Express, tRPC, REST, WebSockets, Redis, MongoDB, PostgreSQL, Drizzle, Firestore, Celery, Trigger.dev</li>
+  <li><b>Frontend &amp; Mobile:</b> React, Next.js, React Native, Flutter, Redux, Tailwind, HTML/CSS, D3.js, Chart.js</li>
+  <li><b>AI/ML:</b> RAG, Vector DBs, LLM Orchestration, OpenAI/Gemini/Anthropic APIs, Pandas, NumPy, Scikit-learn, ASR</li>
+  <li><b>DevOps &amp; Integrations:</b> AWS, GCP, Azure, Docker, CI/CD, Datadog, Firebase, Stripe, Razorpay, Shopify, FCM, Git, Linux</li>
+</ul>
+
+</body>
+</html>
