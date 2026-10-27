@@ -1,0 +1,123 @@
+NEW PROGRAMS 26-30 (copy these into your notebook)
+
+==================== 26 ====================
+Write a program to accept a number and check whether it is a Palindrome number or not.
+
+import java.util.*;
+public class Palindrome
+{
+ public static void main(String args[])
+ {
+  Scanner in=new Scanner(System.in);
+  int n,num,d,rev=0;
+  System.out.println("Enter a number:");
+  n=in.nextInt();
+  num=n;
+  while(num>0)
+  {
+   d=num%10;
+   rev=rev*10+d;
+   num=num/10;
+  }
+  if(rev==n)
+   System.out.println(n+" is a Palindrome number");
+  else
+   System.out.println(n+" is not a Palindrome number");
+ }
+}
+
+==================== 27 ====================
+Write a program to display the first 10 terms of the Fibonacci series: 0 1 1 2 3 5 ...
+
+public class Fibonacci
+{
+ public static void main(String args[])
+ {
+  int a=0,b=1,c,i;
+  System.out.println("The first 10 terms of Fibonacci series:");
+  System.out.print(a+" "+b+" ");
+  for(i=3;i<=10;i++)
+  {
+   c=a+b;
+   System.out.print(c+" ");
+   a=b;
+   b=c;
+  }
+ }
+}
+
+==================== 28 ====================
+Write a program to accept a three digit number and check whether it is an Armstrong number or not. (e.g. 153 = 1*1*1 + 5*5*5 + 3*3*3)
+
+import java.util.*;
+public class Armstrong
+{
+ public static void main(String args[])
+ {
+  Scanner in=new Scanner(System.in);
+  int n,num,d,s=0;
+  System.out.println("Enter a three digit number:");
+  n=in.nextInt();
+  num=n;
+  while(num>0)
+  {
+   d=num%10;
+   s=s+d*d*d;
+   num=num/10;
+  }
+  if(s==n)
+   System.out.println(n+" is an Armstrong number");
+  else
+   System.out.println(n+" is not an Armstrong number");
+ }
+}
+
+==================== 29 ====================
+Write a program to accept a number and check whether it is a Perfect number or not. (Sum of its factors except itself equals the number, e.g. 28)
+
+import java.util.*;
+public class Perfect
+{
+ public static void main(String args[])
+ {
+  Scanner in=new Scanner(System.in);
+  int n,i,s=0;
+  System.out.println("Enter a number:");
+  n=in.nextInt();
+  for(i=1;i<n;i++)
+  {
+   if(n%i==0)
+    s=s+i;
+  }
+  if(s==n)
+   System.out.println(n+" is a Perfect number");
+  else
+   System.out.println(n+" is not a Perfect number");
+ }
+}
+
+==================== 30 ====================
+Write a program to accept a year and check whether it is a Leap year or not.
+
+import java.util.*;
+public class LeapYear
+{
+ public static void main(String args[])
+ {
+  Scanner in=new Scanner(System.in);
+  int y;
+  System.out.println("Enter a year:");
+  y=in.nextInt();
+  if((y%400==0)||((y%4==0)&&(y%100!=0)))
+   System.out.println(y+" is a Leap year");
+  else
+   System.out.println(y+" is not a Leap year");
+ }
+}
+
+==================== VARIABLE TABLES ====================
+26 Palindrome:  n int - stores the number | num int - copy of the number | d int - stores each digit | rev int - stores the reversed number | in Scanner - accepts input from the user
+27 Fibonacci:   a int - first term | b int - second term | c int - next term | i int - loop counter
+28 Armstrong:   n int - stores the number | num int - copy of the number | d int - stores each digit | s int - sum of cubes of digits | in Scanner - accepts input from the user
+29 Perfect:     n int - stores the number | i int - loop counter | s int - sum of factors | in Scanner - accepts input from the user
+30 LeapYear:    y int - stores the year | in Scanner - accepts input from the user
